@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>建立个人博客（五）—— 图床</title>
+      <link href="/2022/08/30/photos%20bed/"/>
+      <url>/2022/08/30/photos%20bed/</url>
+      
+        <content type="html"><![CDATA[<p>理所当然的，一篇文章里需要有图片来加以形象的说明实例。在远端博客中，我们不可能把用到的所有图片全部塞到仓库中，因此我们需要一个<code>gallery in cloud</code>帮我们储存相对应的图片以供阅读时加载。国内外都有很多图床服务商提供对象储存服务，对于初学等级，这里以国内的阿里云OOS对象储存服务作为参考，也可以为下面的域名打一些基础。</p><p>对于图床，我们需要服务提供商和上传app两个方面的支持，这里由此展开。</p><hr><h2 id="一、购买OOS服务"><a href="#一、购买OOS服务" class="headerlink" title="一、购买OOS服务"></a>一、购买OOS服务</h2><ul><li>找到<a href="https://www.aliyun.com/">阿里云</a>官网，注册对应的账号并进行实名认证，登录后找到对象储存OOS</li></ul><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301450887.png" alt="image-20220830145026842"></p><ul><li>选择你想购买的套餐，自用博客推荐40G足够</li></ul><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301453654.png" alt="image-20220830145323628"></p><ul><li>购买后进入控制台-对象储存OOS-Bucket列表</li></ul><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301457571.png" alt="image-20220830145618050"></p><ul><li>创建Bucket</li></ul><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301503475.png"></p><h2 id="二、配置PicGo"><a href="#二、配置PicGo" class="headerlink" title="二、配置PicGo"></a>二、配置PicGo</h2><p><a href="https://molunerfinn.com/PicGo/">PicGo</a>是一个开源免费的全平台的图片入床工具，基本支持了主流的所有图床，配合typora使用更为锦上添花。</p><ul><li>首先下载好对应系统的PicGo</li><li>你可以在<code>PicGo设置</code>里选择隐藏不需要的图床，在<code>图床设置</code>里配置你的图床，这里以阿里云OOS为例，下面是设置一览↓，下面将分别介绍如何设置</li></ul><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301511411.png" alt="image-20220830151151377"></p><h4 id="①、KeyId、KeySecret："><a href="#①、KeyId、KeySecret：" class="headerlink" title="①、KeyId、KeySecret："></a>①、KeyId、KeySecret：</h4><p>回到阿里云主页，右上角头像中打开<code>AccessKey管理 </code> - <code>创建AccessKey</code> - 将得到的<code>AccessKey ID/AccessKey Secret</code>拷贝备用</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301514954.png" alt="image-20220830151453935"></p><h4 id="②、储存空间名："><a href="#②、储存空间名：" class="headerlink" title="②、储存空间名："></a>②、储存空间名：</h4><p>即为你新建的bucket名</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301518258.png" alt="image-20220830151818226"></p><h4 id="③、储存区域："><a href="#③、储存区域：" class="headerlink" title="③、储存区域："></a>③、储存区域：</h4><p>为你新建的bucket的区域</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301519491.png" alt="image-20220830151900458"></p><h4 id="④、储存路径之后的："><a href="#④、储存路径之后的：" class="headerlink" title="④、储存路径之后的："></a>④、储存路径之后的：</h4><p>可不填</p><h2 id="三、配置Typora"><a href="#三、配置Typora" class="headerlink" title="三、配置Typora"></a>三、配置Typora</h2><blockquote><p>要想粘贴图片到文章时直接上传至OOS，我们还需要将Typora的图片上传功能指向PicGo.app</p></blockquote><p>按下图配置即可，可以通过<code>验证图片上传选项</code>查看是否配置成功</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301525143.png" alt="image-20220830152542088"></p><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> blog </tag>
+            
+            <tag> 图床 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>建立个人博客（六）—— 域名</title>
+      <link href="/2022/08/30/blog&#39;s%20domain/"/>
+      <url>/2022/08/30/blog&#39;s%20domain/</url>
+      
+        <content type="html"><![CDATA[<p>在此之前，你只能通过<code>你的用户名.github.io</code>来访问你的博客网站，要让个人博客更具辨识力，我们就要设置一个具有自己风格的域名。还是以阿里云为例。</p><hr><h2 id="一、查询域名"><a href="#一、查询域名" class="headerlink" title="一、查询域名"></a>一、查询域名</h2><p>在<a href="https://wanwang.aliyun.com/domain/1yuan?spm=5176.20907348.J_6123355440.3.281e538amIxS1q&accounttraceid=5976bbc5fe5e4c00910052c4a3daae8enjau">阿里云网站</a>下查询你想注册的域名并购买</p><h2 id="二、设置阿里云解析"><a href="#二、设置阿里云解析" class="headerlink" title="二、设置阿里云解析"></a>二、设置阿里云解析</h2><p>找到<code>控制台-域名-解析设置</code><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301933478.png"></p><p>添加下面两项记录</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301931562.png" alt="image-20220830193140522"></p><h2 id="三、设置page自定义域名"><a href="#三、设置page自定义域名" class="headerlink" title="三、设置page自定义域名"></a>三、设置page自定义域名</h2><p>回到<code>你的github</code>，打开<code>博客仓库</code>找到<code>Page项</code>中的<code>Costum domain</code>，</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301939537.png" alt="image-20220830193904510"></p><p>输入你购买的域名，等待DNS解析显示完成即可用自定义域名访问博客主页。</p><hr><p>至此，一个简单博客的搭建在某种程度上宣告终结，该**<code>建立个人博客（*）</code>**系列暂时告一段落，对于后续的评论区、主题更换，迁移博客&#x2F;图床、看板娘一类的装饰挂品、友链，先摸几天鱼🤧</p><p>，想起来就补上😋</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> blog </tag>
+            
+            <tag> 域名 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>建立个人博客（四）—— md文章&amp;编辑器</title>
+      <link href="/2022/08/30/markdown&amp;typora/"/>
+      <url>/2022/08/30/markdown&amp;typora/</url>
+      
+        <content type="html"><![CDATA[<p>我们现在要开始一个博客最主体的部分——<em><strong>文章</strong></em>，而博客的文章通常都是.md文件转码为html，因此我们需要了解和学会markdown相关的语法及如何使用编辑器。</p><hr><h2 id="一、下载typora"><a href="#一、下载typora" class="headerlink" title="一、下载typora"></a>一、下载typora</h2><p><a href="https://typoraio.cn/">Typora</a>支持实时渲染和快速操作，是公认最方便的一款 Markdown 全平台编辑器和阅读器。</p><p>正版为买断制88元，支持三台设备，有能力的友友们希望支持正版，这里提供学习版本</p><blockquote><p>Windows：安装完成后用提供的app.asar置换安装文件夹中的app.asar，<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/Typora%E7%A0%B4%E8%A7%A3.zip">下载地址</a></p><p>macOS：来自<a href="https://macwk.com/soft/typora">macwk</a>提供</p><p>Linux：没用过，下次一定</p><p>ChormeOS：啥？</p></blockquote><h2 id="二、设置typora"><a href="#二、设置typora" class="headerlink" title="二、设置typora"></a>二、设置typora</h2><h4 id="①、你可以直接令typora打开本地的文件目录"><a href="#①、你可以直接令typora打开本地的文件目录" class="headerlink" title="①、你可以直接令typora打开本地的文件目录"></a>①、你可以直接令typora打开本地的文件目录</h4><blockquote><p>如果是学习版不要更新&#x2F;检查更新</p></blockquote><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301425585.png" alt="image-20220830142500519"></p><h4 id="②、你可以设置typora的主题，不再赘述"><a href="#②、你可以设置typora的主题，不再赘述" class="headerlink" title="②、你可以设置typora的主题，不再赘述"></a>②、你可以设置typora的主题，不再赘述</h4><h4 id=""><a href="#" class="headerlink" title=""></a><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301427553.png" alt="image-20220830142723528"></h4><h4 id="③、你可以将md文章导出为你喜欢的格式"><a href="#③、你可以将md文章导出为你喜欢的格式" class="headerlink" title="③、你可以将md文章导出为你喜欢的格式"></a>③、你可以将md文章导出为你喜欢的格式</h4><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301428741.png" alt="image-20220830142829718"></p><h2 id="三、编写markdown"><a href="#三、编写markdown" class="headerlink" title="三、编写markdown"></a>三、编写markdown</h2><p>对于md语法，你可以直接使用typora状态栏快捷设置格式，省去了记忆语法的时间。</p><hr><p><strong>这样，我们就完成了一个博客的文章编写，下面将进行图床的学习。</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> blog </tag>
+            
+            <tag> markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>建立个人博客（三）—— 主题的使用</title>
+      <link href="/2022/08/30/themeInBlog/"/>
+      <url>/2022/08/30/themeInBlog/</url>
+      
+        <content type="html"><![CDATA[<p>我所使用的是hexo的Butterfly主题，这里说明一些我搭建时遇到的一些事项。</p><hr><h2 id="一、安装主题"><a href="#一、安装主题" class="headerlink" title="一、安装主题"></a>一、安装主题</h2><p>从Gitee安装稳定版：<code>git clone -b master https://gitee.com/immyw/hexo-theme-butterfly.git themes/butterfly</code></p><h2 id="二、应用主题"><a href="#二、应用主题" class="headerlink" title="二、应用主题"></a>二、应用主题</h2><p>修改 Hexo 根目录下的 <code>_config.yml</code>，把主题改为<code>butterfly</code></p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">butterfly</span></span><br></pre></td></tr></table></figure><h2 id="三、安装插件"><a href="#三、安装插件" class="headerlink" title="三、安装插件"></a>三、安装插件</h2><p>如果你没有 pug 以及 stylus 的渲染器，请下载安装：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo<span class="literal">-renderer-pug</span> hexo<span class="literal">-renderer-stylus</span> <span class="literal">--save</span></span><br></pre></td></tr></table></figure><h2 id="三-、主题配置文档"><a href="#三-、主题配置文档" class="headerlink" title="三*、主题配置文档"></a>三*、主题配置文档</h2><p>在 hexo 的根目录创建一个文件 <code>_config.butterfly.yml</code>，并把主题目录的 <code>_config.yml</code> 内容复制到 <code>_config.butterfly.yml</code> 去。( 注意: 复制的是主题的 _config.yml ,而不是 hexo 的 <code>_config.yml</code>)</p><blockquote><p>注意： 不要把主题目录的 <code>_config.yml</code> 删掉</p></blockquote><blockquote><p>注意： 以后只需要在 <code>_config.butterfly.yml</code>进行配置就行。<br>如果使用了 <code>_config.butterfly.yml</code>， 配置主题的 <code>_config.yml</code> 将不会有效果。</p></blockquote><blockquote><p>Hexo会自动合并主题中的<code>_config.yml</code>和 <code>_config.butterfly.yml</code>里的配置，如果存在同名配置，会使用<code>_config.butterfly.yml</code>的配置，其优先度较高。</p></blockquote><h2 id="四、其他"><a href="#四、其他" class="headerlink" title="四、其他"></a>四、其他</h2><p>关于butterfly theme，作者建立了<a href="https://butterfly.js.org/">帮助文档</a>以供使用，其他不再赘述。</p><hr><p><strong>这样，我们就完成了一个博客的主题配置，下面将进行markdown文章的学习。</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> blog </tag>
+            
+            <tag> theme </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>建立个人博客（二）—— Windows</title>
+      <link href="/2022/08/29/Windows%E2%80%99s%20blogBuilder/"/>
+      <url>/2022/08/29/Windows%E2%80%99s%20blogBuilder/</url>
+      
+        <content type="html"><![CDATA[<p>适用于Hexo+github搭建</p><blockquote><p>教程适用于有耐心且有一定英语水平、热爱折腾的朋友们，有一定上手熟悉门槛</p></blockquote><p><strong><u><em>没有特别说明的地方macOS的操作均适用于Windows</em></u></strong></p><h2 id="一、下载所需环境"><a href="#一、下载所需环境" class="headerlink" title="一、下载所需环境"></a>一、下载所需环境</h2><blockquote><p>下载适用于Windows下的版本即可</p></blockquote><h2 id="二、下载WebStorm-amp-如何汉化"><a href="#二、下载WebStorm-amp-如何汉化" class="headerlink" title="二、下载WebStorm&amp;如何汉化"></a>二、下载WebStorm&amp;如何汉化</h2><h2 id="三-、建立本地目录"><a href="#三-、建立本地目录" class="headerlink" title="三*、建立本地目录"></a>三*、建立本地目录</h2><blockquote><p>任何盘符下新建blog文件夹</p></blockquote><h2 id="四、推送至github远端仓库"><a href="#四、推送至github远端仓库" class="headerlink" title="四、推送至github远端仓库"></a>四、推送至github远端仓库</h2><h3 id="1、建立github博客仓库"><a href="#1、建立github博客仓库" class="headerlink" title="1、建立github博客仓库"></a>1、建立github博客仓库</h3><h3 id="2、进行推送（默认使用webstorm）"><a href="#2、进行推送（默认使用webstorm）" class="headerlink" title="2、进行推送（默认使用webstorm）"></a>2、进行推送（默认使用webstorm）</h3><h4 id="①、安装git部署插件"><a href="#①、安装git部署插件" class="headerlink" title="①、安装git部署插件"></a>①、安装git部署插件</h4><h4 id="②、设置博客配置文件"><a href="#②、设置博客配置文件" class="headerlink" title="②、设置博客配置文件"></a>②、设置博客配置文件</h4><hr><h4 id="③、配置SSH密钥"><a href="#③、配置SSH密钥" class="headerlink" title="③、配置SSH密钥"></a>③、配置SSH密钥</h4><blockquote><p>密钥文件的<code>/.ssh/rsa.pub</code>文件生成提示的路径没有隐藏，直接找到即可，在此没有macOS繁琐的操作</p></blockquote><h5 id="1：在blog中设置发送密钥"><a href="#1：在blog中设置发送密钥" class="headerlink" title="1：在blog中设置发送密钥"></a>1：在blog中设置发送密钥</h5><h5 id="2：在github中设置接收密钥"><a href="#2：在github中设置接收密钥" class="headerlink" title="2：在github中设置接收密钥"></a>2：在github中设置接收密钥</h5><hr><h3 id="④、hexo-d进行推送"><a href="#④、hexo-d进行推送" class="headerlink" title="④、hexo d进行推送"></a>④、<code>hexo d</code>进行推送</h3><h2 id="五、查看效果"><a href="#五、查看效果" class="headerlink" title="五、查看效果"></a>五、查看效果</h2><hr><p><strong>这样你就成功的完成了Windows下的博客搭建，下面进行博客主题使用的学习。</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> blog </tag>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>建立个人博客（一）—— MacOS</title>
+      <link href="/2022/08/29/MacOS%E2%80%98s%20blogBuilder/"/>
+      <url>/2022/08/29/MacOS%E2%80%98s%20blogBuilder/</url>
+      
+        <content type="html"><![CDATA[<p>适用于Hexo+github搭建</p><blockquote><p>教程适用于有耐心且有一定英语水平、热爱折腾的朋友们，有一定上手熟悉门槛</p></blockquote><hr><p><strong>ps：对于一个能够勉强自用的静态博客“完全体”，至少需要将<code>一→五</code>步全部熟悉之后才能有最基本的使用体验，而这仅仅只是静态博客最基础的部分，后面还有域名，评论，美化，备案，动态博客……。我已经尽量用最精简的语言来概括我创建博客的过程，也在一些过程中将坑位避开(使用webstrom&#x2F;sudo命令&#x2F;尽量不用github下载&#x2F;尽量不使用命令行操作……)，但对于小白来说每一步都仍旧十分繁琐，不是劝退是真的有门槛，慎入。在此致敬所有毅力者，加油</strong>💪🏻</p><hr><h2 id="一、下载所需环境"><a href="#一、下载所需环境" class="headerlink" title="一、下载所需环境"></a>一、下载所需环境</h2><ol><li><p>git</p><p>于<a href="https://git-scm.com/">官网</a>下载对应系统版本</p><p>对于macOS，您可以通过<a href="https://brew.sh/index_zh-cn">Homebrew</a>、<a href="https://www.macports.org/">MacPorts</a>、<a href="https://developer.apple.com/download/all/?q=Xcode">Xcode</a>(对于dev版本的macOS，需要下载对应的beta版本的Xcode)、<a href="https://mirrors.edge.kernel.org/pub/software/scm/git/">Binary installer</a>、<del>git-gui</del>（不推荐）</p><p>使用<code>git --version</code>查看是否安装成功及版本号</p></li><li><p>Node-js &amp; npm</p><p><a href="https://nodejs.org/zh-cn/">官网</a>下载长期维护版</p><p>使用<code>node -v</code>查看是否安装成功及版本号</p><p>使用<code>npm -v</code>查看是否安装成功及版本号</p></li><li><p>cnpm</p><p>terminal中输入<code>npm install -g cnpm --registry=http://registry.npm.taobao.org</code>安装淘宝的cnpm镜像</p><p>使用<code>cpm -v</code>查看是否安装成功及版本号</p></li><li><p>hexo</p><p>terminal中输入<code>cnpm install -g hexo-cli</code>安装hexo框架</p><p>使用<code>hexo -v</code>查看是否安装成功及版本号</p></li></ol><h2 id="二、下载WebStorm-amp-如何汉化"><a href="#二、下载WebStorm-amp-如何汉化" class="headerlink" title="二、下载WebStorm&amp;如何汉化"></a>二、下载WebStorm&amp;如何汉化</h2><p><a href="https://www.jetbrains.com/zh-cn/webstorm/">WebStorm</a>是JetBrains旗下的一款JavaScript IDE，我们可以用它打开接下来所创建的blog主目录并脱离屡次使用terminal的繁琐操作。</p><p>您可以直接下载免费试用版本，从各大购物平台或公众号中寻找如何怀抱学习目的来激活JetBrains旗下的所有产品，在此不再赘述。</p><h3 id="如何汉化"><a href="#如何汉化" class="headerlink" title="如何汉化?"></a>如何汉化?</h3><p>在激活后，右上角plugin中搜索中文，下载中文语言包即可</p><h2 id="三、建立本地目录"><a href="#三、建立本地目录" class="headerlink" title="三、建立本地目录"></a>三、建立本地目录</h2><blockquote><p>在这里不推荐用命令行的方式建立blog所在的文件夹，对初学者不友好</p></blockquote><blockquote><p>因macOS下，基本权限的问题，这里将<code>blog</code>文件夹先设置为sudo模式↓</p><p>terminal-<code>sudo chown -R deviceName blogFolder</code></p></blockquote><ol><li><p>在你想放置blog的目录下新建<code>yourBlogName</code>文件夹,这里以<code>/deviceName</code>根目录为例</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208292217636.png" alt="image-20220829221706590"></p></li><li><p>初始化博客</p><p>新建blog文件夹，在WebStorm中打开，打开终端↓</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208300841654.png" alt="image-20220830084143598"></p></li></ol><p><code>hexo init</code> 初始化博客</p><p><strong>这样就完成了一个最初的本地博客的搭建</strong></p><p>在此您可以用<code>hexo s</code>启动本地页面查看效果</p><h2 id="四、推送至github远端仓库"><a href="#四、推送至github远端仓库" class="headerlink" title="四、推送至github远端仓库"></a>四、推送至github远端仓库</h2><h3 id="1、建立github博客仓库"><a href="#1、建立github博客仓库" class="headerlink" title="1、建立github博客仓库"></a>1、建立github博客仓库</h3><p>首先你要创建一个github的账户，再建立一个远端博客仓库</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208300844090.png" alt="image-20220830084434066"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208300847208.png" alt="image-20220830084739184"></p><p>添加一个新的分支<code>master</code></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208300851084.png" alt="image-20220830085136061"></p><p>在Settings-Branches里将<code>master</code>设为默认分支（可选）</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208300854724.png" alt="image-20220830085402699"></p><h3 id="2、进行推送（默认使用webstorm）"><a href="#2、进行推送（默认使用webstorm）" class="headerlink" title="2、进行推送（默认使用webstorm）"></a>2、进行推送（默认使用webstorm）</h3><h4 id="①、安装git部署插件"><a href="#①、安装git部署插件" class="headerlink" title="①、安装git部署插件"></a>①、安装git部署插件</h4><p>终端输入<code>cnpm install --save hexo-deployer-git</code>安装hexo的git部署插件。</p><h4 id="②、设置博客配置文件"><a href="#②、设置博客配置文件" class="headerlink" title="②、设置博客配置文件"></a>②、设置博客配置文件</h4><p>打开<code>_config.yml</code>，找到</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/one-command-deployment</span><br><span class="line"># 这是提交到github的配置，启用本地服务器，请注释</span><br><span class="line">deploy:</span><br><span class="line">  type: </span><br><span class="line">  repo: </span><br><span class="line">  branch: </span><br></pre></td></tr></table></figure><blockquote><p>type: git</p><p>repo:   ↓复制而来</p><p>branch: master          （自己添加）</p></blockquote><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208300904663.png" alt="image-20220830090337699"> </p><hr><p>在这里让我们配置一个相对麻烦的东西</p><h4 id="③、配置SSH密钥"><a href="#③、配置SSH密钥" class="headerlink" title="③、配置SSH密钥"></a>③、配置SSH密钥</h4><h5 id="1：在blog中设置发送密钥："><a href="#1：在blog中设置发送密钥：" class="headerlink" title="1：在blog中设置发送密钥："></a>1：在blog中设置发送密钥：</h5><p>终端中输入<code>ssh-keygen -t rsa -C &quot;你的github注册邮箱&quot;</code>，连点四次回车，查看所给的路径 –&gt;一般为<code>/var/root/.ssh/rsa.pub</code></p><p>我们通过finder进入↑这个路径，</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208300917467.png" alt="image-20220830091730435">使用<code>command+shift+.显示隐藏文件</code>找到<code>rsa.pub</code>用默认的文本编辑打开即可，</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208300919033.png" alt="image-20220830091905002"></p><p><code>command+a</code>全选，<code>command+c</code>拷贝之后进行如下操作</p><h5 id="2：在github中设置接收密钥："><a href="#2：在github中设置接收密钥：" class="headerlink" title="2：在github中设置接收密钥："></a>2：在github中设置接收密钥：</h5><p>在github右上角头像的Settings - SSH and GPG keys - new SSH key，</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208300910817.png" alt="image-20220830091020791"></p><p>将从rsa.pub拷贝的内容复制进来，</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208300922443.png" alt="image-20220830092237414"></p><p>至此，ssh配置完成，您可以通过<code>ssh -T git@github.com</code>来查看是否成功</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">userName@userName blog % ssh -T git@github.com</span><br><span class="line">Hi userName! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure><p>你也可以通过<code>ssh -vT git@github.com</code>来获取debug内容自检</p><p>最后让我们分别输入以下代码保证没有差错</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email <span class="string">&quot;你的github注册邮箱&quot;</span></span><br><span class="line">git config --global user.name <span class="string">&quot;你的github用户名&quot;</span></span><br></pre></td></tr></table></figure><hr><p>让我们回到github的推送上来</p><h4 id="④、hexo-d进行推送"><a href="#④、hexo-d进行推送" class="headerlink" title="④、hexo d进行推送"></a>④、<code>hexo d</code>进行推送</h4><p>如果有Deploy done显示则为成功</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy_git folder...</span><br><span class="line">INFO  Copying files from public folder...</span><br><span class="line">INFO  Copying files from extend dirs...</span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working tree clean</span><br><span class="line">Branch &#x27;master&#x27; set up to track remote branch &#x27;master&#x27; from &#x27;git@github.com:sheerkvc/sheerkvc.github.io.git&#x27;.</span><br><span class="line">Everything up-to-date</span><br><span class="line">INFO  Deploy done: git</span><br></pre></td></tr></table></figure><h2 id="五、查看效果"><a href="#五、查看效果" class="headerlink" title="五、查看效果"></a>五、查看效果</h2><p>在这里，我们可以通过</p><figure class="highlight plaintext"><figcaption><span>terminal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo clean 清理残留文件</span><br><span class="line"></span><br><span class="line">hexo g 构建页面</span><br><span class="line"></span><br><span class="line">hexo s 本地预览</span><br><span class="line"></span><br><span class="line">hexo d 推送至github remote repo</span><br></pre></td></tr></table></figure><p>来查看效果</p><hr><p><strong>这样，我们就完成了一个最简单框架博客的基础搭建，下面将进行Windows下的搭建学习。</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> macOS </tag>
+            
+            <tag> blog </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>电脑端常用软件地址备份</title>
+      <link href="/2022/07/29/PC%20apps/"/>
+      <url>/2022/07/29/PC%20apps/</url>
+      
+        <content type="html"><![CDATA[<h1 id="PC端常用软件备份"><a href="#PC端常用软件备份" class="headerlink" title="PC端常用软件备份"></a>PC端常用软件备份</h1><h2 id="效率app"><a href="#效率app" class="headerlink" title="效率app"></a>效率app</h2><p><em><strong>Adobe全家桶</strong></em>：由<a href="https://weibo.com/u/1112829033">@<strong>vposy</strong></a>实时更新的SP版和大师版（关注微博后查看置顶即可）</p><p><a href="https://www.voidtools.com/zh-cn/"><strong>Everything</strong></a>：轻量快速的搜索工具</p><p><a href="https://picpick.app/zh/"><strong>PicPick</strong></a>：一个全功能的屏幕截图和图像编辑工具</p><p><a href="https://www.bandisoft.com/bandizip/"><em><strong>Bandzip</strong></em></a>：一个强大的多功能压缩文件管理工具，此为<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/BandZip.zip">最后一个无广告版本</a></p><p><a href="https://typoraio.cn/"><strong>Typora</strong></a>：一款 Markdown 编辑器和阅读器，此为<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/Typora%E7%A0%B4%E8%A7%A3.zip">学习版</a></p><p><a href="https://www.xmind.cn/"><em><strong>XMind</strong></em></a>：思维导图，此为<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/XMind_2021_11.0.2_64bit_Green.7z">学习直开版</a>，此为<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/XMind%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.exe">直装版</a></p><p><a href="https://otp.landian.vip/zh-cn/"><em><strong>Office Tool Plus</strong></em></a>：强大易懂的Office部署工具</p><blockquote><p><a href="https://www.coolhub.top/archives/14">激活教程</a>在此，推荐使用代码自动激活 Office –&gt; <img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/image-20220729185017278.png" alt="image-20220729185017278"></p><p>正版：Office 2019<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/setupproplus2019retail.x86.zh-cn.exe">备份</a>；密钥<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/%E5%AF%86%E9%92%A5.txt">备份</a></p></blockquote><p><strong>Fence</strong>：Steam上的桌面整理工具，此为<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/Fences%20v3.0.8%20%E4%B8%AD%E6%96%87%E7%A0%B4%E8%A7%A3%E7%89%88.zip">学习版</a>（暂时不推荐）</p><p><a href="https://www.coodesker.com/"><strong>酷呆桌面</strong></a>：桌面整理工具（推荐）</p><p><a href="https://wallhaven.cc/"><em><strong>Wallhaven 壁纸</strong></em></a>：轻量直装的壁纸工具，<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/Wallhaven%20%E5%A3%81%E7%BA%B8.exe">备用地址</a>（推荐）</p><p><a href="https://www.editplus.com/"><strong>EditPlus</strong></a>：一款文本代码编辑器，此为<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/EditPlus_5.0.730.0.exe">学习版</a></p><p><a href="https://www.wisecleaner.com/"><strong>Wise Game Booster</strong></a>：针对游戏的系统优化加速器，此为<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/Wise%20Game%20Booster.zip">学习版</a>（不常用，不作推荐）</p><p><a href="http://www.huyanbao.com/"><strong>护眼宝</strong></a>：电脑端护眼工具，此为<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/%E6%8A%A4%E7%9C%BC%E5%AE%9D.zip">直装版</a></p><p><a href="https://potplayer.org/"><em><strong>Potplayer</strong></em></a>：最强大的本地影音播放器，没有之一</p><p>阿里云盘小白杨版：第三方的阿里云盘下载器，<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%E5%B0%8F%E7%99%BD%E7%BE%8A%E7%89%88v2.12.05.rar">备用地址</a></p><p><a href="https://www.microsoft.com/zh-cn/edge"><strong>Microsoft Edge</strong></a>：备份浏览器的网站</p><p><a href="https://www.google.com/intl/zh-CN/chrome/"><em><strong>Chrome</strong></em></a>：备份浏览器的网站</p><p><a href="https://guanjia.lenovo.com.cn/"><strong>联想电脑管家</strong></a>: 顾名思义</p><p><a href="https://v2.todesk.com/"><em><strong>ToDesk</strong></em></a>：免费的远程控制神器</p><p><del><strong>Aspen V11</strong></del>：一款工业软件，此为<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/Aspen%20V11.zip">学习版</a></p><p>闪豆多平台视频下载器：顾名思义，<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/%E9%97%AA%E8%B1%86%E5%A4%9A%E5%B9%B3%E5%8F%B0%E8%A7%86%E9%A2%91%E6%89%B9%E9%87%8F%E4%B8%8B%E8%BD%BD%E5%99%A82.2.2.15%E5%AE%89%E8%A3%85%E7%89%88.exe">备用地址</a></p><p>Bilibili视频下载器：<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/bilibiliV1.3.10.exe">bili下载</a>、<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/Down%E5%93%94%E5%93%A9.exe">Down哔哩</a></p><p>PDF密码移除工具：顾名思义，<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/PDF%E5%AF%86%E7%A0%81%E7%A7%BB%E9%99%A4%E5%B7%A5%E5%85%B710.0%E6%B1%89%E5%8C%96.exe">备用地址</a></p><h2 id="系统相关"><a href="#系统相关" class="headerlink" title="系统相关"></a>系统相关</h2><p><a href="https://crystalidea.com/uninstall-tool?source=uninstalltool&campaign=mainmenu"><em><strong>Uninstall</strong></em></a>：强大轻量的卸载软件，此为<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/Uninstall.exe">学习版</a></p><p><a href="https://www.iobit.com/en/advanceduninstallerpro.php"><strong>IObitUninstaller Pro</strong></a>：强大的卸载软件，此为<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/IObitUninstaller_Pro_v11.3.0.4.exe">学习版</a></p><p><em><strong>驱动精灵绿色版</strong></em>：修补系统驱动，<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/%E9%A9%B1%E5%8A%A8%E7%B2%BE%E7%81%B5%E4%B8%87%E8%83%BD%E7%B6%B2%E5%8D%A1%E7%89%88_v9.61.3708.3054_%E6%9C%80%E7%BB%88%E7%89%88.exe">备用地址</a></p><p><a href="http://www.yishimei.cn/network/319.html"><em><strong>MicroKMS神龙版</strong></em></a>：强大的全渠道Windows&#x2F;Office版本一键激活工具，此为<a href="https://wwa.lanzouo.com/itUnaxea77g">官方地址</a>，亦可下载系统镜像</p><p><a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/HEU_KMS_Activator_v22.1.0.exe"><strong>HEU_KMS_Activator</strong></a>：使用KMS激活Win&#x2F;Office的软件，<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/HEU_KMS_Activator_v22.1.0.exe">备用地址</a></p><p><a href="https://www.wisecleaner.com/wise-care-365.html"><strong>Wise Care 365 Pro</strong></a>：轻量的系统管理工具，此为<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/Wise%20Care%20365%20Pro%20v5.5.7.552.exe">学习版</a></p><p><strong>Windows超级管理器</strong>：同上类似，此为<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/Windows%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%99%A89.42.exe">学习版</a></p><p><a href="https://github.com/rcmaehl/WhyNotWin11"><strong>WhyNotWin11</strong></a>：检测电脑是否可以升级Win11</p><p><a href="https://www.microsoft.com/en-us/software-download/"><strong>Windows Media Creation Tool</strong></a>：微软官方的Windows系统盘制作工具，需选择Windows版本</p><p><a href="https://pandownload.net/"><em><strong>PanDownload</strong></em></a>：民间第三方的百度网盘下载器</p><p><a href="https://www.disktool.cn/"><strong>分区助手</strong></a>：一款免费、专业级的无损分区工具</p><p><a href="http://www.tbtool.cn/"><strong>图吧工具箱</strong></a>：图吧祖传集合神器，一键查看、跑分、超频</p><p><strong>搞机工具箱</strong>V8.11：由<a href="https://www.jamcz.com/">@<strong>晨钟酱</strong></a>开发的免root手机开发工具，<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/%E6%90%9E%E6%9C%BA%E5%B7%A5%E5%85%B7%E7%AE%B1V8.11.zip">直装版</a></p><p><a href="https://www.henrypp.org/product/memreduct"><em><strong>Mem Reduct</strong></em></a>：轻量级实时内存管理应用程序，用于监控和清理计算机上的系统内存</p><p><a href="https://blog.csdn.net/vbcom/article/details/6962388"><strong>DirectX Repair</strong></a>：一款检测修复当前系统的DirectX异常状态的系统级软件</p><p><a href="https://dotnet.microsoft.com/en-us/download"><strong>.NET RUNTIME库</strong></a>：修补电脑.NET RUNTIME库</p><p><strong>C++运行库</strong>：修补电脑C++运行库      <a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/VisualCppRedist_AIO_x86_x64.exe">第一款</a>  |  <a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/%E8%BF%90%E8%A1%8C%E5%BA%9321.8.2.exe">第二款</a></p><p><a href="https://www.sordum.org/downloads/?st-windows-update-blocker"><strong>Windows Update Blocker</strong></a>：自主管理Windows 系统上的自动更新</p><p><a href="https://www.sordum.org/downloads/?st-defender-control"><strong>Defender Control</strong></a>：用于禁用或启用恼人的 Windows Defender</p><p><strong>CinebenchR20</strong>：R20跑分，<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/CinebenchR20.zip">备用地址</a></p><p><strong>CinebenchR23</strong>：R23跑分，<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/CinebenchR23.zip">备用地址</a></p><p><a href="https://www.msi.com/Landing/afterburner/graphics-cards"><strong>MSIAfterburner</strong></a>：微星小飞机，超频专用</p><p><a href="https://www.aida64.com/downloads"><em><strong>AIDA64 专业版</strong></em></a>：一款Win电脑信息查看的工具，此为<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/AIDA64%20Business.zip">学习版</a></p><p><strong>3DMark11</strong>：一款Steam上广受好评的基准测试工具，此为<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/3DMark11.zip">学习版</a></p><p><a href="https://www.diskgenius.cn/"><strong>DiskGenius</strong></a>：是一款专业级的硬盘数据恢复管理软件，此为<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/Disk%20Genius%20Pro4.3.0.exe">学习版</a></p><p><a href="https://www.52pojie.cn/thread-1666666-1-1.html"><strong>吾爱破解精华集</strong></a>：实时的吾爱破解论坛集合</p><p>WiFi密码查看器：顾名思义，<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/WIFI%E5%AF%86%E7%A0%81%E6%9F%A5%E7%9C%8B%E5%99%A8.exe">备用地址</a></p><h2 id="游戏相关"><a href="#游戏相关" class="headerlink" title="游戏相关"></a>游戏相关</h2><p><a href="https://soft.3dmgame.com/down/159478.html"><em><strong>风灵月影修改器</strong></em></a>：一款单机游戏修改器的集合，配合Steam食用</p><p><strong>ControllerCompanion</strong>：手柄伴侣，用于将Xbox手柄按键映射到键盘上，<a href="https://repokvc.oss-cn-qingdao.aliyuncs.com/ControllerCompanion.zip">备用地址</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> apps </category>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> WinPC </tag>
+            
+            <tag> apps </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>隐藏应用列表的使用</title>
+      <link href="/2022/07/29/Hide-My-Applist/"/>
+      <url>/2022/07/29/Hide-My-Applist/</url>
+      
+        <content type="html"><![CDATA[<h1 id="隐藏应用列表的使用"><a href="#隐藏应用列表的使用" class="headerlink" title="隐藏应用列表的使用"></a>隐藏应用列表的使用</h1><p>在隐藏之前保证先做好<a href="https://sheerkvc.top/2022/07/28/magiskRelated/">隐藏root</a></p><h2 id="下载方式及更新问题"><a href="#下载方式及更新问题" class="headerlink" title="下载方式及更新问题"></a>下载方式及更新问题</h2><h3 id="关于下载"><a href="#关于下载" class="headerlink" title="关于下载"></a>关于下载</h3><h5 id="①、你可以在lsp的仓库中直接下载"><a href="#①、你可以在lsp的仓库中直接下载" class="headerlink" title="①、你可以在lsp的仓库中直接下载"></a>①、你可以在lsp的仓库中直接下载<img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/40389BBA9C6DDDD77BF76A3A3D050C4A.jpg" alt="img"></h5><h5 id="②、你可以在官方的github地址下载"><a href="#②、你可以在官方的github地址下载" class="headerlink" title="②、你可以在官方的github地址下载"></a>②、你可以在官方的<a href="https://github.com/Dr-TSNG/Hide-My-Applist/releases">github地址</a>下载</h5><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/image-20220729113847424.png" alt="image-20220729113847424"></p><h3 id="关于更新"><a href="#关于更新" class="headerlink" title="关于更新"></a>关于更新</h3><p>作者的话：</p><blockquote><p><del>V2.3.2为最终版本 &#x2F; Final Version</del></p><p><del>自上一个版本发布以来已经有很长时间了。由于各种琐碎的事情，<strong>HMA将停止更新</strong>。这意味着 V2.3.2 可能会是这个项目的最后一个版本，但是仍然有很多已知的 bug（如果启用 Magisk 模块而禁用 Xposed 模块会导致 bootloop；打开文件拦截后，一些银行运作不正常）。</del></p><p><del>注意：在更新到 V2.3.2 之前<strong>卸载旧的 Magisk 扩展</strong>程序，然后通过应用程序中的安装按钮安装新的扩展程序。如果遇到无法获取root权限，请手动从apk中解压安装程序并重命名为<code>Riru-HideMyApplist.zip</code>or<code>Zygisk-HideMyApplist.zip</code>并使用<code>magisk --install-module zippath</code>命令手动安装。</del></p><p><del>尽管 HMA 已暂停，但仍然欢迎您提交翻译或修复 PR，如果您想加入讨论组，请查看 <a href="https://t.me/HideMyApplist">Telegram 频道</a>中的第一条置顶消息。我的新应用仍在开发中，但尚不清楚第一个预览版何时发布。感谢大家一路走来的支持，期待与大家在新的征程上相见，为更好的离别。</del></p></blockquote><blockquote><p>Guys long time no see.</p><p>The 3.0 version of HMA is under development and will be released soon.</p><p>We reestablished the discussion group, but you need to find the link if you want to join it.</p></blockquote><blockquote><h3 id="3-0-0版本已发布！"><a href="#3-0-0版本已发布！" class="headerlink" title="3.0.0版本已发布！"></a><strong><u>3.0.0版本已发布！</u></strong></h3><p><strong>务必卸载 Magisk 模块！</strong></p><ol><li><p>支持 Android 13</p></li><li><p>对高版本系统采用更强大的拦截方式</p></li><li><p>不再需要 Magisk 模块，请将其卸载，否则会卡开机</p></li><li><p>支持对 Android 11 以上阻止 &#x2F;data&#x2F;data 检测（设置-实验性）</p></li><li><p>UI 重绘，使用 MD3 风格</p></li><li><p>支持夜间模式和自定义主题</p></li><li><p>多语言支持</p></li><li><p>更好的日志页面</p></li></ol><p>+ 尚未完善：应用搜索、多用户支持</p></blockquote><h2 id="二、设置隐藏应用列表"><a href="#二、设置隐藏应用列表" class="headerlink" title="二、设置隐藏应用列表"></a>二、设置隐藏应用列表</h2><h5 id="安装Magisk插件"><a href="#安装Magisk插件" class="headerlink" title="安装Magisk插件"></a>安装Magisk插件</h5><p>主界面-安装Magisk插件-zygisk版-重启手机</p><h5 id="在lsp中激活“隐藏应用列表”，√推荐的应用"><a href="#在lsp中激活“隐藏应用列表”，√推荐的应用" class="headerlink" title="在lsp中激活“隐藏应用列表”，√推荐的应用"></a>在lsp中激活“隐藏应用列表”，√推荐的应用</h5><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/DE2DD55EF1C0600B5E1618DA2E246960.jpg" alt="img"></p><h5 id="创建黑名单模板"><a href="#创建黑名单模板" class="headerlink" title="创建黑名单模板"></a>创建黑名单模板</h5><p>隐藏应用列表-模板管理-创建黑名单模板</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/6023FD6A238F1FE45552EF43BCC9696D.jpg" alt="img"></p><ul><li><p>选择隐藏0个应用的“编辑列表”，勾选<code>随机包名的magisk app</code>和<code>所有的xp模块</code></p><blockquote><p>隐藏0个应用的意思是，其内勾选的所有项将会对不安分（检测root）的应用隐藏</p></blockquote></li><li><p><del>“启用 0 条 maps 规则”这里可以不用设置，因为作者已经移除 maps 拦截（因为没有意义。UI懒得删了），如果想加就加下面这几条</del></p><p><strong>3.0.0之后的版本已弃用</strong></p></li></ul><blockquote><p>magisk</p><p>lsposed</p><p>xposed</p><p>qnotified</p><p>qn_dyn_lib</p><p>qn_mmkv</p><hr><p>下面是我的个人配置</p></blockquote><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/067A78D73BDED02693E5F5752A798D43.jpg" alt="img"></p><ul><li><del>“启用 0 条查询参数规则”这里可以不管</del></li></ul><h5 id="选择生效应用"><a href="#选择生效应用" class="headerlink" title="选择生效应用"></a>选择生效应用</h5><p>返回主界面-选择生效应用，勾选不安分（想要隐藏root）的应用，如下图<img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/258A46D84B58388ABBC7F75C80B7175F.jpg" alt="img"></p><h2 id="三、常见问题"><a href="#三、常见问题" class="headerlink" title="三、常见问题"></a>三、常见问题</h2><h5 id="①关于金融类软件"><a href="#①关于金融类软件" class="headerlink" title="①关于金融类软件"></a>①关于金融类软件</h5><p>一些用了“隐藏应用列表”后闪退的应用，比如银行类的，这时候可以打“选择生效应用”找到app，关闭“启用全部隐藏方式”然后在选择隐藏方式里面√前三个就行了，不要勾选“File detections”“Maps scan”这两个。<img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/BEA823F8868B279F18A93FAC2FC3A5CF.png" alt="img"></p><h5 id="关于检测隐藏应用列表是否隐藏完美"><a href="#关于检测隐藏应用列表是否隐藏完美" class="headerlink" title="关于检测隐藏应用列表是否隐藏完美"></a>关于检测隐藏应用列表是否隐藏完美</h5><p>可以通过<a href="https://github.com/Dr-TSNG/ApplistDetector/releases">应用列表检测器</a>（或主界面-检测测试）来查看</p><blockquote><p>通过Detector中检测中的Xposed Modules，可以再完善被漏掉的需要隐藏的应用</p></blockquote><blockquote><p>若检测的前几项出现问题，可能如下：</p><p>Xposed hooks<br>（XP框架不要勾选这个应用）</p><p>Dual &#x2F; Work profile<br>（没碰到过，自己找找方法吧）</p><p>XPrivacyLua<br>（删除&#x2F;data&#x2F;system&#x2F;xlua文件夹）</p><p>Thanox<br>（删掉&#x2F;data&#x2F;system&#x2F;Thanos文件夹）</p><p>TWRP<br>（删除&#x2F;storage&#x2F;emulated&#x2F;0&#x2F;TWRP文件夹）</p><p>com.topjohnwu.magisk<br>（Canary、稳定版、测试版和没改名的Alpha版Magisk，随机包名安装后再加到黑名单模版）</p><p>io.github.vvb2060.magisk<br>（Alpha版Magisk，随机包名安装后再加入黑名单模版）</p><p>de.robv.android.xposed.installer<br>（xposed）</p><p>org.meowcat.edxposed.manager<br>（Edxposed）</p><p>org.lsposed.manager<br>（LSPosed，创建寄生管理器快捷方式）</p><p>top.canyie.dreamland.manager<br>（梦境）</p><p>me.weishu.exp<br>（太极）</p><p>XP框架推荐用LSP，最新版寄生到shell里面了，隐藏比较方便</p><p>com.android.vendinf<br>（好像是Jasi破解器）</p><p>moe.shizuku.redirectstorage<br>（存储空间隔离）</p><p>Xposed Modules<br>（Xposed 模块，加入黑名单模版）</p><p>Random Package Name<br>（随机包名，加入黑名单模版）</p><p>反正被发现的应用全部加到黑名单模版，不行再找办法</p></blockquote><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/BB998A72E205D26E41DBCCF3253CD0BD.jpg" alt="img"></p><blockquote><p>你也可以通过备份还原配置导入自定义的模版</p></blockquote><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>对应用隐藏root可以正常使用很多软件，但这些软件大多为金融、游戏、运动、打卡类，他们检测root是为了确保你的环境是否安全（不排除一部分应用在被授予了root权限后对你的手机和应用进行了恶意修改），我们要确保隐藏root的目的仅仅是正常使用软件，而非以隐藏root为由去进行见不得人的劣行，我们也希望每一个开发者和使用人员心中都有一杆秤去衡量道德的想法做正确的事情。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Magisk </category>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Android </tag>
+            
+            <tag> hide </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于Magisk的一些使用事项&amp;隐藏root</title>
+      <link href="/2022/07/28/magiskRelated/"/>
+      <url>/2022/07/28/magiskRelated/</url>
+      
+        <content type="html"><![CDATA[<h1 id="关于Magisk的一些使用事项-amp-隐藏root"><a href="#关于Magisk的一些使用事项-amp-隐藏root" class="headerlink" title="关于Magisk的一些使用事项&amp;隐藏root"></a>关于Magisk的一些使用事项&amp;隐藏root</h1><p>在此将一些Magisk的使用事项简单介绍</p><h3 id="一、关于更新"><a href="#一、关于更新" class="headerlink" title="一、关于更新"></a>一、关于更新</h3><p>Magisk（<a href="https://github.com/topjohnwu">由@topjohnwu开发</a>），持续适配安卓新版本(<code>higher than Android 5.0</code>)。</p><h3 id="二、关于模块"><a href="#二、关于模块" class="headerlink" title="二、关于模块"></a>二、关于模块</h3><p>magisk模块侧重于对系统底层文件的修改，如修改开机第一屏、固化为系统应用、系统框架的修改、CPU&#x2F;GPU超频文件、移除温控、自动gc回收等，相同类型的模块只能同时开启一个以防日后黑砖。</p><p>又由于<code>magisk</code>先于<code>system</code>加载，挂载的模块越多，系统响应速度变慢，后台su占用内存会稍稍增大，电量也会消耗的变快。因此模块须按需挂载。</p><h3 id="※三、隐藏root——对不安分的应用"><a href="#※三、隐藏root——对不安分的应用" class="headerlink" title="※三、隐藏root——对不安分的应用"></a>※三、隐藏root——对不安分的应用</h3><h4 id="Ⅰ：Shamiko"><a href="#Ⅰ：Shamiko" class="headerlink" title="Ⅰ：Shamiko"></a>Ⅰ：Shamiko</h4><p>自<a href="https://topjohnwu.github.io/Magisk/changes.html">Magisk v24.0</a>之后，MagiskHide被移除，正式启用了zygisk机制（ **<code>Magisk in Zygote</code>**）并移除了对<a href="https://github.com/RikkaApps/Riru">Riru</a>模块的支持，隐藏root的方式有稍大的改动，这里简单介绍一下。</p><p>【<code>When zygisk is enabled, a part of Magisk will run in the Zygote daemon process, allowing module developers to run code directly in every Android apps&#39; processes.</code>】</p><p>因此LSPosed Developers开发了一套更高效的隐藏root的方式——Shamiko</p><h5 id="什么是Shamiko？"><a href="#什么是Shamiko？" class="headerlink" title="什么是Shamiko？"></a>什么是Shamiko？</h5><ol><li>这是个magisk模块</li><li>这是在zygisk开启情况下，也可以使用的”MagiskHide”</li><li>即便是使用非官方版本magisk，zygisk和MagiskHide也只能二选一</li></ol><h5 id="如何使用？"><a href="#如何使用？" class="headerlink" title="如何使用？"></a>如何使用？</h5><ul><li><p>在magisk app设置中开启Zygisk<img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/F9C842371D55728DD2FA007083AE7702.jpg"></p></li><li><p>安装<a href="https://github.com/LSPosed/LSPosed.github.io/releases">Shamiko</a></p></li><li><p>magisk设置中，有个“遵守排除列表”，打开它(如果Magisk版本高于24100则不必进行这一步)</p></li><li><p>然后在“配置排除列表”中，勾选要隐藏root的应用</p></li><li><p>配置好之后，关闭“遵守排除列表”，注意我没写错，这是必要的，不要开启“遵守排除列表”</p></li><li><p>重启手机即可</p><blockquote><p>若出现下图blacklist即为成功</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/0EF53A67476E4188925A39DAB4F9E7E2.jpg" alt="img"></p></blockquote></li><li><p>由于Zygisk和Riru只能二选一，因此此时你的Riru模块都会无法使用，你可以在文本末尾找到对应的其他模块文件安装之。另外Zygisk对Riru具有换代意义，大部分Riru模块都已经或即将支持Zygisk。事实上<a href="https://github.com/RikkaApps/Riru">Riru本身也已经停止更新</a>了。</p></li></ul><blockquote><p>理论上此方法适用于任何检测root的软件</p></blockquote><h3 id="四、关于magisk的magiskHide与zygisk的版本的区别"><a href="#四、关于magisk的magiskHide与zygisk的版本的区别" class="headerlink" title="四、关于magisk的magiskHide与zygisk的版本的区别"></a>四、关于magisk的magiskHide与zygisk的版本的区别</h3><p>magiskHide为作者自Apple离职加入Google之前对隐藏root的解释，在加入Google的安全组之后，有必要将官方的隐藏途径取消。</p><p>自magisk v24之后，magiskHide被取消，所有su操作执行在zygisk下，值得注意的是zygisk只是运行环境，真正隐藏root的是“非官方”的shamiko模块，间接的解决了难言之隐了。</p><p>目前，检测原版magiskHide及momo使用检测的方法已公开</p><p>R.I.P magiskHide</p><h4 id="开启magisk随机包名"><a href="#开启magisk随机包名" class="headerlink" title="开启magisk随机包名"></a>开启magisk随机包名</h4><p>magisk app设置中，开启随机包名即可，会自动生成桌面快捷方式</p><blockquote><p>这可能需要魔法，当然也可以自定义magisk更新渠道</p></blockquote><hr><p>你也可以通过<a href="https://t.me/magiskalpha">momo</a>（这里提供magiskalpha官方tg下载频道）来检测隐藏是否完美</p><hr><h3 id="进阶：对更严苛的应用隐藏root"><a href="#进阶：对更严苛的应用隐藏root" class="headerlink" title="进阶：对更严苛的应用隐藏root"></a>进阶：对更严苛的应用隐藏root</h3><p>虽然magisk在zygisk和shamiko的帮助下可以在magisk app配置排除列表中选择要隐藏root的应用，但对于某一些领域的应用还需要借助隐藏应用列表的帮助</p><p>详见 –&gt; <a href="https://sheerkvc.top/2022/07/29/Hide-My-Applist/">隐藏应用列表的使用</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Magisk </category>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Android </tag>
+            
+            <tag> Magisk </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Android设备root的通用方法</title>
+      <link href="/2022/07/28/rootAndroid/"/>
+      <url>/2022/07/28/rootAndroid/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Android设备root的通用方法——小白向-x2F-简陋版"><a href="#Android设备root的通用方法——小白向-x2F-简陋版" class="headerlink" title="Android设备root的通用方法——小白向&#x2F;简陋版"></a>Android设备root的通用方法——小白向&#x2F;简陋版</h1><h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><ol><li>一台已经安装adb驱动的电脑（不同品牌手机可能还有额外驱动应下载）</li><li>一台安卓手机（以一加8为例）</li><li>脑子</li></ol><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h4 id="一、解锁bootloader"><a href="#一、解锁bootloader" class="headerlink" title="一、解锁bootloader"></a>一、解锁bootloader</h4><blockquote><p>在嵌入式操作系统中，BootLoader是在操作系统内核运行之前运行。可以初始化硬件设备、建立内存空间映射图，从而将系统的软硬件环境带到一个合适状态，以便为最终调用操作系统内核准备好正确的环境。</p><p>着眼于Android系统中，不解锁bootloader便无法对系统进行有效的修改</p></blockquote><p>①、在手机上解锁开发者选项-USB调试（必需）&amp; OEM解锁（如有显示），用原装数据线连接电脑，允许调试后在adb SDK目录地址栏中打开命令行输入：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb devices   ---列出已连接的所有设备</span><br></pre></td></tr></table></figure><p>如出现以下情况则为成功连接：</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">C:\<span class="title">Users</span>\<span class="title">XXXXX</span>&gt;<span class="title">adb</span> <span class="title">devices</span></span></span><br><span class="line"><span class="function">* <span class="title">daemon</span> <span class="title">not</span> <span class="title">running</span>; <span class="title">starting</span> <span class="title">now</span> <span class="title">at</span> <span class="title">tcp</span>:5037</span></span><br><span class="line"><span class="function">* <span class="title">daemon</span> <span class="title">started</span> <span class="title">successfully</span></span></span><br><span class="line"><span class="function"><span class="title">List</span> <span class="title">of</span> <span class="title">devices</span> <span class="title">attached</span></span></span><br><span class="line"><span class="function">4<span class="title">d83ac25</span>        <span class="title">device</span>                &lt;-----正常显示</span></span><br></pre></td></tr></table></figure><p>②、命令行输入  adb reboot fastboot  重启到fastboot模式</p><blockquote><p>你也可以通过物理按键来进入fastboot中</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/fastboot.png" alt="fastboot"></p></blockquote><p>③、命令行输入  fastboot oem unlock  电源键点击确认即可          ———&gt;       仅适用于一加系列</p><blockquote><p>因解锁bl将会清空数据，推荐新机或备用机进行解锁，除非对自己技术很有信心</p></blockquote><hr><p><em><strong>至此bootloader已解锁</strong></em></p><h4 id="二、刷入magisk"><a href="#二、刷入magisk" class="headerlink" title="二、刷入magisk"></a>二、刷入magisk</h4><p>在<a href="https://github.com/topjohnwu/Magisk/releases">官方的github地址下载</a>magisk-Vxx.x.zip</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/image-20220728145619349.png" alt="image-20220728145619349"></p><h6 id="刷入方法一：fastboot线刷："><a href="#刷入方法一：fastboot线刷：" class="headerlink" title="刷入方法一：fastboot线刷："></a>刷入方法一：fastboot线刷：</h6><p>①、将magisk（.zip改为.apk），安装magisk app</p><p>②、找到自己手机当前的系统包，用magisk app修补boot.img得到magisk_patched.img</p><p>③、进入命令行输入</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot flash boot &quot;magisk_patched.img在电脑上的绝对路径&quot;</span><br></pre></td></tr></table></figure><p>④、开机进入magisk app，提示修复环境后修复即可</p><blockquote><p>若系统包中仅有payload.bin，可用以下工具解出boot.img</p></blockquote><blockquote><p><a href="https://hellokevin.lanzoum.com/iv4fM08jib5c">https://hellokevin.lanzoum.com/iv4fM08jib5c</a><br>密码:7i8j</p></blockquote><hr><h6 id="刷入方式二：TWRP（第三方的recovery模式）卡刷："><a href="#刷入方式二：TWRP（第三方的recovery模式）卡刷：" class="headerlink" title="刷入方式二：TWRP（第三方的recovery模式）卡刷："></a>刷入方式二：TWRP（第三方的recovery模式）卡刷：</h6><p>①、找到对应机型的TWRP在解锁bl后刷入手机</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot flash recovery &quot;你下载的TWRP在电脑上的绝对路径&quot;</span><br></pre></td></tr></table></figure><p>②、开机adb连接电脑后，命令行输入adb reboot recovery重启到recovery模式</p><blockquote><p>你也可以通过物理按键来进入recovery中<img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/twrp.png" alt="twrp"></p></blockquote><blockquote><p>如果你刷入的TWRP需要解锁data后使用，将data分区格式化再次进入recovery模式即可</p></blockquote><p>③、将magisk-Vxx.x.zip传输到手机内置空间上，在TWRP中install此zip</p><p>④、开机进入magisk app，提示修复环境后修复即可</p><hr><center>关于FastBoot和TWRP的区别<p>fastboot操作简单，主要通过简单的命令行进行刷入操作</p><p>TWRP稍显繁琐，通过易懂的图形化界面进行刷入操作，对后续更改内核，刷第三方ROM及其友好</p><p><strong>推荐前者新手，后者进阶</strong></p><p><em>上述操作已经是最简单的小白陈述版本，如果仍感觉困难且对root无刚需，推荐iOS养生</em></p><hr><h4 id="三、刷入LSPosed框架"><a href="#三、刷入LSPosed框架" class="headerlink" title="三、刷入LSPosed框架"></a>三、刷入LSPosed框架</h4><p>在<a href="https://github.com/LSPosed/LSPosed/releases">官方的github地址</a>下载LSPosed-zygisk-release.zip</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/image-20220728214445259.png" alt="image-20220728214445259"></p><p>①、在TWRP下：直接install此zip即可</p><p>②、在magisk app中从本地安装，重启后即可，会自动生成桌面快捷方式</p><p>下图即为安装成功</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/E8F86B99207F80EDD692FC780A542466.jpg" alt="img"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Android </tag>
+            
+            <tag> root </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Android KeyCode列表</title>
+      <link href="/2022/07/28/Android%20KeyCode%E5%88%97%E8%A1%A8/"/>
+      <url>/2022/07/28/Android%20KeyCode%E5%88%97%E8%A1%A8/</url>
+      
+        <content type="html"><![CDATA[<center>KEYCODE列表<p><strong>电话键</strong></p><table><thead><tr><th align="left">KEYCODE_CALL</th><th>拨号键</th><th>5</th></tr></thead><tbody><tr><td align="left">KEYCODE_ENDCALL</td><td>挂机键</td><td>6</td></tr><tr><td align="left">KEYCODE_HOME</td><td>按键Home</td><td>3</td></tr><tr><td align="left">KEYCODE_MENU</td><td>菜单键</td><td>82</td></tr><tr><td align="left">KEYCODE_BACK</td><td>返回键</td><td>4</td></tr><tr><td align="left">KEYCODE_SEARCH</td><td>搜索键</td><td>84</td></tr><tr><td align="left">KEYCODE_CAMERA</td><td>拍照键</td><td>27</td></tr><tr><td align="left">KEYCODE_FOCUS</td><td>拍照对焦键</td><td>80</td></tr><tr><td align="left">KEYCODE_POWER</td><td>电源键</td><td>26</td></tr><tr><td align="left">KEYCODE_NOTIFICATION</td><td>通知键</td><td>83</td></tr><tr><td align="left">KEYCODE_NOTIFICATION</td><td>多任务</td><td>187</td></tr><tr><td align="left">KEYCODE_MUTE</td><td>话筒静音键</td><td>91</td></tr><tr><td align="left">KEYCODE_VOLUME_MUTE</td><td>扬声器静音键</td><td>164</td></tr><tr><td align="left">KEYCODE_VOLUME_UP</td><td>音量增加键</td><td>24</td></tr><tr><td align="left">KEYCODE_VOLUME_DOWN</td><td>音量减小键</td><td>25</td></tr></tbody></table><p><strong>控制键</strong></p><table><thead><tr><th>KEYCODE_ENTER</th><th>回车键</th><th>66</th></tr></thead><tbody><tr><td>KEYCODE_ESCAPE</td><td>ESC键</td><td>111</td></tr><tr><td>KEYCODE_DPAD_CENTER</td><td>导航键 确定键</td><td>23</td></tr><tr><td>KEYCODE_DPAD_UP</td><td>导航键 向上</td><td>19</td></tr><tr><td>KEYCODE_DPAD_DOWN</td><td>导航键 向下</td><td>20</td></tr><tr><td>KEYCODE_DPAD_LEFT</td><td>导航键 向左</td><td>21</td></tr><tr><td>KEYCODE_DPAD_RIGHT</td><td>导航键 向右</td><td>22</td></tr><tr><td>KEYCODE_MOVE_HOME</td><td>光标移动到开始键</td><td>122</td></tr><tr><td>KEYCODE_MOVE_END</td><td>光标移动到末尾键</td><td>123</td></tr><tr><td>KEYCODE_PAGE_UP</td><td>向上翻页键</td><td>92</td></tr><tr><td>KEYCODE_PAGE_DOWN</td><td>向下翻页键</td><td>93</td></tr><tr><td>KEYCODE_DEL</td><td>退格键</td><td>67</td></tr><tr><td>KEYCODE_FORWARD_DEL</td><td>删除键</td><td>112</td></tr><tr><td>KEYCODE_INSERT</td><td>插入键</td><td>124</td></tr><tr><td>KEYCODE_TAB</td><td>Tab键</td><td>61</td></tr><tr><td>KEYCODE_NUM_LOCK</td><td>小键盘锁</td><td>143</td></tr><tr><td>KEYCODE_CAPS_LOCK</td><td>大写锁定键</td><td>115</td></tr><tr><td>KEYCODE_BREAK</td><td>Break&#x2F;Pause键</td><td>121</td></tr><tr><td>KEYCODE_SCROLL_LOCK</td><td>滚动锁定键</td><td>116</td></tr><tr><td>KEYCODE_ZOOM_IN</td><td>放大键</td><td>168</td></tr><tr><td>KEYCODE_ZOOM_OUT</td><td>缩小键</td><td>169</td></tr></tbody></table><p><strong>组合键</strong></p><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>KEYCODE_ALT_LEFT</td><td>Alt+Left</td></tr><tr><td>KEYCODE_ALT_RIGHT</td><td>Alt+Right</td></tr><tr><td>KEYCODE_CTRL_LEFT</td><td>Control+Left</td></tr><tr><td>KEYCODE_CTRL_RIGHT</td><td>Control+Right</td></tr><tr><td>KEYCODE_SHIFT_LEFT</td><td>Shift+Left</td></tr><tr><td>KEYCODE_SHIFT_RIGHT</td><td>Shift+Right</td></tr></tbody></table><p><strong>基本</strong></p><table><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td>KEYCODE_0</td><td>按键’0’</td><td>7</td></tr><tr><td>KEYCODE_1</td><td>按键’1’</td><td>8</td></tr><tr><td>KEYCODE_2</td><td>按键’2’</td><td>9</td></tr><tr><td>KEYCODE_3</td><td>按键’3’</td><td>10</td></tr><tr><td>KEYCODE_4</td><td>按键’4’</td><td>11</td></tr><tr><td>KEYCODE_5</td><td>按键’5’</td><td>12</td></tr><tr><td>KEYCODE_6</td><td>按键’6’</td><td>13</td></tr><tr><td>KEYCODE_7</td><td>按键’7’</td><td>14</td></tr><tr><td>KEYCODE_8</td><td>按键’8’</td><td>15</td></tr><tr><td>KEYCODE_9</td><td>按键’9’</td><td>16</td></tr><tr><td>KEYCODE_A</td><td>按键’A’</td><td>29</td></tr><tr><td>KEYCODE_B</td><td>按键’B’</td><td>30</td></tr><tr><td>KEYCODE_C</td><td>按键’C’</td><td>31</td></tr><tr><td>KEYCODE_D</td><td>按键’D’</td><td>32</td></tr><tr><td>KEYCODE_E</td><td>按键’E’</td><td>33</td></tr><tr><td>KEYCODE_F</td><td>按键’F’</td><td>34</td></tr><tr><td>KEYCODE_G</td><td>按键’G’</td><td>35</td></tr><tr><td>KEYCODE_H</td><td>按键’H’</td><td>36</td></tr><tr><td>KEYCODE_I</td><td>按键’I’</td><td>37</td></tr><tr><td>KEYCODE_J</td><td>按键’J’</td><td>38</td></tr><tr><td>KEYCODE_K</td><td>按键’K’</td><td>39</td></tr><tr><td>KEYCODE_L</td><td>按键’L’</td><td>40</td></tr><tr><td>KEYCODE_M</td><td>按键’M’</td><td>41</td></tr><tr><td>KEYCODE_N</td><td>按键’N’</td><td>42</td></tr><tr><td>KEYCODE_O</td><td>按键’O’</td><td>43</td></tr><tr><td>KEYCODE_P</td><td>按键’P’</td><td>44</td></tr><tr><td>KEYCODE_Q</td><td>按键’Q’</td><td>45</td></tr><tr><td>KEYCODE_R</td><td>按键’R’</td><td>46</td></tr><tr><td>KEYCODE_S</td><td>按键’S’</td><td>47</td></tr><tr><td>KEYCODE_T</td><td>按键’T’</td><td>48</td></tr><tr><td>KEYCODE_U</td><td>按键’U’</td><td>49</td></tr><tr><td>KEYCODE_V</td><td>按键’V’</td><td>50</td></tr><tr><td>KEYCODE_W</td><td>按键’W’</td><td>51</td></tr><tr><td>KEYCODE_X</td><td>按键’X’</td><td>52</td></tr><tr><td>KEYCODE_Y</td><td>按键’Y’</td><td>53</td></tr><tr><td>KEYCODE_Z</td><td>按键’Z’</td><td>54</td></tr></tbody></table><p><strong>符号</strong></p><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>KEYCODE_PLUS</td><td>按键’+’</td></tr><tr><td>KEYCODE_MINUS</td><td>按键’-‘</td></tr><tr><td>KEYCODE_STAR</td><td>按键’*’</td></tr><tr><td>KEYCODE_SLASH</td><td>按键’&#x2F;‘</td></tr><tr><td>KEYCODE_EQUALS</td><td>按键’&#x3D;’</td></tr><tr><td>KEYCODE_AT</td><td>按键‘@’</td></tr><tr><td>KEYCODE_POUND</td><td>按键’#’</td></tr><tr><td>KEYCODE_APOSTROPHE</td><td>按键’’’ (单引号)</td></tr><tr><td>KEYCODE_BACKSLASH</td><td>按键’&#39;</td></tr><tr><td>KEYCODE_COMMA</td><td>按键’,’</td></tr><tr><td>KEYCODE_PERIOD</td><td>按键’.’</td></tr><tr><td>KEYCODE_LEFT_BRACKET</td><td>按键’[‘</td></tr><tr><td>KEYCODE_RIGHT_BRACKET</td><td>按键’]’</td></tr><tr><td>KEYCODE_SEMICOLON</td><td>按键’;’</td></tr><tr><td>KEYCODE_GRAVE</td><td>按键’&#96;’</td></tr><tr><td>KEYCODE_SPACE</td><td>空格键</td></tr></tbody></table><p><strong>小键盘</strong></p><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>KEYCODE_NUMPAD_0</td><td>小键盘按键’0’</td></tr><tr><td>KEYCODE_NUMPAD_1</td><td>小键盘按键’1’</td></tr><tr><td>KEYCODE_NUMPAD_2</td><td>小键盘按键’2’</td></tr><tr><td>KEYCODE_NUMPAD_3</td><td>小键盘按键’3’</td></tr><tr><td>KEYCODE_NUMPAD_4</td><td>小键盘按键’4’</td></tr><tr><td>KEYCODE_NUMPAD_5</td><td>小键盘按键’5’</td></tr><tr><td>KEYCODE_NUMPAD_6</td><td>小键盘按键’6’</td></tr><tr><td>KEYCODE_NUMPAD_7</td><td>小键盘按键’7’</td></tr><tr><td>KEYCODE_NUMPAD_8</td><td>小键盘按键’8’</td></tr><tr><td>KEYCODE_NUMPAD_9</td><td>小键盘按键’9’</td></tr><tr><td>KEYCODE_NUMPAD_ADD</td><td>小键盘按键’+’</td></tr><tr><td>KEYCODE_NUMPAD_SUBTRACT</td><td>小键盘按键’-‘</td></tr><tr><td>KEYCODE_NUMPAD_MULTIPLY</td><td>小键盘按键’*’</td></tr><tr><td>KEYCODE_NUMPAD_DIVIDE</td><td>小键盘按键’&#x2F;‘</td></tr><tr><td>KEYCODE_NUMPAD_EQUALS</td><td>小键盘按键’&#x3D;’</td></tr><tr><td>KEYCODE_NUMPAD_COMMA</td><td>小键盘按键’,’</td></tr><tr><td>KEYCODE_NUMPAD_DOT</td><td>小键盘按键’.’</td></tr><tr><td>KEYCODE_NUMPAD_LEFT_PAREN</td><td>小键盘按键’(‘</td></tr><tr><td>KEYCODE_NUMPAD_RIGHT_PAREN</td><td>小键盘按键’)’</td></tr><tr><td>KEYCODE_NUMPAD_ENTER</td><td>小键盘按键回车</td></tr></tbody></table><p><strong>功能键</strong></p><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>KEYCODE_F1</td><td>按键F1</td></tr><tr><td>KEYCODE_F2</td><td>按键F2</td></tr><tr><td>KEYCODE_F3</td><td>按键F3</td></tr><tr><td>KEYCODE_F4</td><td>按键F4</td></tr><tr><td>KEYCODE_F5</td><td>按键F5</td></tr><tr><td>KEYCODE_F6</td><td>按键F6</td></tr><tr><td>KEYCODE_F7</td><td>按键F7</td></tr><tr><td>KEYCODE_F8</td><td>按键F8</td></tr><tr><td>KEYCODE_F9</td><td>按键F9</td></tr><tr><td>KEYCODE_F10</td><td>按键F10</td></tr><tr><td>KEYCODE_F11</td><td>按键F11</td></tr><tr><td>KEYCODE_F12</td><td>按键F12</td></tr></tbody></table><p><strong>多媒体键</strong></p><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>KEYCODE_MEDIA_PLAY</td><td>多媒体键 播放</td></tr><tr><td>KEYCODE_MEDIA_STOP</td><td>多媒体键 停止</td></tr><tr><td>KEYCODE_MEDIA_PAUSE</td><td>多媒体键 暂停</td></tr><tr><td>KEYCODE_MEDIA_PLAY_PAUSE</td><td>多媒体键 播放&#x2F;暂停</td></tr><tr><td>KEYCODE_MEDIA_FAST_FORWARD</td><td>多媒体键 快进</td></tr><tr><td>KEYCODE_MEDIA_REWIND</td><td>多媒体键 快退</td></tr><tr><td>KEYCODE_MEDIA_NEXT</td><td>多媒体键 下一首</td></tr><tr><td>KEYCODE_MEDIA_PREVIOUS</td><td>多媒体键 上一首</td></tr><tr><td>KEYCODE_MEDIA_CLOSE</td><td>多媒体键 关闭</td></tr><tr><td>KEYCODE_MEDIA_EJECT</td><td>多媒体键 弹出</td></tr><tr><td>KEYCODE_MEDIA_RECORD</td><td>多媒体键 录音</td></tr></tbody></table><p><strong>手柄按键</strong></p><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>KEYCODE_BUTTON_1</td><td>通用游戏手柄按钮#1</td></tr><tr><td>KEYCODE_BUTTON_2</td><td>通用游戏手柄按钮 #2</td></tr><tr><td>KEYCODE_BUTTON_3</td><td>通用游戏手柄按钮 #3</td></tr><tr><td>KEYCODE_BUTTON_4</td><td>通用游戏手柄按钮 #4</td></tr><tr><td>KEYCODE_BUTTON_5</td><td>通用游戏手柄按钮 #5</td></tr><tr><td>KEYCODE_BUTTON_6</td><td>通用游戏手柄按钮 #6</td></tr><tr><td>KEYCODE_BUTTON_7</td><td>通用游戏手柄按钮 #7</td></tr><tr><td>KEYCODE_BUTTON_8</td><td>通用游戏手柄按钮 #8</td></tr><tr><td>KEYCODE_BUTTON_9</td><td>通用游戏手柄按钮 #9</td></tr><tr><td>KEYCODE_BUTTON_10</td><td>通用游戏手柄按钮 #10</td></tr><tr><td>KEYCODE_BUTTON_11</td><td>通用游戏手柄按钮 #11</td></tr><tr><td>KEYCODE_BUTTON_12</td><td>通用游戏手柄按钮 #12</td></tr><tr><td>KEYCODE_BUTTON_13</td><td>通用游戏手柄按钮 #13</td></tr><tr><td>KEYCODE_BUTTON_14</td><td>通用游戏手柄按钮 #14</td></tr><tr><td>KEYCODE_BUTTON_15</td><td>通用游戏手柄按钮 #15</td></tr><tr><td>KEYCODE_BUTTON_16</td><td>通用游戏手柄按钮 #16</td></tr><tr><td>KEYCODE_BUTTON_A</td><td>游戏手柄按钮 A</td></tr><tr><td>KEYCODE_BUTTON_B</td><td>游戏手柄按钮 B</td></tr><tr><td>KEYCODE_BUTTON_C</td><td>游戏手柄按钮 C</td></tr><tr><td>KEYCODE_BUTTON_X</td><td>游戏手柄按钮 X</td></tr><tr><td>KEYCODE_BUTTON_Y</td><td>游戏手柄按钮 Y</td></tr><tr><td>KEYCODE_BUTTON_Z</td><td>游戏手柄按钮 Z</td></tr><tr><td>KEYCODE_BUTTON_L1</td><td>游戏手柄按钮 L1</td></tr><tr><td>KEYCODE_BUTTON_L2</td><td>游戏手柄按钮 L2</td></tr><tr><td>KEYCODE_BUTTON_R1</td><td>游戏手柄按钮 R1</td></tr><tr><td>KEYCODE_BUTTON_R2</td><td>游戏手柄按钮 R2</td></tr><tr><td>KEYCODE_BUTTON_MODE</td><td>游戏手柄按钮 Mode</td></tr><tr><td>KEYCODE_BUTTON_SELECT</td><td>游戏手柄按钮 Select</td></tr><tr><td>KEYCODE_BUTTON_START</td><td>游戏手柄按钮 Start</td></tr><tr><td>KEYCODE_BUTTON_THUMBL</td><td>Left Thumb Button</td></tr><tr><td>KEYCODE_BUTTON_THUMBR</td><td>Right Thumb Button</td></tr></tbody></table><p><strong>待查</strong></p><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>KEYCODE_NUM</td><td>按键Number modifier</td></tr><tr><td>KEYCODE_INFO</td><td>按键Info</td></tr><tr><td>KEYCODE_APP_SWITCH</td><td>按键App switch</td></tr><tr><td>KEYCODE_BOOKMARK</td><td>按键Bookmark</td></tr><tr><td>KEYCODE_AVR_INPUT</td><td>按键A&#x2F;V Receiver input</td></tr><tr><td>KEYCODE_AVR_POWER</td><td>按键A&#x2F;V Receiver power</td></tr><tr><td>KEYCODE_CAPTIONS</td><td>按键Toggle captions</td></tr><tr><td>KEYCODE_CHANNEL_DOWN</td><td>按键Channel down</td></tr><tr><td>KEYCODE_CHANNEL_UP</td><td>按键Channel up</td></tr><tr><td>KEYCODE_CLEAR</td><td>按键Clear</td></tr><tr><td>KEYCODE_DVR</td><td>按键DVR</td></tr><tr><td>KEYCODE_ENVELOPE</td><td>按键Envelope special function</td></tr><tr><td>KEYCODE_EXPLORER</td><td>按键Explorer special function</td></tr><tr><td>KEYCODE_FORWARD</td><td>按键Forward</td></tr><tr><td>KEYCODE_FORWARD_DEL</td><td>按键Forward Delete</td></tr><tr><td>KEYCODE_FUNCTION</td><td>按键Function modifier</td></tr><tr><td>KEYCODE_GUIDE</td><td>按键Guide</td></tr><tr><td>KEYCODE_HEADSETHOOK</td><td>按键Headset Hook</td></tr><tr><td>KEYCODE_META_LEFT</td><td>按键Left Meta modifier</td></tr><tr><td>KEYCODE_META_RIGHT</td><td>按键Right Meta modifier</td></tr><tr><td>KEYCODE_PICTSYMBOLS</td><td>按键Picture Symbols modifier</td></tr><tr><td>KEYCODE_PROG_BLUE</td><td>按键Blue “programmable”</td></tr><tr><td>KEYCODE_PROG_GREEN</td><td>按键Green “programmable”</td></tr><tr><td>KEYCODE_PROG_RED</td><td>按键Red “programmable”</td></tr><tr><td>KEYCODE_PROG_YELLOW</td><td>按键Yellow “programmable”</td></tr><tr><td>KEYCODE_SETTINGS</td><td>按键Settings</td></tr><tr><td>KEYCODE_SOFT_LEFT</td><td>按键Soft Left</td></tr><tr><td>KEYCODE_SOFT_RIGHT</td><td>按键Soft Right</td></tr><tr><td>KEYCODE_STB_INPUT</td><td>按键Set-top-box input</td></tr><tr><td>KEYCODE_STB_POWER</td><td>按键Set-top-box power</td></tr><tr><td>KEYCODE_SWITCH_CHARSET</td><td>按键Switch Charset modifier</td></tr><tr><td>KEYCODE_SYM</td><td>按键Symbol modifier</td></tr><tr><td>KEYCODE_SYSRQ</td><td>按键System Request &#x2F; Print Screen</td></tr><tr><td>KEYCODE_TV</td><td>按键TV</td></tr><tr><td>KEYCODE_TV_INPUT</td><td>按键TV input</td></tr><tr><td>KEYCODE_TV_POWER</td><td>按键TV power</td></tr><tr><td>KEYCODE_WINDOW</td><td>按键Window</td></tr><tr><td>KEYCODE_UNKNOWN</td><td>未知按键</td></tr></tbody></table><hr><p>转载自：<a href="http://blog.csdn.net/ouyang_peng">http://blog.csdn.net/ouyang_peng</a></p><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Android </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于Android adb的一些基本使用</title>
+      <link href="/2022/07/28/adbAbout/"/>
+      <url>/2022/07/28/adbAbout/</url>
+      
+        <content type="html"><![CDATA[<h1 id="关于Android-adb的一些基本使用"><a href="#关于Android-adb的一些基本使用" class="headerlink" title="关于Android adb的一些基本使用"></a>关于Android adb的一些基本使用</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>adb的全称为Android Debug Bridge，就是起到调试桥的作用。通过adb我们可以在Eclipse中方面通过DDMS来调试Android程序，说白了就是debug工具。</p><p>adb的工作方式比较特殊，采用监听Socket TCP 5554等端口的方式让IDE和Qemu通讯，默认情况下adb会daemon相关的网络端口，所以当我们运行Eclipse时adb进程就会自动运行。</p><p>借助adb工具，我们可以管理设备或手机模拟器的状态。还可以进行很多手机操作，如安装软件、系统升级、运行shell命令等等。其实简而言说，adb就是连接Android手机与PC端的桥梁，可以让用户在电脑上对手机进行全面的操作。</p><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ol><li>你需要adb工具，来执行adb命令</li></ol><blockquote><p>通过Google Developers 官方下载：</p><p><a href="https://developer.android.com/studio/command-line/adb">https://developer.android.com/studio/command-line/adb</a></p></blockquote><ol><li>你的电脑需要正确安装你的手机驱动并且开启USB调试模式，以便adb命令能被正确执行</li></ol><blockquote><p>在解压后的目录下唤出cmd，进行操作</p></blockquote><ol><li>在安卓设备的系统设置中启用 <strong>USB 调试</strong>（位于<strong>开发者选项</strong>下）</li></ol><blockquote><p>在搭载 Android 4.2 及更高版本的设备上，“开发者选项”屏幕默认情况下处于隐藏状态。如需将其显示出来，请依次转到<strong>设置 &gt; 关于手机</strong>，然后点按<strong>版本号</strong>七次。返回上一屏幕，在底部可以找到<strong>开发者选项</strong>。</p></blockquote><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ul><li>查看设备</li></ul><blockquote><p>adb devices：这个命令是查看当前连接的设备, 连接到计算机的android设备或者模拟器将会列出显示</p></blockquote><ul><li>安装软件</li></ul><p>adb install</p><blockquote><p>adb install &lt;apk文件路径&gt; :这个命令将指定的apk文件安装到设备上卸载软件<br>adb uninstall &lt;软件名&gt;<br>adb uninstall -k &lt;软件名&gt;:如果加 -k 参数,为卸载软件但是保留配置和缓存文件.</p></blockquote><ul><li>进入设备或模拟器的shell：</li></ul><p>adb shell</p><blockquote><p>通过上面的命令，就可以进入设备或模拟器的shell环境中，在这个Linux Shell中，你可以执行各种Linux的命令，另外如果只想执行一条shell命令，可以采用以下的方式：<br>adb shell [command]<br>如：adb shell dmesg会打印出内核的调试信息。</p></blockquote><ul><li>发布端口</li></ul><blockquote><p>可以设置任意的端口号，做为主机向模拟器或设备的请求端口。如：<br>adb forward tcp:5555 tcp:8000</p></blockquote><ul><li>从电脑上发送文件到设备</li></ul><blockquote><p>adb push &lt;本地路径&gt; &lt;远程路径&gt;<br>用push命令可以把本机电脑上的文件或者文件夹复制到设备(手机)<br>如果要push文件到system目录下，需要先挂载读写权限，即命令 adb remount</p></blockquote><ul><li>从设备上下载文件到电脑</li></ul><blockquote><p>adb pull &lt;远程路径&gt; &lt;本地路径&gt;<br>用pull命令可以把设备(手机)上的文件或者文件夹复制到本机电脑</p></blockquote><ul><li>查看bug报告</li></ul><blockquote><p>adb bugreport</p></blockquote><ul><li>记录无线通讯日志</li></ul><blockquote><p>一般来说，无线通讯的日志非常多，在运行时没必要去记录，但我们还是可以通过命令，设置记录：<br>adb shell logcat -b radio</p></blockquote><ul><li>获取设备的ID和序列号</li></ul><blockquote><p>adb get-product<br>adb get-serialno</p></blockquote><ul><li>进入终端</li></ul><blockquote><p>adb shell</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> adb </category>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Android </tag>
+            
+            <tag> adb </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2022/07/27/Hello%20World/"/>
+      <url>/2022/07/27/Hello%20World/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><p>Hi！Kevin Chen is here. As you see, this is my very first blog in my whole life, In the rest of my Internet time, I’ll share some about my learning and mental journey in here and take much more time to improve ,expend this blog meticulously. And then let’s begins. </p><h3 id="Ⅰ-About-this-guy"><a href="#Ⅰ-About-this-guy" class="headerlink" title="Ⅰ: About this guy"></a>Ⅰ: About this guy</h3><ol><li>a collage student from China yet now</li><li>like programming, root my Android devices, experience different equipment economy</li><li>is moving towards computer post-graduate, strive to climb to a higher level</li></ol><h3 id="Ⅱ-Why-I-came-here"><a href="#Ⅱ-Why-I-came-here" class="headerlink" title="Ⅱ: Why I came here"></a>Ⅱ: Why I came here</h3><p>Since 2020, which is the first time I came to a normal high school, I have developed little interest in computer. Although I was admitted to this school’s recommendation, I couldn’t irrigate too much time and energy on it cos some reasons we all know. After entering collage, finally a lot of time is empty for me to find what I truly loved and things needs to seek. That’s why I decided to dig deeper into magic code world. </p><h3 id="Ⅲ-What-kind-of-person-am-I"><a href="#Ⅲ-What-kind-of-person-am-I" class="headerlink" title="Ⅲ: What kind of person am I"></a>Ⅲ: What kind of person am I</h3><p>In my principle ,also standard for myself</p><p>I talk to whom know me</p><p>I smile to whom also smile to me</p><p>I keep my distance to whom are hypocrite</p><p>I give everything and bear suffer to whom is sincere to me. </p><p>An eye for an eye, a tooth for a tooth, but behind thee.</p><h3 id="Ⅳ-The-end"><a href="#Ⅳ-The-end" class="headerlink" title="Ⅳ: The end"></a>Ⅳ: The end</h3><p>In exactly, it is a world of my own, and I also hope you can walk slowly and find a place area when you came to see this little blog.</p><blockquote><p>Let’s fight for what we want and be better!</p></blockquote><p>Translate:</p><p>芜湖！这里是Kevin Chen。如你所见，这是我的第一篇blog，在我之后的网络时间中，我将在这里分享一些关于学习相关的总结和心路历程，也将会花更多的时间去仔细地提升和拓展这个博客。然后让我们开始吧！</p><h3 id="关于这个家伙"><a href="#关于这个家伙" class="headerlink" title="关于这个家伙"></a>关于这个家伙</h3><ol><li>一名在校的普通大学生</li><li>喜欢编程，折腾安卓手机，体验不同的生态</li><li>正在朝着计算机考研努力，爬到更高的水平</li></ol><h3 id="我为什么来到这"><a href="#我为什么来到这" class="headerlink" title="我为什么来到这"></a>我为什么来到这</h3><p>在我在2020年进入了一所普通的高中的时候，我已经对计算机产生了一点点兴趣，虽然考上了重点班，但因为一些众所周知的原因我也不能在这方面花费太多的时间和精力。在进入大学之后，我终于有了充足的时间去·寻找真正喜欢和值得追求的东西。这也是我为什么想去探索代码世界的原因。</p><h3 id="我的性格"><a href="#我的性格" class="headerlink" title="我的性格"></a>我的性格</h3><p>在我的原则里，这也是我对自己的要求</p><p>我诉之于知音</p><p>我对从善之人微笑</p><p>我对虚伪之人保持距离</p><p>我给真正朋友一切也共同承担痛苦</p><p>以眼还眼，以牙还牙，后于恶意</p><h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>明显的，这是一个我的小世界，我也希望在你看到这小小的博客时，能放慢脚步，找到一个宁静之地。共勉！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 日常 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 杂谈 </tag>
+            
+            <tag> 关于我 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
