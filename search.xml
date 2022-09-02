@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>校外进入 齐工带校园网&amp;课表导入</title>
+      <link href="/2022/09/01/schoolVPN/"/>
+      <url>/2022/09/01/schoolVPN/</url>
+      
+        <content type="html"><![CDATA[<blockquote><h1 id="此文章仅供齐鲁工业大学使用"><a href="#此文章仅供齐鲁工业大学使用" class="headerlink" title="此文章仅供齐鲁工业大学使用"></a><center>此文章仅供齐鲁工业大学使用</h1><h4 id="如果这都嫌麻烦请求助上帝，不然我觉得活着喘气比这更累"><a href="#如果这都嫌麻烦请求助上帝，不然我觉得活着喘气比这更累" class="headerlink" title="如果这都嫌麻烦请求助上帝，不然我觉得活着喘气比这更累"></a><center>如果这都嫌麻烦请求助上帝，不然我觉得活着喘气比这更累</h4><h4 id="以下一些抱怨均发生于真实世界中，而非神经分裂脑补，更何况这本来就无需什么有难度的操作，勿要对号入座，恶意只对好吃懒做的人生效"><a href="#以下一些抱怨均发生于真实世界中，而非神经分裂脑补，更何况这本来就无需什么有难度的操作，勿要对号入座，恶意只对好吃懒做的人生效" class="headerlink" title="以下一些抱怨均发生于真实世界中，而非神经分裂脑补，更何况这本来就无需什么有难度的操作，勿要对号入座，恶意只对好吃懒做的人生效"></a><center>以下一些抱怨均发生于真实世界中，而非神经分裂脑补，更何况这本来就无需什么有难度的操作，勿要对号入座，恶意只对好吃懒做的人生效</h4></blockquote><p>总有很多人来问我<code>校外用校园网&amp;怎么没有校园网导课表</code>的方法，其实在校外用的是校内的隧道，校外进校园网只是一个不正确的代称，不想解释。</p><hr><h1 id="校外进入齐工带校园网"><a href="#校外进入齐工带校园网" class="headerlink" title="校外进入齐工带校园网"></a>校外进入齐工带校园网</h1><h2 id="连接校内VPN"><a href="#连接校内VPN" class="headerlink" title="连接校内VPN"></a>连接校内VPN</h2><p>进入<a href="https://vpn.qlu.edu.cn/">学校的一号通”网关“</a>，登陆”一号通“账号，随便谁的都行，没有的来用我的</p><blockquote><p>Q：不要再问<code>用别人的号登一号通不就是别人的教务系统了吗？</code></p><p>A：这只是你接入学校的入口，教务系统&#x2F;图书馆&#x2F;论文什么的是入口之后不同的门，进不同的门需要的才是你自己的信息</p><p>summery：看不懂来看人话——不是，别问这么多用不着操心的</p></blockquote><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209020912219.png" alt="入口"></p><h2 id="进入教务系统"><a href="#进入教务系统" class="headerlink" title="进入教务系统"></a>进入教务系统</h2><p>在这里就可以登录你自己的教务系统了（输你自己的教务号）</p><blockquote><p>你也可以通过下载客户端启动伪系统代理级的访问，原理只是把网页封装在了一个垃圾第三方app中，（不解释）</p></blockquote><p><code>不想搞的不推荐搞</code></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209020913843.png"></p><hr><h1 id="wakeup课程表的导入方法"><a href="#wakeup课程表的导入方法" class="headerlink" title="wakeup课程表的导入方法"></a>wakeup课程表的导入方法</h1><blockquote><p><strong>先说其他方法</strong></p><p>1.连接校园网直接打开wakeup中的教务系统</p><p>2.找你周围懂的人要分享口令导入</p><p>3.不导，混吃等死打游戏捏😋（请勿对号入座</p><p>4.Q：我想用啥就用啥，凭什么要听你的</p><p>​A：对对对，你都对</p></blockquote><p><strong>不要问我为什么不用超级课程表，花里胡哨的垃圾功能and堪比半热启动QQ的内存占用，谁爱用谁用，反正我不用。有一段时间我都把wakeup打包成了系统应用就是因为它太舒适了</strong></p><hr><h2 id="打开wakeup-app进入vpn"><a href="#打开wakeup-app进入vpn" class="headerlink" title="打开wakeup app进入vpn"></a>打开wakeup app进入vpn</h2><p>1、 2、 3、</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209020935208.jpg" alt="1"></p><p>4、 新的学期也不需要旧的课表，这里我们选择覆盖</p><p>5、将地址栏的jwxt改为vpn，重新加载</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209020938960.jpg" alt="36646532A41F2D71249F946928D470B5"></p><p>6、进入一号通之后再进入<code>教务系统-选课中心-学期理论课表</code></p><p>进入<code>学期理论课表</code>之后点击右下角箭头导入wakeup</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209020943830.jpg" alt="3A94C4015D9D9D96E88D7EBD192E917E"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 杂谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 杂谈 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>建立个人博客（五）—— 图床</title>
       <link href="/2022/08/30/photos%20bed/"/>
       <url>/2022/08/30/photos%20bed/</url>
@@ -175,9 +200,11 @@
       
       <categories>
           
-          <category> apps </category>
+          <category> PC </category>
           
           <category> Windows </category>
+          
+          <category> apps </category>
           
       </categories>
       
@@ -204,9 +231,9 @@
       
       <categories>
           
-          <category> Magisk </category>
-          
           <category> Android </category>
+          
+          <category> rootHide </category>
           
       </categories>
       
@@ -233,9 +260,9 @@
       
       <categories>
           
-          <category> Magisk </category>
-          
           <category> Android </category>
+          
+          <category> Magisk </category>
           
       </categories>
       
@@ -263,6 +290,8 @@
       <categories>
           
           <category> Android </category>
+          
+          <category> root </category>
           
       </categories>
       
@@ -314,9 +343,9 @@
       
       <categories>
           
-          <category> adb </category>
-          
           <category> Android </category>
+          
+          <category> adb </category>
           
       </categories>
       
