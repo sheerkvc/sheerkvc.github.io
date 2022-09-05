@@ -83,3 +83,10 @@
 #rightside_config i.fas.fa-cog.fa-spin {
     animation: fa-spin 5s linear infinite ;
 }
+/*
+时钟背景透明
+ */
+/*#aside-content.aside-content > .sticky_layout > .card-widget.card-clock > .card-glass > .card-background {*/
+/*    background-color: unset ;*/
+/*    box-shadow: unset ;*/
+/*}*/
