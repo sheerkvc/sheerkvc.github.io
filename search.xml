@@ -4,6 +4,141 @@
   
     
     <entry>
+      <title>【Hexo-Butterfly】修改侧边栏分类排序规则</title>
+      <link href="/2022/09/05/sidebarReSort/"/>
+      <url>/2022/09/05/sidebarReSort/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p><code>Hexo-Butterfly</code>主题中，主页侧边栏中的<code>categories</code>默认显示顺序是按<code>name</code>排序，导致某些分类下虽然文章数量较少，但却排序靠前。并且默认设置下，主题中侧边<code>categories</code>只显示8条（如需修改可以修改<strong>主题配置文件</strong>），这在某些情况下让我的强迫症犯了主页分类不太实用，遂产生修改侧边栏<code>categories</code>的想法：按每个<code>categories</code>下文章数量降序排序。</p><p><a href="https://yanchengxu.top/hexo-categories-sort/image-20210921101717710.png"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051856414.png" alt="image-20210921101717710"></a></p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><blockquote><p>本操作涉及<strong>修改主题源代码</strong>，新手使用前建议<strong>备份</strong>相关文件</p></blockquote><ol><li><p>使用<code>VSCode/WebStrom</code>打开<strong>主题文件夹</strong>，用<strong>全局搜索</strong>功能检索关键字<code>name</code></p><p><a href="https://yanchengxu.top/hexo-categories-sort/image-20210921102002588.png"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051856503.png" alt="image-20210921102002588"></a></p></li><li><p>检索至<code>themes\butterfly\scripts\helpers\aside_categories.js</code>，<strong>修改源代码</strong>。</p><p>大约22行</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">复制成功<span class="comment">// const orderby = options.orderby || &#x27;name&#x27; // 默认-&gt;name-&gt;按categories字母顺序</span></span><br><span class="line"><span class="keyword">const</span> orderby = options.<span class="property">orderby</span> || <span class="string">&#x27;length&#x27;</span>  <span class="comment">// length-&gt;按categories下文章数量排序</span></span><br><span class="line"><span class="comment">// const order = options.order || 1  // 默认-&gt;1-&gt;升序 -1-&gt;逆序</span></span><br><span class="line"><span class="keyword">const</span> order = options.<span class="property">order</span> || -<span class="number">1</span></span><br></pre></td></tr></table></figure></li><li><p>执行<code>hexo g &amp;&amp; hexo s</code>查看修改效果</p><p><a href="https://yanchengxu.top/hexo-categories-sort/image-20210921102750542.png"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051856540.png" alt="image-20210921102750542"></a></p></li></ol><h1 id="提醒"><a href="#提醒" class="headerlink" title="提醒"></a>提醒</h1><p>本教程仅适用于hexo-butterfly&#96;主题，其他主题可以类比尝试</p><p>转载自：<a href="https://yanchengxu.top/hexo-categories-sort/">https://yanchengxu.top/hexo-categories-sort/</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> blog </tag>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于macOS系统应用的一些问题解决方案</title>
+      <link href="/2022/09/05/macOSBugs/"/>
+      <url>/2022/09/05/macOSBugs/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、xxx-app-已损坏，无法打开，你应该将它移到废纸篓-打不开-xxx，因为它来自身份不明的开发者-的解决方法"><a href="#一、xxx-app-已损坏，无法打开，你应该将它移到废纸篓-打不开-xxx，因为它来自身份不明的开发者-的解决方法" class="headerlink" title="一、xxx.app 已损坏，无法打开，你应该将它移到废纸篓/打不开 xxx，因为它来自身份不明的开发者 的解决方法"></a>一、<code>xxx.app 已损坏，无法打开，你应该将它移到废纸篓/打不开 xxx，因为它来自身份不明的开发者</code> 的解决方法</h2><blockquote><h3 id="常见的几种报错"><a href="#常见的几种报错" class="headerlink" title="常见的几种报错"></a>常见的几种报错</h3><ul><li>xxx已损坏，无法打开，你应该将它移到废纸篓解决办法</li><li>打不开 xxx，因为它来自身份不明的开发者</li><li>打不开xxxx，因为 Apple 无法检查其是否包含恶意软件</li><li>在安装的时候提示加载失败！</li></ul></blockquote><h2 id="方法：开启任何来源"><a href="#方法：开启任何来源" class="headerlink" title="方法：开启任何来源"></a>方法：开启任何来源</h2><p>先打开 <code>系统偏好设置 -&gt; 安全与隐私 -&gt; 通用</code> 选项卡，检查是否已经启用了 <code>任何来源</code> 选项。</p><p>如果没有这个选项，<code>终端</code>中执行如下命令</p><blockquote><p>sudo模式需要输入密码不做解释</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure><p>然后放行 <code>你要打开的应用</code>（不要有空格） :</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xattr -cr /Applications/XXXXXXX.app</span><br></pre></td></tr></table></figure><p>or</p><p>或者复制以下命令粘贴到终端后</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xattr -rd com.apple.quarantine </span><br></pre></td></tr></table></figure><p>打开 <code>Finder-应用程序</code>，将应用拖进终端中。</p><blockquote><p>注意 <code>quarantine </code>后面必须有空格</p></blockquote><h2 id="方法：应用签名（扩展）"><a href="#方法：应用签名（扩展）" class="headerlink" title="方法：应用签名（扩展）"></a>方法：应用签名（扩展）</h2><ol><li>安装Command Line Tools 工具</li></ol><p>打开终端工具输入如下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658773.jpg" alt="img"></p><ol><li>弹出安装窗口后选择<code>继续安装</code>，安装过程需要几分钟，请耐心等待。</li><li>打开终端工具输入并执行如下命令对应用签名：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo codesign --force --deep --sign - (应用路径)</span><br></pre></td></tr></table></figure><blockquote><p>应用路径：打开<code>Finder-应用程序</code>，找到相关应用，将它拖进终端命令<code>- </code>的后面，然后按下回车即可，注意最后一个 <code>- </code>后面有一个空格。</p></blockquote><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658977.jpg" alt="img"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658180.jpg" alt="img"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658386.jpg" alt="img"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658602.jpg" alt="img"></p><p>正常情况下只有一行提示，即成功：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/文件位置 : replacing existing signature</span><br></pre></td></tr></table></figure><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658821.jpg" alt="img"></p><h5 id="如遇如下错误："><a href="#如遇如下错误：" class="headerlink" title="如遇如下错误："></a>如遇如下错误：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/文件位置 : replacing existing signature</span><br><span class="line">/文件位置 : resource fork,Finder information,or similar detritus not allowed</span><br></pre></td></tr></table></figure><ol><li>先在终端执行：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xattr -cr /文件位置（直接将应用拖进去即可）</span><br></pre></td></tr></table></figure><ol><li>然后再次执行如下指令即可：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">codesign --force --deep --sign - /文件位置（直接将应用拖进去即可）</span><br></pre></td></tr></table></figure><p>转载自macwk：<a href="https://macwk.com/article/macos-file-damage">https://macwk.com/article/macos-file-damage</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> macOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> macOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Telegram中文包汇总</title>
+      <link href="/2022/09/05/telegramlanguage/"/>
+      <url>/2022/09/05/telegramlanguage/</url>
+      
+        <content type="html"><![CDATA[<h2 id="复制到浏览器转到TG打开"><a href="#复制到浏览器转到TG打开" class="headerlink" title="复制到浏览器转到TG打开"></a>复制到浏览器转到TG打开</h2><p>各个语言包:</p><p>* 中文(简体)-聪聪: <code>tg://setlanguage?lang=zhcncc</code></p><p>* 中文(简体)-@zh_CN: <code>tg://setlanguage?lang=classic-zh-cn</code></p><p>* 中文(简体)-简体: tg:&#x2F;&#x2F;setlanguage?lang&#x3D;classic-zh</p><p>* 中文(简体)-langCN: <code>tg://setlanguage?lang=zhlangcn</code></p><p>* 中文(简体)-zh-hans: <code>tg://setlanguage?lang=zh-hans-beta</code></p><p>* 中文(简体)-瓜体: <code>tg://setlanguage?lang=duang-zh-cn</code></p><p>* 中文(简体)-小哇: <code>tg://setlanguage?lang=qingwa</code></p><p>* 中文(简体)-江湖中文版: <code>tg://setlanguage?lang=jianghu</code></p><p>* 中文(简体)-: tg:&#x2F;&#x2F;setlanguage?lang&#x3D;cnsimplified</p><p>* 中文(简体)-@MiaoCN: <code>tg://setlanguage?lang=meowcn</code></p><p>* 中文(简体)-简体字: <code>tg://setlanguage?lang=jiantizi</code></p><p>* 中文(香港)-繁体1: <code>tg://setlanguage?lang=hongkong</code></p><p>* 中文(香港)-繁体2: <code>tg://setlanguage?lang=zhhant-hk</code></p><p>* 中文(香港)-繁体3: <code>tg://setlanguage?lang=zh-hant-raw</code></p><p>* 中文(香港)-人口语: <code>tg://setlanguage?lang=hongkonger</code></p><p>* 中文(香港)-广东话1: <code>tg://setlanguage?lang=zhhkpb1</code></p><p>* 中文(香港)-广东话2: <code>tg://setlanguage?lang=hkcantonese</code></p><p>* 中文(香港)-郭桓桓: <code>tg://setlanguage?lang=zhong-taiwan-traditional</code></p><p>* 中文(台灣)-正体: <code>tg://setlanguage?lang=taiwan</code></p><p>* 中文(台灣)-繁体: <code>tg://setlanguage?lang=zh-hant-beta</code></p><p>* 中文(台灣)-文言: <code>tg://setlanguage?lang=chinese-ancient</code></p><p>* 中文(台灣)-文言: <code>tg://setlanguage?lang=chinese-literary</code></p><p>* 中文(台灣)-魔法師: <code>tg://setlanguage?lang=encha</code></p><p>* 日文：<code>tg://setlanguage?lang=ja-beta</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> software </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Telegram </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Surfing as your wish —— All-Platform</title>
+      <link href="/2022/09/05/Tunnel/"/>
+      <url>/2022/09/05/Tunnel/</url>
+      
+        <content type="html"><![CDATA[<p> <strong><del>仅为学习自用，不可用于底线用途！</del></strong></p><h1 id="Android："><a href="#Android：" class="headerlink" title="Android："></a>Android：</h1><h3 id="一：Clash："><a href="#一：Clash：" class="headerlink" title="一：Clash："></a>一：Clash：</h3><blockquote><p><a href="https://github.com/Kr328/ClashForAndroid/releases">https://github.com/Kr328/ClashForAndroid/releases</a><br>→         or install it in Google Play Store</p></blockquote><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051627603.jpeg" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051627901.jpeg" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051627362.jpeg" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051627671.jpeg" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051627932.jpeg" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051627331.jpeg" alt="img"></p><h3 id="二：v2rayNG："><a href="#二：v2rayNG：" class="headerlink" title="二：v2rayNG："></a>二：v2rayNG：</h3><blockquote><p><a href="https://github.com/2dust/v2rayNG/releases">https://github.com/2dust/v2rayNG/releases</a><br>→         or install it in Google Play Store</p></blockquote><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051627968.png" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051627127.png" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051627287.png" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051627591.png" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051627749.png" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051627912.png" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051627091.png" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051627296.png" alt="img"></p><h1 id="iOS"><a href="#iOS" class="headerlink" title="iOS:"></a>iOS:</h1><h3 id="零：（拓展）外区账号注册、登录及购买："><a href="#零：（拓展）外区账号注册、登录及购买：" class="headerlink" title="零：（拓展）外区账号注册、登录及购买："></a>零：（拓展）外区账号注册、登录及购买：</h3><p><strong>这里以美区为例</strong></p><p>1.注册：</p><blockquote><p>转载自知乎：<a href="https://zhuanlan.zhihu.com/p/469423580">https://zhuanlan.zhihu.com/p/469423580</a></p></blockquote><blockquote><p>其中 添加付款方式 时，应填入免税州地址👇（为例）<br>【城市：Chevak 州：阿拉斯加 邮编：99613 电话：10位数即可（前3后7）】</p></blockquote><p>2.登录:</p><blockquote><p><strong>！！！！！！！！！！！！！！注意！！！！！！！！！！！！！！</strong><br>看下图操作，请务必正确登录！<br><strong>不可在设置中更换iCloud！！不可在设置中更换iCloud！！不可在设置中更换iCloud！！直接锁机锁帐号！！后果自负！！</strong></p><p>打开iPhone手机桌面的App Store软件；<br>点击右上角头像进入，输入你的美区id登录。<br>最后一步是跳过双重认证，点击“其他选项”“不升级”即可。</p></blockquote><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051628087.jpeg" alt="img"></p><p>3.购买：</p><blockquote><p>推荐使用礼品卡兑换美区余额👇或某宝购买兑换码兑换👇</p></blockquote><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051628599.png" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051628017.png" alt="img"></p><blockquote><p><em><strong>*[不推荐共享账号，密码时改，且拥有app所有权的账号才可更新]*</strong></em><br><em><strong>*[只推荐自用美区账号正版购入]*</strong></em></p></blockquote><h3 id="一、Shadowrocket（美区账号内下载，2-99-）"><a href="#一、Shadowrocket（美区账号内下载，2-99-）" class="headerlink" title="一、Shadowrocket（美区账号内下载，2.99$）"></a>一、Shadowrocket（美区账号内下载，2.99$）</h3><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051628204.jpeg" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051628545.jpeg" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051628305.jpeg" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051628534.jpeg" alt="img"></p><blockquote><p>PS：设置里可以设置更新频率</p></blockquote><h3 id="二、Quamtumult-X（美区账号内下载，7-99-）"><a href="#二、Quamtumult-X（美区账号内下载，7-99-）" class="headerlink" title="二、Quamtumult X（美区账号内下载，7.99$）"></a>二、Quamtumult X（美区账号内下载，7.99$）</h3><blockquote><p>“风车”设置添加订阅即可，由于门槛稍高、价格稍贵且有额外应用场景，在此不做入门推荐，嫌麻烦的同学可以出门右转了</p></blockquote><h1 id="Windows："><a href="#Windows：" class="headerlink" title="Windows："></a>Windows：</h1><h3 id="一：Clash-For-Windows（CFW）："><a href="#一：Clash-For-Windows（CFW）：" class="headerlink" title="一：Clash For Windows（CFW）："></a>一：Clash For Windows（CFW）：</h3><blockquote><p><a href="https://github.com/Fndroid/clash_for_windows_pkg/releases">https://github.com/Fndroid/clash_for_windows_pkg/releases</a></p></blockquote><blockquote><p>1.下载.exe，如下图配置好</p></blockquote><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051628873.png" alt="img"></p><blockquote><p>如果不能联网，关闭TUN Mode，不解释赘述</p></blockquote><blockquote><p>2.汉化：<br><a href="https://github.com/BoyceLig/Clash_Chinese_Patch/releases">https://github.com/BoyceLig/Clash_Chinese_Patch/releases</a><br>关闭Clash，解压压缩包，自行替换<code>Clash for Windows\resources\app.asar</code>中的<code>app.asa</code>r文件</p></blockquote><p>添加配置：</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051629166.png" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051629489.png" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051629794.png" alt="img"></p><h3 id="二：V2rayN："><a href="#二：V2rayN：" class="headerlink" title="二：V2rayN："></a>二：V2rayN：</h3><blockquote><p><a href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a></p></blockquote><blockquote><p>解压下载的压缩包并运行 v2rayN.exe 运行后如果没有窗口，在右下加托盘中找到软件图标双击 选择订阅-订阅设置-然后点击左下角的添加（图1） 备注随意填入，地址即订阅地址，点击下面按钮复制并填入 然后更新订阅（图2）<br>节点强依赖系统时间，请确保您的时间误差不超过30s，可通过<code>time.is</code>校对</p></blockquote><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051629005.png" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051629181.png" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051629464.png" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051629870.png" alt="img"></p><h5 id="常见操作："><a href="#常见操作：" class="headerlink" title="常见操作："></a>常见操作：</h5><blockquote><p>1.双击右下角的软件图标，可以启动面板，右键该节点可以进行真延迟测试<br>2.切换节点和代理模式需要右键右下角的小图标</p></blockquote><blockquote><p>开始连接：选择代理模式：自动配置系统代理↓<br>如果图标变成红色，此时已经可以正常使用</p></blockquote><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051629093.png" alt="img"></p><h1 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS:"></a>MacOS:</h1><h3 id="一：ClashX"><a href="#一：ClashX" class="headerlink" title="一：ClashX:"></a>一：ClashX:</h3><blockquote><p><a href="https://github.com/yichengchen/clashX/releases">https://github.com/yichengchen/clashX/releases</a></p></blockquote><blockquote><p>复制自己的 Clash 订阅&#x2F;托管连接。请打开 ClashX 软件。 首次使用 ClashX 时，macOS 会提醒你此应用来自未知开发者，请允许打开此应用。 ClashX 首次运行会提示是否安装帮助程序（Helper）。此帮助程序用于设置系统代理，否则每次你通过 ClashX 变更系统系统状态（打开或关闭）时都需要输入密码，请点击 <code>Install</code>，之后 macOS 会提示输入用户密码。</p></blockquote><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051629368.jpeg" alt="img"></p><blockquote><p>启动 ClashX，点击状态栏中的 ClashX 图标，依次选择「配置」、「托管配置」、「管理」，在弹出的界面点击添加订阅。</p></blockquote><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051629789.jpeg" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051629983.jpeg" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051629190.jpeg" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051629483.jpeg" alt="img"></p><blockquote><p>若干秒后将在软件里看到刚刚添加的配置文件。<br>点击 ClashX 状态栏图标，将「出站模式」选为「规则判断」，在「Proxy」或「Gloabal」策略组中可以选择自己喜欢的线路，然后点击「设置为系统代理」即可开始使用。<br>「Proxy」或「Gloabal」策略组是用于访问国际互联网的默认策略，一般情况下，所有国际网络的访问都通过该策略组中选择的节点进行连接。</p></blockquote><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051629871.png" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051629250.jpeg" alt="img"></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051629495.jpeg" alt="img"></p><h5 id="对于策略组的简单解释："><a href="#对于策略组的简单解释：" class="headerlink" title="对于策略组的简单解释："></a>对于策略组的简单解释：</h5><blockquote><p>一：策略组的特性：<br>     1.可以包含节点或其他策略组<br>     2.具有多种不同的策略类型<br>     3.服务于规则<br>二：不同策略组的作用：<br>     1.Global (或Proxy，视配置文件具体情况而定)：主要规则代理分组，需手动选定一个你要使用的节点作为默认的节点。无   其它修改的话，所有国际网络的访问都通过该策略组中选择的节点进行连接。<br>     2.Netflix：指Netflix流媒体的分组，如选择香港节点，则显示港区内容。其它地区的同理。<br>     3.Spotify：指Spotify流媒体的分组，仅用于加速访问。Spotify执行锁区政策，根据账号注册时所在地进行内容展示，更换节点并不能显示其它地区的版权内容。<br>     4.YouTube：指YouTube流媒体的分组，使用不同的线路将展示不同地区的特色内容。<br>     5.Telegram：指Telegram（电报）的分组，国内手机号注册的用户选择新加坡线路也许可以加速（注意：是也许。因为+86号段注册的电报用户数据都在新加坡数据中心）。<br>     6.China：访问中国大陆网站所用的策略。大陆用户请选择 DIRECT （直接连接）；海外用户请选择回国线路。<br>     7.Auto：软件每隔一段时间会自动进行测试并排序，自动评选出延迟最低的节点，当其它策略组里选择了 auto 策略，那么效果就是该策略组将每隔一段时间自动切换到延迟最低的线路。 （如果你有登陆脸书、IG等社交媒体，不建议使用该策略，以免由于IP变动造成风控，甚至封号。）<br>     8.fallback：可用性策略。与故障转移类似，按照节点顺序选择第一个可用节点。</p></blockquote><h3 id="二：Clash-for-Windows"><a href="#二：Clash-for-Windows" class="headerlink" title="二：Clash for Windows"></a>二：Clash for Windows</h3><blockquote><p>官方地址下载xxxxxx.dmg即可，源地址同Windows</p></blockquote><p>这里单独说明macOS下其汉化问题：</p><p>找到<code>/应用程序/Clash for Windows.app</code>，显示包内容，<code>content-Resources</code>中替换<code>app.asar</code>即可</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Internet </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Tunnel </tag>
+            
+            <tag> Inet </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>iStat Menus激活码</title>
+      <link href="/2022/09/05/iStat%20Menus/"/>
+      <url>/2022/09/05/iStat%20Menus/</url>
+      
+        <content type="html"><![CDATA[<h1 id="iStat-Menus-6-的激活码"><a href="#iStat-Menus-6-的激活码" class="headerlink" title="iStat Menus 6 的激活码"></a>iStat Menus 6 的激活码</h1><hr><p>感谢这位老哥的分享<br>使用以下邮箱和激活码，可激活iStat Menus软件</p><p>测试了发现天气貌似不能更新（也有可能是我电脑的问题）</p><blockquote><p>本转者注：俺也一样</p></blockquote><p>不过～问题不大</p><hr><p>Email: <a href="mailto:&#x39;&#56;&#50;&#x30;&#x39;&#x32;&#x33;&#x33;&#50;&#64;&#113;&#x71;&#46;&#x63;&#x6f;&#109;">&#x39;&#56;&#50;&#x30;&#x39;&#x32;&#x33;&#x33;&#50;&#64;&#113;&#x71;&#46;&#x63;&#x6f;&#109;</a></p><p>SN: <code>GAWAE-FCWQ3-P8NYB-C7GF7-NEDRT-Q5DTB-MFZG6-6NEQC-CRMUD-8MZ2K-66SRB-SU8EW-EDLZ9-TGH3S-8SGA</code></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051358694.png" alt="image"></p><hr><p>转载自：<a href="https://www.cnblogs.com/lrain/p/16553718.html">https://www.cnblogs.com/lrain/p/16553718.html</a></p><p>源头自：<a href="https://www.jianshu.com/p/1345a10331cb">https://www.jianshu.com/p/1345a10331cb</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> PC </category>
+          
+          <category> macOS </category>
+          
+          <category> apps </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> macOS </tag>
+            
+            <tag> apps </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>校外进入 齐工带校园网&amp;课表导入</title>
       <link href="/2022/09/01/schoolVPN/"/>
       <url>/2022/09/01/schoolVPN/</url>
