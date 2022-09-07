@@ -8,7 +8,7 @@
       <link href="/2022/09/05/beautifyBlog/"/>
       <url>/2022/09/05/beautifyBlog/</url>
       
-        <content type="html"><![CDATA[<p>此篇文章引用了我在更新博客时所参考的资料，在这里对原作者们表示万分感谢</p><hr><h3 id="引入标题小风车、分享、点赞、侧边时钟-小人、插入音画等，参考自："><a href="#引入标题小风车、分享、点赞、侧边时钟-小人、插入音画等，参考自：" class="headerlink" title="引入标题小风车、分享、点赞、侧边时钟/小人、插入音画等，参考自："></a>引入标题小风车、分享、点赞、侧边时钟/小人、插入音画等，参考自：</h3><div class="tag link"><a class="link-card" title="我的 Blog 美化日记 ——Hexo+Butterfly" href="https://guole.fun/posts/butterfly-custom/"><div class="left"><img src="https://guole.fun/img/gl.jpg"/></div><div class="right"><p class="text">我的 Blog 美化日记 ——Hexo+Butterfly</p><p class="url">https://guole.fun/posts/butterfly-custom/</p></div></a></div><h3 id="引入外挂标签，参考自："><a href="#引入外挂标签，参考自：" class="headerlink" title="引入外挂标签，参考自："></a>引入外挂标签，参考自：</h3><div class="tag link"><a class="link-card" title="Tag Plugins Plus" href="https://akilar.top/posts/615e2dec/"><div class="left"><img src="https://assets.akilar.top/image/20200907113116651.png"/></div><div class="right"><p class="text">Tag Plugins Plus</p><p class="url">https://akilar.top/posts/615e2dec/</p></div></a></div>]]></content>
+        <content type="html"><![CDATA[<p>此篇文章引用了我在更新博客时所参考的资料，在这里对原作者们表示万分感谢</p><hr><h3 id="引入标题小风车、分享、点赞、侧边时钟-小人、插入音画等，参考自："><a href="#引入标题小风车、分享、点赞、侧边时钟-小人、插入音画等，参考自：" class="headerlink" title="引入标题小风车、分享、点赞、侧边时钟/小人、插入音画等，参考自："></a>引入标题小风车、分享、点赞、侧边时钟/小人、插入音画等，参考自：</h3><div class="tag link"><a class="link-card" title="我的 Blog 美化日记 ——Hexo+Butterfly" href="https://guole.fun/posts/butterfly-custom/"><div class="left"><img src="https://guole.fun/img/gl.jpg"/></div><div class="right"><p class="text">我的 Blog 美化日记 ——Hexo+Butterfly</p><p class="url">https://guole.fun/posts/butterfly-custom/</p></div></a></div><h3 id="引入外挂标签，参考自："><a href="#引入外挂标签，参考自：" class="headerlink" title="引入外挂标签，参考自："></a>引入外挂标签，参考自：</h3><div class="tag link"><a class="link-card" title="Tag Plugins Plus" href="https://akilar.top/posts/615e2dec/"><div class="left"><img src="https://assets.akilar.top/image/20200907113116651.png"/></div><div class="right"><p class="text">Tag Plugins Plus</p><p class="url">https://akilar.top/posts/615e2dec/</p></div></a></div><h3 id="文章加密："><a href="#文章加密：" class="headerlink" title="文章加密："></a>文章加密：</h3><div class="tag link"><a class="link-card" title="Tag Plugins Plus" href="https://blog.justlovesmile.top/posts/43010.html"><div class="left"><img src="https://blog.justlovesmile.top/img/avatar.jpg"/></div><div class="right"><p class="text">Tag Plugins Plus</p><p class="url">https://blog.justlovesmile.top/posts/43010.html</p></div></a></div>]]></content>
       
       
       <categories>
@@ -191,33 +191,6 @@
     
     
     <entry>
-      <title>建立个人博客（五）—— 图床</title>
-      <link href="/2022/08/30/photos%20bed/"/>
-      <url>/2022/08/30/photos%20bed/</url>
-      
-        <content type="html"><![CDATA[<p>理所当然的，一篇文章里需要有图片来加以形象的说明实例。在远端博客中，我们不可能把用到的所有图片全部塞到仓库中，因此我们需要一个<code>gallery in cloud</code>帮我们储存相对应的图片以供阅读时加载。国内外都有很多图床服务商提供对象储存服务，对于初学等级，这里以国内的阿里云OOS对象储存服务作为参考，也可以为下面的域名打一些基础。</p><p>对于图床，我们需要服务提供商和上传app两个方面的支持，这里由此展开。</p><hr><h2 id="一、购买OOS服务"><a href="#一、购买OOS服务" class="headerlink" title="一、购买OOS服务"></a>一、购买OOS服务</h2><ul><li>找到<a href="https://www.aliyun.com/">阿里云</a>官网，注册对应的账号并进行实名认证，登录后找到对象储存OOS</li></ul><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301450887.png" alt="image-20220830145026842"></p><ul><li>选择你想购买的套餐，自用博客推荐40G足够</li></ul><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301453654.png" alt="image-20220830145323628"></p><ul><li>购买后进入控制台-对象储存OOS-Bucket列表</li></ul><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301457571.png" alt="image-20220830145618050"></p><ul><li>创建Bucket</li></ul><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301503475.png" alt=""></p><h2 id="二、配置PicGo"><a href="#二、配置PicGo" class="headerlink" title="二、配置PicGo"></a>二、配置PicGo</h2><p><a href="https://molunerfinn.com/PicGo/">PicGo</a>是一个开源免费的全平台的图片入床工具，基本支持了主流的所有图床，配合typora使用更为锦上添花。</p><ul><li>首先下载好对应系统的PicGo</li><li>你可以在<code>PicGo设置</code>里选择隐藏不需要的图床，在<code>图床设置</code>里配置你的图床，这里以阿里云OOS为例，下面是设置一览↓，下面将分别介绍如何设置</li></ul><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301511411.png" alt="image-20220830151151377"></p><h4 id="①、KeyId、KeySecret："><a href="#①、KeyId、KeySecret：" class="headerlink" title="①、KeyId、KeySecret："></a>①、KeyId、KeySecret：</h4><p>回到阿里云主页，右上角头像中打开<code>AccessKey管理</code> - <code>创建AccessKey</code> - 将得到的<code>AccessKey ID/AccessKey Secret</code>拷贝备用</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301514954.png" alt="image-20220830151453935"></p><h4 id="②、储存空间名："><a href="#②、储存空间名：" class="headerlink" title="②、储存空间名："></a>②、储存空间名：</h4><p>即为你新建的bucket名</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301518258.png" alt="image-20220830151818226"></p><h4 id="③、储存区域："><a href="#③、储存区域：" class="headerlink" title="③、储存区域："></a>③、储存区域：</h4><p>为你新建的bucket的区域</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301519491.png" alt="image-20220830151900458"></p><h4 id="④、储存路径之后的："><a href="#④、储存路径之后的：" class="headerlink" title="④、储存路径之后的："></a>④、储存路径之后的：</h4><p>可不填</p><h2 id="三、配置Typora"><a href="#三、配置Typora" class="headerlink" title="三、配置Typora"></a>三、配置Typora</h2><blockquote><p>要想粘贴图片到文章时直接上传至OOS，我们还需要将Typora的图片上传功能指向PicGo.app</p></blockquote><p>按下图配置即可，可以通过<code>验证图片上传选项</code>查看是否配置成功</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301525143.png" alt="image-20220830152542088"></p><hr>]]></content>
-      
-      
-      <categories>
-          
-          <category> blog </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> blog </tag>
-            
-            <tag> 图床 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>建立个人博客（六）—— 域名</title>
       <link href="/2022/08/30/blog&#39;s%20domain/"/>
       <url>/2022/08/30/blog&#39;s%20domain/</url>
@@ -237,6 +210,33 @@
             <tag> blog </tag>
             
             <tag> 域名 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>建立个人博客（五）—— 图床</title>
+      <link href="/2022/08/30/photos%20bed/"/>
+      <url>/2022/08/30/photos%20bed/</url>
+      
+        <content type="html"><![CDATA[<p>理所当然的，一篇文章里需要有图片来加以形象的说明实例。在远端博客中，我们不可能把用到的所有图片全部塞到仓库中，因此我们需要一个<code>gallery in cloud</code>帮我们储存相对应的图片以供阅读时加载。国内外都有很多图床服务商提供对象储存服务，对于初学等级，这里以国内的阿里云OOS对象储存服务作为参考，也可以为下面的域名打一些基础。</p><p>对于图床，我们需要服务提供商和上传app两个方面的支持，这里由此展开。</p><hr><h2 id="一、购买OOS服务"><a href="#一、购买OOS服务" class="headerlink" title="一、购买OOS服务"></a>一、购买OOS服务</h2><ul><li>找到<a href="https://www.aliyun.com/">阿里云</a>官网，注册对应的账号并进行实名认证，登录后找到对象储存OOS</li></ul><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301450887.png" alt="image-20220830145026842"></p><ul><li>选择你想购买的套餐，自用博客推荐40G足够</li></ul><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301453654.png" alt="image-20220830145323628"></p><ul><li>购买后进入控制台-对象储存OOS-Bucket列表</li></ul><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301457571.png" alt="image-20220830145618050"></p><ul><li>创建Bucket</li></ul><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301503475.png" alt=""></p><h2 id="二、配置PicGo"><a href="#二、配置PicGo" class="headerlink" title="二、配置PicGo"></a>二、配置PicGo</h2><p><a href="https://molunerfinn.com/PicGo/">PicGo</a>是一个开源免费的全平台的图片入床工具，基本支持了主流的所有图床，配合typora使用更为锦上添花。</p><ul><li>首先下载好对应系统的PicGo</li><li>你可以在<code>PicGo设置</code>里选择隐藏不需要的图床，在<code>图床设置</code>里配置你的图床，这里以阿里云OOS为例，下面是设置一览↓，下面将分别介绍如何设置</li></ul><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301511411.png" alt="image-20220830151151377"></p><h4 id="①、KeyId、KeySecret："><a href="#①、KeyId、KeySecret：" class="headerlink" title="①、KeyId、KeySecret："></a>①、KeyId、KeySecret：</h4><p>回到阿里云主页，右上角头像中打开<code>AccessKey管理</code> - <code>创建AccessKey</code> - 将得到的<code>AccessKey ID/AccessKey Secret</code>拷贝备用</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301514954.png" alt="image-20220830151453935"></p><h4 id="②、储存空间名："><a href="#②、储存空间名：" class="headerlink" title="②、储存空间名："></a>②、储存空间名：</h4><p>即为你新建的bucket名</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301518258.png" alt="image-20220830151818226"></p><h4 id="③、储存区域："><a href="#③、储存区域：" class="headerlink" title="③、储存区域："></a>③、储存区域：</h4><p>为你新建的bucket的区域</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301519491.png" alt="image-20220830151900458"></p><h4 id="④、储存路径之后的："><a href="#④、储存路径之后的：" class="headerlink" title="④、储存路径之后的："></a>④、储存路径之后的：</h4><p>可不填</p><h2 id="三、配置Typora"><a href="#三、配置Typora" class="headerlink" title="三、配置Typora"></a>三、配置Typora</h2><blockquote><p>要想粘贴图片到文章时直接上传至OOS，我们还需要将Typora的图片上传功能指向PicGo.app</p></blockquote><p>按下图配置即可，可以通过<code>验证图片上传选项</code>查看是否配置成功</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208301525143.png" alt="image-20220830152542088"></p><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> blog </tag>
+            
+            <tag> 图床 </tag>
             
         </tags>
       
