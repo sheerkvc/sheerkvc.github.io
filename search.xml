@@ -4,23 +4,23 @@
   
     
     <entry>
-      <title>关于学习笔记问题</title>
-      <link href="/2022/09/18/noteAbout/"/>
-      <url>/2022/09/18/noteAbout/</url>
+      <title>Shell Sort</title>
+      <link href="/2022/09/22/noteAbout/"/>
+      <url>/2022/09/22/noteAbout/</url>
       
-        <content type="html"><![CDATA[<p>我看很多博主都在自己的博客中添加了很多学习各种语言/算法/考研一类关键题目的问题解答，依我之见，在我现在的情况而言我更适合听完讲解后用xmind+课本+自录解答视频的方式高效且全面。</p><p>所以如无必要，这种仅供自用向的博客笔记类文将会极少出现在我的博客中，在此说明。</p>]]></content>
+        <content type="html"><![CDATA[<p><strong>Shellsort</strong>, also known as <strong>Shell sort</strong> or <strong>Shell’s method</strong>, is an <a href="https://en.wikipedia.org/wiki/In-place_algorithm">in-place</a> <a href="https://en.wikipedia.org/wiki/Comparison_sort">comparison sort</a>. It can be seen as  either a generalization of sorting by exchange (<a href="https://en.wikipedia.org/wiki/Bubble_sort">bubble sort</a>) or sorting by insertion (<a href="https://en.wikipedia.org/wiki/Insertion_sort">insertion sort</a>).<a href="https://en.wikipedia.org/wiki/Shellsort#cite_note-Knuth-3">[3]</a> The method starts by sorting pairs of elements far apart from each o ther, then progressively reducing the gap between elements to be compared. By starting with far apart elements, it can move some out-of-place elements into position faster than a simple nearest neighbor exchange. <a href="https://en.wikipedia.org/wiki/Donald_Shell">Donald Shell</a> published the first version of this sort in 1959.<a href="https://en.wikipedia.org/wiki/Shellsort#cite_note-Shell-4">[4]</a><a href="https://en.wikipedia.org/wiki/Shellsort#cite_note-5">[5]</a> The running time of Shellsort is heavily dependent on the gap sequence it uses. For many practical variants, determining their <a href="https://en.wikipedia.org/wiki/Time_complexity">time complexity</a> remains an <a href="https://en.wikipedia.org/wiki/Open_problem">open problem</a>.</p><p>——From Wikimedia</p><p>对于希尔排序的渐小增量d，可以理解为每组相同d的data独立出来作为一个新的子表进行<strong>直接插入排序</strong>，也可以理解为在整个数组中，有一个跳跃指针在进行自身递减的遍历运动。</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209220901279.gif" alt="20140912155122!Sorting_shellsort_anim"></p><center>对于d = 2 的跳跃遍历</center><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209220901306.gif" alt="Sorting_shellsort_anim"></p><center>对于d = 1 的跳跃遍历</center><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">shell_Sort</span><span class="params">(<span class="type">int</span> A[],<span class="type">int</span> n)</span>&#123;</span><br><span class="line">  </span><br><span class="line"><span class="type">int</span> d,i,j;</span><br><span class="line">  <span class="comment">//A[0]只是暂存单元，不是哨兵，当j&lt;=0时，插入位置已到</span></span><br><span class="line">  <span class="comment">//label1:</span></span><br><span class="line">  <span class="keyword">for</span>(d = n/<span class="number">2</span>;d&gt;=<span class="number">1</span>;d=d/<span class="number">2</span>)&#123;<span class="comment">//步长变化</span></span><br><span class="line">    <span class="comment">//label2:</span></span><br><span class="line">    <span class="keyword">for</span>(i=d+<span class="number">1</span>;i&lt;=n;++i)&#123;<span class="comment">//i=d+1保证配对成组，++i从下一个同d的子表开始，直到i=n结束</span></span><br><span class="line">      <span class="keyword">if</span>(A[i]&lt;A[i-d])&#123;<span class="comment">//将A[i]插入到有序增量子表。子表后一个与前一个比较</span></span><br><span class="line">        A[<span class="number">0</span>]=A[i]<span class="comment">//暂存在A[0]中</span></span><br><span class="line">        <span class="comment">//label3：</span></span><br><span class="line">          <span class="keyword">for</span>(j=i-d;j&gt;<span class="number">0</span> &amp;&amp; A[<span class="number">0</span>]&lt;A[j];j-=d)<span class="comment">//j-=d查找子表中有木有前一个元素</span></span><br><span class="line">          A[j+d]=A[j];<span class="comment">//记录后移，查找插入的位置</span></span><br><span class="line">        A[j+d]=A[<span class="number">0</span>];<span class="comment">//插入</span></span><br><span class="line">      &#125;<span class="comment">//if</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在label2的for()中，我们会在处理完每一个子表的相同位置的元素之后，才会进行下一个位置元素的对比操作（类似java的syn线程锁）。但如果理解为Wikimedia的跳跃指针的话，指针在整个表中移动，遍历完之后才会进行下一次遍历（类似上述下一个位置）。</p>]]></content>
       
       
       <categories>
           
-          <category> 日常 </category>
+          <category> 学习 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 杂谈 </tag>
+            <tag> 希尔排序 </tag>
             
         </tags>
       
