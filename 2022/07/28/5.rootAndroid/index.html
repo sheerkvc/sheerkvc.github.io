@@ -1,0 +1,304 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Android设备root的通用方法 | sheerkvc</title><meta name="keywords" content="Android,root"><meta name="author" content="Kevin Chen,sheerkvc@gmail.com"><meta name="copyright" content="Kevin Chen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="root">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android设备root的通用方法">
+<meta property="og:url" content="https://sheerkvc.github.io/2022/07/28/5.rootAndroid/index.html">
+<meta property="og:site_name" content="sheerkvc">
+<meta property="og:description" content="root">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://picgo172.oss-cn-qingdao.aliyuncs.com/root.jpg">
+<meta property="article:published_time" content="2022-07-28T01:45:00.000Z">
+<meta property="article:modified_time" content="2022-09-24T02:57:25.000Z">
+<meta property="article:author" content="Kevin Chen">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="root">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://picgo172.oss-cn-qingdao.aliyuncs.com/root.jpg"><link rel="shortcut icon" href="/img/logo.png"><link rel="canonical" href="https://sheerkvc.github.io/2022/07/28/5.rootAndroid/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Android设备root的通用方法',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-24 10:57:25'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="apple-touch-icon" href="https://sheerkvc.top/avatar/avatar.jpeg"><meta name="apple-mobile-web-app-title" content="sheerkvc"><link rel="bookmark" href="https://sheerkvc.top/avatar/avatar.jpeg"><link rel="apple-touch-icon-precomposed" sizes="180x180" href="https://sheerkvc.top/avatar/avatar.jpeg" ><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper/swiper/swiper.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper/swiper/swiperstyle.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/avatar/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-box-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-list"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/maps/"><i class="fa-fw fa fa-compass"></i><span> 导航</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-at"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://picgo172.oss-cn-qingdao.aliyuncs.com/root.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">sheerkvc</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-box-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-list"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/maps/"><i class="fa-fw fa fa-compass"></i><span> 导航</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-at"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Android设备root的通用方法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-28T01:45:00.000Z" title="发表于 2022-07-28 09:45:00">2022-07-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-24T02:57:25.000Z" title="更新于 2022-09-24 10:57:25">2022-09-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Android/">Android</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">816</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Android设备root的通用方法"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2022/07/28/5.rootAndroid/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2022/07/28/5.rootAndroid/" itemprop="commentCount"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Android设备root的通用方法——小白向-简陋版"><a href="#Android设备root的通用方法——小白向-简陋版" class="headerlink" title="Android设备root的通用方法——小白向/简陋版"></a>Android设备root的通用方法——小白向/简陋版</h1><h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><ol>
+<li>一台已经安装adb驱动的电脑（不同品牌手机可能还有额外驱动应下载）</li>
+<li>一台安卓手机（以一加8为例）</li>
+<li>脑子</li>
+</ol>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h4 id="一、解锁bootloader"><a href="#一、解锁bootloader" class="headerlink" title="一、解锁bootloader"></a>一、解锁bootloader</h4><blockquote>
+<p>在嵌入式操作系统中，BootLoader是在操作系统内核运行之前运行。可以初始化硬件设备、建立内存空间映射图，从而将系统的软硬件环境带到一个合适状态，以便为最终调用操作系统内核准备好正确的环境。</p>
+<p>着眼于Android系统中，不解锁bootloader便无法对系统进行有效的修改</p>
+</blockquote>
+<p>①、在手机上解锁开发者选项-USB调试（必需）&amp; OEM解锁（如有显示），用原装数据线连接电脑，允许调试后在adb SDK目录地址栏中打开命令行输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb devices   ---列出已连接的所有设备</span><br></pre></td></tr></table></figure>
+<p>如出现以下情况则为成功连接：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">C:\<span class="title">Users</span>\<span class="title">XXXXX</span>&gt;<span class="title">adb</span> <span class="title">devices</span></span></span><br><span class="line"><span class="function">* <span class="title">daemon</span> <span class="title">not</span> <span class="title">running</span>; <span class="title">starting</span> <span class="title">now</span> <span class="title">at</span> <span class="title">tcp</span>:5037</span></span><br><span class="line"><span class="function">* <span class="title">daemon</span> <span class="title">started</span> <span class="title">successfully</span></span></span><br><span class="line"><span class="function"><span class="title">List</span> <span class="title">of</span> <span class="title">devices</span> <span class="title">attached</span></span></span><br><span class="line"><span class="function">4<span class="title">d83ac25</span>        <span class="title">device</span>                &lt;-----正常显示</span></span><br></pre></td></tr></table></figure>
+<p>②、命令行输入  adb reboot fastboot  重启到fastboot模式</p>
+<blockquote>
+<p>你也可以通过物理按键来进入fastboot中</p>
+<p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/fastboot.png" alt="fastboot"></p>
+</blockquote>
+<p>③、命令行输入  fastboot oem unlock  电源键点击确认即可          ————-&gt;       仅适用于一加系列</p>
+<blockquote>
+<p>因解锁bl将会清空数据，推荐新机或备用机进行解锁，除非对自己技术很有信心</p>
+</blockquote>
+<hr>
+<p><strong><em>至此bootloader已解锁</em></strong></p>
+<h4 id="二、刷入magisk"><a href="#二、刷入magisk" class="headerlink" title="二、刷入magisk"></a>二、刷入magisk</h4><p>在<a target="_blank" rel="noopener" href="https://github.com/topjohnwu/Magisk/releases">官方的github地址下载</a>magisk-Vxx.x.zip</p>
+<p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/image-20220728145619349.png" alt="image-20220728145619349"></p>
+<h6 id="刷入方法一：fastboot线刷："><a href="#刷入方法一：fastboot线刷：" class="headerlink" title="刷入方法一：fastboot线刷："></a>刷入方法一：fastboot线刷：</h6><p>①、将magisk（.zip改为.apk），安装magisk app</p>
+<p>②、找到自己手机当前的系统包，用magisk app修补boot.img得到magisk_patched.img</p>
+<p>③、进入命令行输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot flash boot &quot;magisk_patched.img在电脑上的绝对路径&quot;</span><br></pre></td></tr></table></figure>
+<p>④、开机进入magisk app，提示修复环境后修复即可</p>
+<blockquote>
+<p>若系统包中仅有payload.bin，可用以下工具解出boot.img</p>
+<p><a target="_blank" rel="noopener" href="https://hellokevin.lanzoum.com/iv4fM08jib5c">https://hellokevin.lanzoum.com/iv4fM08jib5c</a></p>
+<h2 id="密码-7i8j"><a href="#密码-7i8j" class="headerlink" title="密码:7i8j"></a>密码:7i8j</h2></blockquote>
+<h6 id="刷入方式二：TWRP（第三方的recovery模式）卡刷："><a href="#刷入方式二：TWRP（第三方的recovery模式）卡刷：" class="headerlink" title="刷入方式二：TWRP（第三方的recovery模式）卡刷："></a>刷入方式二：TWRP（第三方的recovery模式）卡刷：</h6><p>①、找到对应机型的TWRP在解锁bl后刷入手机</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot flash recovery &quot;你下载的TWRP在电脑上的绝对路径&quot;</span><br></pre></td></tr></table></figure>
+<p>②、开机adb连接电脑后，命令行输入adb reboot recovery重启到recovery模式</p>
+<blockquote>
+<p>你也可以通过物理按键来进入recovery中<img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/twrp.png" alt="twrp"></p>
+<p>如果你刷入的TWRP需要解锁data后使用，将data分区格式化再次进入recovery模式即可</p>
+</blockquote>
+<p>③、将magisk-Vxx.x.zip传输到手机内置空间上，在TWRP中install此zip</p>
+<p>④、开机进入magisk app，提示修复环境后修复即可</p>
+<hr>
+<p><center>关于FastBoot和TWRP的区别</p>
+<p>fastboot操作简单，主要通过简单的命令行进行刷入操作</p>
+<p>TWRP稍显繁琐，通过易懂的图形化界面进行刷入操作，对后续更改内核，刷第三方ROM及其友好</p>
+<p><strong>推荐前者新手，后者进阶</strong></p>
+<p><em>上述操作已经是最简单的小白陈述版本，如果仍感觉困难且对root无刚需，推荐iOS养生</em></p>
+<hr>
+<h4 id="三、刷入LSPosed框架"><a href="#三、刷入LSPosed框架" class="headerlink" title="三、刷入LSPosed框架"></a>三、刷入LSPosed框架</h4><p>在<a target="_blank" rel="noopener" href="https://github.com/LSPosed/LSPosed/releases">官方的github地址</a>下载LSPosed-zygisk-release.zip</p>
+<p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/image-20220728214445259.png" alt="image-20220728214445259"></p>
+<p>①、在TWRP下：直接install此zip即可</p>
+<p>②、在magisk app中从本地安装，重启后即可，会自动生成桌面快捷方式</p>
+<p>下图即为安装成功</p>
+<p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/E8F86B99207F80EDD692FC780A542466.jpg" alt="img"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://sheerkvc.github.io">Kevin Chen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://sheerkvc.github.io/2022/07/28/5.rootAndroid/">https://sheerkvc.github.io/2022/07/28/5.rootAndroid/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://sheerkvc.github.io" target="_blank">sheerkvc</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Android/">Android</a><a class="post-meta__tags" href="/tags/root/">root</a></div><div class="post_share"><div class="social-share" data-image="https://picgo172.oss-cn-qingdao.aliyuncs.com/root.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/07/28/2.Android%20KeyCode%E5%88%97%E8%A1%A8/"><img class="prev-cover" src="https://picgo172.oss-cn-qingdao.aliyuncs.com/kc.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Android KeyCode列表</div></div></a></div><div class="next-post pull-right"><a href="/2022/07/28/7.magiskRelated/"><img class="next-cover" src="https://picgo172.oss-cn-qingdao.aliyuncs.com/B9527103738106501A3253E68D53FD08.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">关于Magisk的一些使用事项&amp;隐藏root</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/07/28/2.Android%20KeyCode%E5%88%97%E8%A1%A8/" title="Android KeyCode列表"><img class="cover" src="https://picgo172.oss-cn-qingdao.aliyuncs.com/kc.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-28</div><div class="title">Android KeyCode列表</div></div></a></div><div><a href="/2022/07/29/4.Hide-My-Applist/" title="隐藏应用列表的使用"><img class="cover" src="https://picgo172.oss-cn-qingdao.aliyuncs.com/隐藏应用列表.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-29</div><div class="title">隐藏应用列表的使用</div></div></a></div><div><a href="/2022/07/28/3.adbAbout/" title="关于Android adb的一些基本使用"><img class="cover" src="https://picgo172.oss-cn-qingdao.aliyuncs.com/adb.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-28</div><div class="title">关于Android adb的一些基本使用</div></div></a></div><div><a href="/2022/07/28/7.magiskRelated/" title="关于Magisk的一些使用事项&amp;隐藏root"><img class="cover" src="https://picgo172.oss-cn-qingdao.aliyuncs.com/B9527103738106501A3253E68D53FD08.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-28</div><div class="title">关于Magisk的一些使用事项&amp;隐藏root</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/avatar/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Kevin Chen</div><div class="author-info__description">脱离低级趣味</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/sheerkvc"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:sheerkvc@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://twitter.com/Kevin_Chen172" target="_blank" title="Twitter"><i class="fa-brands fa-twitter"></i></a><a class="social-icon" href="https://t.me/sheerkvc" target="_blank" title="Telegram"><i class="fa-brands fa-telegram"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">他说，要时刻小心所做的选择，时刻思考可能的后果</div><div class="twopeople"><div class="twopeople"> <div class="container" style="height:200px;"> <canvas class="illo" width="800" height="800" style="max-width: 200px; max-height: 200px; touch-action: none; width: 640px; height: 640px;"></canvas> </div> <script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople1.js"></script> <script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/zdog.dist.js"></script> <script id="rendered-js" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople.js"></script> <style> .twopeople{ margin: 0; align-items: center; justify-content: center; text-align: center; } canvas { display: block; margin: 0 auto; cursor: move; } </style> </div> </div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Android%E8%AE%BE%E5%A4%87root%E7%9A%84%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95%E2%80%94%E2%80%94%E5%B0%8F%E7%99%BD%E5%90%91-%E7%AE%80%E9%99%8B%E7%89%88"><span class="toc-number">1.</span> <span class="toc-text">Android设备root的通用方法——小白向&#x2F;简陋版</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.1.</span> <span class="toc-text">前置条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%A7%A3%E9%94%81bootloader"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">一、解锁bootloader</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%88%B7%E5%85%A5magisk"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">二、刷入magisk</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%88%B7%E5%85%A5%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9Afastboot%E7%BA%BF%E5%88%B7%EF%BC%9A"><span class="toc-number">1.2.0.2.0.1.</span> <span class="toc-text">刷入方法一：fastboot线刷：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%86%E7%A0%81-7i8j"><span class="toc-number">1.3.</span> <span class="toc-text">密码:7i8j</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%88%B7%E5%85%A5%E6%96%B9%E5%BC%8F%E4%BA%8C%EF%BC%9ATWRP%EF%BC%88%E7%AC%AC%E4%B8%89%E6%96%B9%E7%9A%84recovery%E6%A8%A1%E5%BC%8F%EF%BC%89%E5%8D%A1%E5%88%B7%EF%BC%9A"><span class="toc-number">1.3.0.0.0.1.</span> <span class="toc-text">刷入方式二：TWRP（第三方的recovery模式）卡刷：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%88%B7%E5%85%A5LSPosed%E6%A1%86%E6%9E%B6"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">三、刷入LSPosed框架</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/09/22/26.MPD&amp;PTSD/" title="关于MPD&amp;PTSD的一些探究和思考"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209222254833.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关于MPD&amp;PTSD的一些探究和思考"/></a><div class="content"><a class="title" href="/2022/09/22/26.MPD&amp;PTSD/" title="关于MPD&amp;PTSD的一些探究和思考">关于MPD&amp;PTSD的一些探究和思考</a><time datetime="2022-09-22T14:54:00.000Z" title="发表于 2022-09-22 22:54:00">2022-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/22/25.Shellsort/" title="Shell Sort"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209012229611.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Shell Sort"/></a><div class="content"><a class="title" href="/2022/09/22/25.Shellsort/" title="Shell Sort">Shell Sort</a><time datetime="2022-09-22T00:50:00.000Z" title="发表于 2022-09-22 08:50:00">2022-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/16/24.myLife4/" title="一些关于以往的事和人（四） —— 大学初里（Full version）"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209142023047.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一些关于以往的事和人（四） —— 大学初里（Full version）"/></a><div class="content"><a class="title" href="/2022/09/16/24.myLife4/" title="一些关于以往的事和人（四） —— 大学初里（Full version）">一些关于以往的事和人（四） —— 大学初里（Full version）</a><time datetime="2022-09-16T08:23:00.000Z" title="发表于 2022-09-16 16:23:00">2022-09-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/15/23.myLife3/" title="一些关于以往的事和人（三） —— 在高中（Full version）"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209142023047.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一些关于以往的事和人（三） —— 在高中（Full version）"/></a><div class="content"><a class="title" href="/2022/09/15/23.myLife3/" title="一些关于以往的事和人（三） —— 在高中（Full version）">一些关于以往的事和人（三） —— 在高中（Full version）</a><time datetime="2022-09-15T04:44:00.000Z" title="发表于 2022-09-15 12:44:00">2022-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/14/22.myLife2/" title="一些关于以往的事和人（二） —— 初中时（Full version）"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209142023047.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一些关于以往的事和人（二） —— 初中时（Full version）"/></a><div class="content"><a class="title" href="/2022/09/14/22.myLife2/" title="一些关于以往的事和人（二） —— 初中时（Full version）">一些关于以往的事和人（二） —— 初中时（Full version）</a><time datetime="2022-09-14T12:20:00.000Z" title="发表于 2022-09-14 20:20:00">2022-09-14</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://picgo172.oss-cn-qingdao.aliyuncs.com/root.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Kevin Chen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Find peace of mind here,homie</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'h865n2BPTsolvTR8p1vmZy05-gzGzoHsz',
+      appKey: '22uKZRHY1CVpj3rCv6wQjVl8',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='all'|| 'all' ==='all')){
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://sheerkvc.github.io/categories/杂谈/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🐱 ‍👓 一些胡思乱想 (8)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://sheerkvc.github.io/categories/学习/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">⁉️ 🔞 学习随记 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://sheerkvc.github.io/categories/butterfly/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🎮 🛵 无止境の博客美化 (8)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://sheerkvc.github.io/categories/Android/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📲 💥 安卓搞机之旅 (5)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://sheerkvc.github.io/categories/macOS/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👩‍💻 💻 初入apple (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://sheerkvc.github.io/categories/电脑端/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🤷 ‍🖥️ kevinの折腾电脑 (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="https://sheerkvc.github.io/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    console.log('已挂载magnet')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #b30070}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+    <style></style> <script data-pjax>if(document.getElementById('recent-posts') && location.pathname =='/'){
+    
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/PCapps.jpg" alt="https://picgo172.oss-cn-qingdao.aliyuncs.com/PCapps.jpg"/></div><div class="blog-slider__content"><span class="blog-slider__code">2022-07-29</span><a class="blog-slider__title" href="2022/07/29/6.PC apps/">电脑端常用软件地址备份</a><div class="blog-slider__text">电脑端常用的软件</div><a class="blog-slider__button" href="2022/07/29/6.PC apps/">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="source/img/studyCover.png" alt="source/img/studyCover.png"/></div><div class="blog-slider__content"><span class="blog-slider__code">2022-09-22</span><a class="blog-slider__title" href="2022/09/22/25.Shellsort/">Shell Sort</a><div class="blog-slider__text">学习学习，努力进取！</div><a class="blog-slider__button" href="2022/09/22/25.Shellsort/">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208292140736.jpg" alt="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202208292140736.jpg"/></div><div class="blog-slider__content"><span class="blog-slider__code">2022-08-29</span><a class="blog-slider__title" href="2022/08/29/8.MacOS‘s blogBuilder/">建立个人博客（一）—— MacOS</a><div class="blog-slider__text">建立博客的入坑之作！</div><a class="blog-slider__button" href="2022/08/29/8.MacOS‘s blogBuilder/">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="source/img/default_cover2.jpg" alt="source/img/default_cover2.jpg"/></div><div class="blog-slider__content"><span class="blog-slider__code">2022-09-05</span><a class="blog-slider__title" href="2022/09/05/20.Tunnel/">Surfing as your wish —— All-Platform</a><div class="blog-slider__text">正确打开学习和学术交流的方式</div><a class="blog-slider__button" href="2022/09/05/20.Tunnel/">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209142023047.jpg" alt="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209142023047.jpg"/></div><div class="blog-slider__content"><span class="blog-slider__code">2022-09-08</span><a class="blog-slider__title" href="2022/09/08/21.myLife/">一些关于以往的事和人（一） —— 小学之前（Full version）</a><div class="blog-slider__text">从何说起呢</div><a class="blog-slider__button" href="2022/09/08/21.myLife/">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/Hello World.png" alt="https://picgo172.oss-cn-qingdao.aliyuncs.com/Hello World.png"/></div><div class="blog-slider__content"><span class="blog-slider__code">2022-07-27</span><a class="blog-slider__title" href="2022/07/27/1.Hello World/">Hello World</a><div class="blog-slider__text">关于这个家伙</div><a class="blog-slider__button" href="2022/07/27/1.Hello World/">详情</a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载swiper')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script>
+<script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper/swiper/swiper.min.js"></script>
+<script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper@0.18/swiper/swiperindex.js"></script>
+<style></style>
+  <script data-pjax src="https://npm.elemecdn.com/reverse-stu-allversions@1.0.1/butterfly/diy/hexo_githubcalendar.js"></script>
+  <script data-pjax>
+        function GithubCalendarConfig(){
+            var git_githubapiurl ="https://python-github-calendar-api.vercel.app/api?sheerkvc";
+            var git_color =['#ebedf0', '#f1f8ff', '#dbedff', '#c8e1ff', '#79b8ff', '#2188ff', '#0366d6', '#005cc5', '#044289', '#032f62', '#05264c'];
+            var git_user ="sheerkvc";
+            var parent_div_git = document.getElementById('recent-posts');
+            var git_div_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><div id="github_loading" style="height:100%;display: flex;align-items: center;justify-content: center;"><svg style="height:50px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg></div><div id="github_container"></div></div>';
+            if(parent_div_git && location.pathname =='/'){
+                console.log('已挂载github calendar')
+                // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
+            };
+            GithubCalendar(git_githubapiurl,git_color,git_user)
+        }
+        if(document.getElementById('recent-posts')){
+            GithubCalendarConfig()
+        }
+    </script>
+    <style>#github_container{min-height:248px}@media screen and (max-width:650px) {#github_container{background-image:;min-height:0px}}</style>
+    <style></style><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo" title=""><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题使用Butterfly" title=""><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="https://unpkg.zhimg.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.min.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>
