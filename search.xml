@@ -208,31 +208,6 @@
     
     
     <entry>
-      <title>Telegram中文包汇总</title>
-      <link href="/2022/09/05/19.telegramlanguage/"/>
-      <url>/2022/09/05/19.telegramlanguage/</url>
-      
-        <content type="html"><![CDATA[<h2 id="复制到浏览器转到TG打开"><a href="#复制到浏览器转到TG打开" class="headerlink" title="复制到浏览器转到TG打开"></a>复制到浏览器转到TG打开</h2><p>各个语言包:</p><p>* 中文(简体)-聪聪: <code>tg://setlanguage?lang=zhcncc</code></p><p>* 中文(简体)-@zh_CN: <code>tg://setlanguage?lang=classic-zh-cn</code></p><p>* 中文(简体)-简体: <code>tg://setlanguage?lang=classic-zh</code></p><p>* 中文(简体)-langCN: <code>tg://setlanguage?lang=zhlangcn</code></p><p>* 中文(简体)-zh-hans: <code>tg://setlanguage?lang=zh-hans-beta</code></p><p>* 中文(简体)-瓜体: <code>tg://setlanguage?lang=duang-zh-cn</code></p><p>* 中文(简体)-小哇: <code>tg://setlanguage?lang=qingwa</code></p><p>* 中文(简体)-江湖中文版: <code>tg://setlanguage?lang=jianghu</code></p><p>* 中文(简体)-: <code>tg://setlanguage?lang=cnsimplified</code></p><p>* 中文(简体)-@MiaoCN: <code>tg://setlanguage?lang=meowcn</code></p><p>* 中文(简体)-简体字: <code>tg://setlanguage?lang=jiantizi</code></p><p>* 中文(香港)-繁体1: <code>tg://setlanguage?lang=hongkong</code></p><p>* 中文(香港)-繁体2: <code>tg://setlanguage?lang=zhhant-hk</code></p><p>* 中文(香港)-繁体3: <code>tg://setlanguage?lang=zh-hant-raw</code></p><p>* 中文(香港)-人口语: <code>tg://setlanguage?lang=hongkonger</code></p><p>* 中文(香港)-广东话1: <code>tg://setlanguage?lang=zhhkpb1</code></p><p>* 中文(香港)-广东话2: <code>tg://setlanguage?lang=hkcantonese</code></p><p>* 中文(香港)-郭桓桓: <code>tg://setlanguage?lang=zhong-taiwan-traditional</code></p><p>* 中文(台灣)-正体: <code>tg://setlanguage?lang=taiwan</code></p><p>* 中文(台灣)-繁体: <code>tg://setlanguage?lang=zh-hant-beta</code></p><p>* 中文(台灣)-文言: <code>tg://setlanguage?lang=chinese-ancient</code></p><p>* 中文(台灣)-文言: <code>tg://setlanguage?lang=chinese-literary</code></p><p>* 中文(台灣)-魔法師: <code>tg://setlanguage?lang=encha</code></p><p>* 日文：<code>tg://setlanguage?lang=ja-beta</code></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 电脑端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Telegram </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>关于macOS系统应用的一些问题解决方案</title>
       <link href="/2022/09/05/15.macOSBugs/"/>
       <url>/2022/09/05/15.macOSBugs/</url>
@@ -250,6 +225,31 @@
         <tags>
             
             <tag> macOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Telegram中文包汇总</title>
+      <link href="/2022/09/05/19.telegramlanguage/"/>
+      <url>/2022/09/05/19.telegramlanguage/</url>
+      
+        <content type="html"><![CDATA[<h2 id="复制到浏览器转到TG打开"><a href="#复制到浏览器转到TG打开" class="headerlink" title="复制到浏览器转到TG打开"></a>复制到浏览器转到TG打开</h2><p>各个语言包:</p><p>* 中文(简体)-聪聪: <code>tg://setlanguage?lang=zhcncc</code></p><p>* 中文(简体)-@zh_CN: <code>tg://setlanguage?lang=classic-zh-cn</code></p><p>* 中文(简体)-简体: <code>tg://setlanguage?lang=classic-zh</code></p><p>* 中文(简体)-langCN: <code>tg://setlanguage?lang=zhlangcn</code></p><p>* 中文(简体)-zh-hans: <code>tg://setlanguage?lang=zh-hans-beta</code></p><p>* 中文(简体)-瓜体: <code>tg://setlanguage?lang=duang-zh-cn</code></p><p>* 中文(简体)-小哇: <code>tg://setlanguage?lang=qingwa</code></p><p>* 中文(简体)-江湖中文版: <code>tg://setlanguage?lang=jianghu</code></p><p>* 中文(简体)-: <code>tg://setlanguage?lang=cnsimplified</code></p><p>* 中文(简体)-@MiaoCN: <code>tg://setlanguage?lang=meowcn</code></p><p>* 中文(简体)-简体字: <code>tg://setlanguage?lang=jiantizi</code></p><p>* 中文(香港)-繁体1: <code>tg://setlanguage?lang=hongkong</code></p><p>* 中文(香港)-繁体2: <code>tg://setlanguage?lang=zhhant-hk</code></p><p>* 中文(香港)-繁体3: <code>tg://setlanguage?lang=zh-hant-raw</code></p><p>* 中文(香港)-人口语: <code>tg://setlanguage?lang=hongkonger</code></p><p>* 中文(香港)-广东话1: <code>tg://setlanguage?lang=zhhkpb1</code></p><p>* 中文(香港)-广东话2: <code>tg://setlanguage?lang=hkcantonese</code></p><p>* 中文(香港)-郭桓桓: <code>tg://setlanguage?lang=zhong-taiwan-traditional</code></p><p>* 中文(台灣)-正体: <code>tg://setlanguage?lang=taiwan</code></p><p>* 中文(台灣)-繁体: <code>tg://setlanguage?lang=zh-hant-beta</code></p><p>* 中文(台灣)-文言: <code>tg://setlanguage?lang=chinese-ancient</code></p><p>* 中文(台灣)-文言: <code>tg://setlanguage?lang=chinese-literary</code></p><p>* 中文(台灣)-魔法師: <code>tg://setlanguage?lang=encha</code></p><p>* 日文：<code>tg://setlanguage?lang=ja-beta</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 电脑端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Telegram </tag>
             
         </tags>
       
