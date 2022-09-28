@@ -33,7 +33,7 @@
       <link href="/2022/09/27/28.macFeel/"/>
       <url>/2022/09/27/28.macFeel/</url>
       
-        <content type="html"><![CDATA[<center>配置从简-8核16+512 67W头    -->   教育优惠后11749</center><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209251627635.png" alt="配置信息"></p><p>在之前我有个宏碁的游戏本，20年高考完之后才买的，狗东当时1650的5499，Ti的5699，奈何50没货只能加200当冤大头上了Ti（i5-10300H,8+512SSD），差不多是小5斤，真的每次放假和回校都是一种煎熬，还得用衣服之类的包起来生怕压屏幕</p><p><strong>待更新</strong></p>]]></content>
+        <content type="html"><![CDATA[<center>配置从简-8核16+512 67W头    -->   教育优惠后11749</center><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209251627635.png" alt="配置信息"></p><p>在之前我有个宏碁的游戏本，20年高考完之后才买的，狗东当时1650的5499，Ti的5699，奈何50没货只能加200当冤大头上了Ti（i5-10300H,8+512SSD），差不多是5斤多，真的每次放假和回校都是一种煎熬，还得用衣服之类的包起来生怕压屏幕，买来除了打过2077、奥日2、大表哥2基本上不怎么玩游戏</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209282216864.jpg" style="zoom: 33%;" /></p><center>Steam</center><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209282216931.jpg" style="zoom:33%;" /></p><center>Epic</center><p>在大二下寒假放假的时候我就萌生了换一台续航长的轻薄本拿来办公用，对比了多家拉如登天，而且统一分配的嘤特尔/AMD的CPU和嗯妮维雅/AMD的GPU、统一死沉的颜值和外观成功让我放弃了Windows笔记本的念想，听闻Mac续航很长于是去稍微了解了一下mac，又因为M1版本air和pro难看死的大黑边上巴成功劝退，慢慢的预算从6k走到了这一款今年7月厨子刚发布的MacBook Air m2。</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209282224796.png" alt="image-20220928222414779"></p><p>虽然知道是新品厨子现拧螺丝，但是从14让我等到31，每天都在看别人评测和看官网的进度条真的很煎熬啊啊啊。</p><p>因为想一步到胃于是直接一咬牙加了小3k上了16+512，所以永远不要在官网上买东西，库克狗贼让你慢慢加钱的感觉真不爽，还PUA我半个月呜呜呜呜呜呜。</p><p>这款本子除了一个天杀的刘海之外应该说别无缺点，而且装了pd虚拟机之后macOS13和Windows11之间的无缝切换也很让我着迷。</p><p>现在重度测试打开<code>idea、webstorm、clion、Xcode、Final Cut Pro（代码/剪辑）</code>、<code>Chrome、Safari（空白页30个）</code>、<code>typora</code>、<code>Xmind、阿里云盘</code>、<code>虚拟机（分了8G内存）</code>还有其他杂七杂八的app根本不卡，RAM甚至还有2G剩余，并且居然还根本没有用到虚拟内存！</p><p>在我中重度使用下应该能撑一天半，如果只是阿里云盘看网课、浏览器搜东西、外加听歌、QQ、微信、小猫咪、TG、Xmind，你甚至两天多可以不充电！</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>懒得再写了，钱摆在这里，使用体验也是巨强无比，又因为果子升级成了M1之后M系列机子贬值更慢了，所以说不定4年之后或者想换电脑的时候这台还能出个9k块？不说别的，买果子的机子短时间内是不亏的。</p><p>不过因为古希腊哲学思想↓，到现在为止已经慢慢的习惯了它的功能，慢慢的不习惯它的价格了😱</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209282238504.jpg" alt=""></p>]]></content>
       
       
       <categories>
@@ -256,33 +256,6 @@
     
     
     <entry>
-      <title>【Hexo-Butterfly】页面美化的一些操作-不定期收录</title>
-      <link href="/2022/09/05/16.beautifyBlog/"/>
-      <url>/2022/09/05/16.beautifyBlog/</url>
-      
-        <content type="html"><![CDATA[<p>此篇文章引用了我在更新博客时所参考的资料，仅供学习使用，在这里对原作者们表示万分感谢😋</p><hr><h3 id="标题小风车、侧边栏时钟-小人，参考自："><a href="#标题小风车、侧边栏时钟-小人，参考自：" class="headerlink" title="标题小风车、侧边栏时钟/小人，参考自："></a>标题小风车、侧边栏时钟/小人，参考自：</h3><div class="tag link"><a class="link-card" title="我的 Blog 美化日记 ——Hexo+Butterfly" href="https://guole.fun/posts/butterfly-custom/"><div class="left"><img src="https://guole.fun/img/gl.jpg"/></div><div class="right"><p class="text">我的 Blog 美化日记 ——Hexo+Butterfly</p><p class="url">https://guole.fun/posts/butterfly-custom/</p></div></a></div><h3 id="外挂标签，参考自："><a href="#外挂标签，参考自：" class="headerlink" title="外挂标签，参考自："></a>外挂标签，参考自：</h3><div class="tag link"><a class="link-card" title="Tag Plugins Plus" href="https://akilar.top/posts/615e2dec/"><div class="left"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209251249876.png"/></div><div class="right"><p class="text">Tag Plugins Plus</p><p class="url">https://akilar.top/posts/615e2dec/</p></div></a></div><h3 id="文章加密："><a href="#文章加密：" class="headerlink" title="文章加密："></a>文章加密：</h3><div class="tag link"><a class="link-card" title="hexo-blog-encrypt" href="https://blog.justlovesmile.top/posts/43010.html"><div class="left"><img src="https://blog.justlovesmile.top/img/avatar.jpg"/></div><div class="right"><p class="text">hexo-blog-encrypt</p><p class="url">https://blog.justlovesmile.top/posts/43010.html</p></div></a></div><h3 id="修改侧边栏分类排序规则："><a href="#修改侧边栏分类排序规则：" class="headerlink" title="修改侧边栏分类排序规则："></a>修改侧边栏分类排序规则：</h3><div class="tag link"><a class="link-card" title="sideBar Sort" href="https://sheerkvc.top/2022/09/05/sidebarReSort/"><div class="left"><img src="https://sheerkvc.top/avatar/avatar.jpeg"/></div><div class="right"><p class="text">sideBar Sort</p><p class="url">https://sheerkvc.top/2022/09/05/sidebarReSort/</p></div></a></div><h3 id="适配客户端博客图标："><a href="#适配客户端博客图标：" class="headerlink" title="适配客户端博客图标："></a>适配客户端博客图标：</h3><div class="tag link"><a class="link-card" title="适配Safari书签页和iOS桌面图标" href="https://blog.zhheo.com/p/5728da61.html"><div class="left"><img src="https://img.zhheo.com/i/2022/08/19/62ff32fa28da1.png"/></div><div class="right"><p class="text">适配Safari书签页和iOS桌面图标</p><p class="url">https://blog.zhheo.com/p/5728da61.html</p></div></a></div><h3 id="git推送图、磁贴、置顶、双列展示、历史今天、电子时钟："><a href="#git推送图、磁贴、置顶、双列展示、历史今天、电子时钟：" class="headerlink" title="git推送图、磁贴、置顶、双列展示、历史今天、电子时钟："></a>git推送图、磁贴、置顶、双列展示、历史今天、电子时钟：</h3><div class="tag link"><a class="link-card" title="小冰插件包" href="https://zfe.space/post/hexo-butterfly-orchid.html"><div class="left"><img src="https://zfe.space/images/headimage.png"/></div><div class="right"><p class="text">小冰插件包</p><p class="url">https://zfe.space/post/hexo-butterfly-orchid.html</p></div></a></div>]]></content>
-      
-      
-      <categories>
-          
-          <category> butterfly </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> hexo </tag>
-            
-            <tag> butterfly </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>【Hexo-Butterfly】修改侧边栏分类排序规则</title>
       <link href="/2022/09/05/17.sidebarReSort/"/>
       <url>/2022/09/05/17.sidebarReSort/</url>
@@ -310,23 +283,25 @@
     
     
     <entry>
-      <title>关于macOS应用的一些问题解决方案</title>
-      <link href="/2022/09/05/15.macOSBugs/"/>
-      <url>/2022/09/05/15.macOSBugs/</url>
+      <title>【Hexo-Butterfly】页面美化的一些操作-不定期收录</title>
+      <link href="/2022/09/05/16.beautifyBlog/"/>
+      <url>/2022/09/05/16.beautifyBlog/</url>
       
-        <content type="html"><![CDATA[<h2 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h2><h2 id="xxx-app-已损坏，无法打开，你应该将它移到废纸篓-打不开xxx，"><a href="#xxx-app-已损坏，无法打开，你应该将它移到废纸篓-打不开xxx，" class="headerlink" title="xxx.app 已损坏，无法打开，你应该将它移到废纸篓/打不开xxx，"></a><code>xxx.app 已损坏，无法打开，你应该将它移到废纸篓/打不开xxx，</code></h2><h2 id="来自身份不明的开发者-的解决方法"><a href="#来自身份不明的开发者-的解决方法" class="headerlink" title="来自身份不明的开发者 的解决方法"></a><code>来自身份不明的开发者</code> 的解决方法</h2><blockquote><h3 id="常见的几种报错"><a href="#常见的几种报错" class="headerlink" title="常见的几种报错"></a>常见的几种报错</h3><ul><li>xxx已损坏，无法打开，你应该将它移到废纸篓解决办法</li><li>打不开 xxx，因为它来自身份不明的开发者</li><li>打不开xxxx，因为 Apple 无法检查其是否包含恶意软件</li><li>在安装的时候提示加载失败！</li></ul></blockquote><h2 id="方法：开启任何来源"><a href="#方法：开启任何来源" class="headerlink" title="方法：开启任何来源"></a>方法：开启任何来源</h2><p>先打开 <code>系统偏好设置 -&gt; 安全与隐私 -&gt; 通用</code> 选项卡，检查是否已经启用了 <code>任何来源</code> 选项。</p><p>如果没有这个选项，<code>终端</code>中执行如下命令</p><blockquote><p>sudo模式需要输入密码不做解释</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure><p>然后放行 <code>你要打开的应用</code>（不要有空格） :</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xattr -cr /Applications/XXXXXXX.app</span><br></pre></td></tr></table></figure><p>or</p><p>⭐️<strong>或者复制以下命令粘贴到终端后</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xattr -rd com.apple.quarantine </span><br></pre></td></tr></table></figure><p>打开 <code>Finder-应用程序</code>，将应用拖进终端中。</p><blockquote><p>注意 <code>quarantine</code>后面必须有空格</p></blockquote><h2 id="方法：应用签名（扩展）"><a href="#方法：应用签名（扩展）" class="headerlink" title="方法：应用签名（扩展）"></a>方法：应用签名（扩展）</h2><ol><li>安装Command Line Tools 工具</li></ol><p>打开终端工具输入如下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658773.jpg" alt="img"></p><ol><li>弹出安装窗口后选择<code>继续安装</code>，安装过程需要几分钟，请耐心等待。</li><li>打开终端工具输入并执行如下命令对应用签名：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo codesign --force --deep --sign - (应用路径)</span><br></pre></td></tr></table></figure><blockquote><p>应用路径：打开<code>Finder-应用程序</code>，找到相关应用，将它拖进终端命令<code>-</code>的后面，然后按下回车即可，注意最后一个 <code>-</code>后面有一个空格。</p></blockquote><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658977.jpg" alt="img"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658180.jpg" alt="img"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658386.jpg" alt="img"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658602.jpg" alt="img"></p><p>正常情况下只有一行提示，即成功：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/文件位置 : replacing existing signature</span><br></pre></td></tr></table></figure><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658821.jpg" alt="img"></p><h5 id="如遇如下错误："><a href="#如遇如下错误：" class="headerlink" title="如遇如下错误："></a>如遇如下错误：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/文件位置 : replacing existing signature</span><br><span class="line">/文件位置 : resource fork,Finder information,or similar detritus not allowed</span><br></pre></td></tr></table></figure><ol><li>先在终端执行：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xattr -cr /文件位置（直接将应用拖进去即可）</span><br></pre></td></tr></table></figure><ol><li>然后再次执行如下指令即可：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">codesign --force --deep --sign - /文件位置（直接将应用拖进去即可）</span><br></pre></td></tr></table></figure><p>转载自macwk：<a href="https://macwk.com/article/macos-file-damage">https://macwk.com/article/macos-file-damage</a></p>]]></content>
+        <content type="html"><![CDATA[<p>此篇文章引用了我在更新博客时所参考的资料，仅供学习使用，在这里对原作者们表示万分感谢😋</p><hr><h3 id="标题小风车、侧边栏时钟-小人，参考自："><a href="#标题小风车、侧边栏时钟-小人，参考自：" class="headerlink" title="标题小风车、侧边栏时钟/小人，参考自："></a>标题小风车、侧边栏时钟/小人，参考自：</h3><div class="tag link"><a class="link-card" title="我的 Blog 美化日记 ——Hexo+Butterfly" href="https://guole.fun/posts/butterfly-custom/"><div class="left"><img src="https://guole.fun/img/gl.jpg"/></div><div class="right"><p class="text">我的 Blog 美化日记 ——Hexo+Butterfly</p><p class="url">https://guole.fun/posts/butterfly-custom/</p></div></a></div><h3 id="外挂标签，参考自："><a href="#外挂标签，参考自：" class="headerlink" title="外挂标签，参考自："></a>外挂标签，参考自：</h3><div class="tag link"><a class="link-card" title="Tag Plugins Plus" href="https://akilar.top/posts/615e2dec/"><div class="left"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209251249876.png"/></div><div class="right"><p class="text">Tag Plugins Plus</p><p class="url">https://akilar.top/posts/615e2dec/</p></div></a></div><h3 id="文章加密："><a href="#文章加密：" class="headerlink" title="文章加密："></a>文章加密：</h3><div class="tag link"><a class="link-card" title="hexo-blog-encrypt" href="https://blog.justlovesmile.top/posts/43010.html"><div class="left"><img src="https://blog.justlovesmile.top/img/avatar.jpg"/></div><div class="right"><p class="text">hexo-blog-encrypt</p><p class="url">https://blog.justlovesmile.top/posts/43010.html</p></div></a></div><h3 id="修改侧边栏分类排序规则："><a href="#修改侧边栏分类排序规则：" class="headerlink" title="修改侧边栏分类排序规则："></a>修改侧边栏分类排序规则：</h3><div class="tag link"><a class="link-card" title="sideBar Sort" href="https://sheerkvc.top/2022/09/05/sidebarReSort/"><div class="left"><img src="https://sheerkvc.top/avatar/avatar.jpeg"/></div><div class="right"><p class="text">sideBar Sort</p><p class="url">https://sheerkvc.top/2022/09/05/sidebarReSort/</p></div></a></div><h3 id="适配客户端博客图标："><a href="#适配客户端博客图标：" class="headerlink" title="适配客户端博客图标："></a>适配客户端博客图标：</h3><div class="tag link"><a class="link-card" title="适配Safari书签页和iOS桌面图标" href="https://blog.zhheo.com/p/5728da61.html"><div class="left"><img src="https://img.zhheo.com/i/2022/08/19/62ff32fa28da1.png"/></div><div class="right"><p class="text">适配Safari书签页和iOS桌面图标</p><p class="url">https://blog.zhheo.com/p/5728da61.html</p></div></a></div><h3 id="git推送图、磁贴、置顶、双列展示、历史今天、电子时钟："><a href="#git推送图、磁贴、置顶、双列展示、历史今天、电子时钟：" class="headerlink" title="git推送图、磁贴、置顶、双列展示、历史今天、电子时钟："></a>git推送图、磁贴、置顶、双列展示、历史今天、电子时钟：</h3><div class="tag link"><a class="link-card" title="小冰插件包" href="https://zfe.space/post/hexo-butterfly-orchid.html"><div class="left"><img src="https://zfe.space/images/headimage.png"/></div><div class="right"><p class="text">小冰插件包</p><p class="url">https://zfe.space/post/hexo-butterfly-orchid.html</p></div></a></div>]]></content>
       
       
       <categories>
           
-          <category> macOS </category>
+          <category> butterfly </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> macOS </tag>
+            <tag> hexo </tag>
+            
+            <tag> butterfly </tag>
             
         </tags>
       
@@ -352,6 +327,31 @@
         <tags>
             
             <tag> Telegram </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于macOS应用的一些问题解决方案</title>
+      <link href="/2022/09/05/15.macOSBugs/"/>
+      <url>/2022/09/05/15.macOSBugs/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h2><h2 id="xxx-app-已损坏，无法打开，你应该将它移到废纸篓-打不开xxx，"><a href="#xxx-app-已损坏，无法打开，你应该将它移到废纸篓-打不开xxx，" class="headerlink" title="xxx.app 已损坏，无法打开，你应该将它移到废纸篓/打不开xxx，"></a><code>xxx.app 已损坏，无法打开，你应该将它移到废纸篓/打不开xxx，</code></h2><h2 id="来自身份不明的开发者-的解决方法"><a href="#来自身份不明的开发者-的解决方法" class="headerlink" title="来自身份不明的开发者 的解决方法"></a><code>来自身份不明的开发者</code> 的解决方法</h2><blockquote><h3 id="常见的几种报错"><a href="#常见的几种报错" class="headerlink" title="常见的几种报错"></a>常见的几种报错</h3><ul><li>xxx已损坏，无法打开，你应该将它移到废纸篓解决办法</li><li>打不开 xxx，因为它来自身份不明的开发者</li><li>打不开xxxx，因为 Apple 无法检查其是否包含恶意软件</li><li>在安装的时候提示加载失败！</li></ul></blockquote><h2 id="方法：开启任何来源"><a href="#方法：开启任何来源" class="headerlink" title="方法：开启任何来源"></a>方法：开启任何来源</h2><p>先打开 <code>系统偏好设置 -&gt; 安全与隐私 -&gt; 通用</code> 选项卡，检查是否已经启用了 <code>任何来源</code> 选项。</p><p>如果没有这个选项，<code>终端</code>中执行如下命令</p><blockquote><p>sudo模式需要输入密码不做解释</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure><p>然后放行 <code>你要打开的应用</code>（不要有空格） :</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xattr -cr /Applications/XXXXXXX.app</span><br></pre></td></tr></table></figure><p>or</p><p>⭐️<strong>或者复制以下命令粘贴到终端后</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xattr -rd com.apple.quarantine </span><br></pre></td></tr></table></figure><p>打开 <code>Finder-应用程序</code>，将应用拖进终端中。</p><blockquote><p>注意 <code>quarantine</code>后面必须有空格</p></blockquote><h2 id="方法：应用签名（扩展）"><a href="#方法：应用签名（扩展）" class="headerlink" title="方法：应用签名（扩展）"></a>方法：应用签名（扩展）</h2><ol><li>安装Command Line Tools 工具</li></ol><p>打开终端工具输入如下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658773.jpg" alt="img"></p><ol><li>弹出安装窗口后选择<code>继续安装</code>，安装过程需要几分钟，请耐心等待。</li><li>打开终端工具输入并执行如下命令对应用签名：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo codesign --force --deep --sign - (应用路径)</span><br></pre></td></tr></table></figure><blockquote><p>应用路径：打开<code>Finder-应用程序</code>，找到相关应用，将它拖进终端命令<code>-</code>的后面，然后按下回车即可，注意最后一个 <code>-</code>后面有一个空格。</p></blockquote><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658977.jpg" alt="img"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658180.jpg" alt="img"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658386.jpg" alt="img"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658602.jpg" alt="img"></p><p>正常情况下只有一行提示，即成功：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/文件位置 : replacing existing signature</span><br></pre></td></tr></table></figure><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658821.jpg" alt="img"></p><h5 id="如遇如下错误："><a href="#如遇如下错误：" class="headerlink" title="如遇如下错误："></a>如遇如下错误：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/文件位置 : replacing existing signature</span><br><span class="line">/文件位置 : resource fork,Finder information,or similar detritus not allowed</span><br></pre></td></tr></table></figure><ol><li>先在终端执行：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xattr -cr /文件位置（直接将应用拖进去即可）</span><br></pre></td></tr></table></figure><ol><li>然后再次执行如下指令即可：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">codesign --force --deep --sign - /文件位置（直接将应用拖进去即可）</span><br></pre></td></tr></table></figure><p>转载自macwk：<a href="https://macwk.com/article/macos-file-damage">https://macwk.com/article/macos-file-damage</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> macOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> macOS </tag>
             
         </tags>
       
