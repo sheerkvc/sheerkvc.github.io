@@ -8,7 +8,7 @@
       <link href="/2022/10/02/37.hexoFontChange/"/>
       <url>/2022/10/02/37.hexoFontChange/</url>
       
-        <content type="html"><![CDATA[<p>找了全网都没咋看到butterfly主题修改字体的教程，瞎找找到了，记录一下，早就想改大了。</p><blockquote><p>也可能是因为太简单了？反正我还不会html这些语言只能一点一点做好备份摸索</p></blockquote><p>找到博客目录下的<code>/themes/butterfly/source/css/var.styl</code>，我的butterfly版本为4.3.1，找到第29行的<code>// Global Variables</code></p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Global Variables</span></span><br><span class="line"><span class="variable">$font</span>-size = <span class="built_in">hexo-config</span>(<span class="string">&#x27;font.global-font-size&#x27;</span>) ? <span class="built_in">convert</span>(<span class="built_in">hexo-config</span>(<span class="string">&#x27;font.global-font-size&#x27;</span>)) : <span class="number">14px</span></span><br><span class="line"><span class="variable">$code</span>-<span class="attribute">font-size</span> = hexo-config(<span class="string">&#x27;font.code-font-size&#x27;</span>) ? convert(hexo-config(<span class="string">&#x27;font.code-font-size&#x27;</span>)) : var(--global-font-size)</span><br><span class="line"><span class="variable">$font</span>-<span class="attribute">color</span> = <span class="number">#1F2D3D</span></span><br><span class="line"><span class="variable">$text</span>-<span class="attribute">line-height</span> = <span class="number">2</span></span><br><span class="line"><span class="variable">$web</span>-bg = <span class="built_in">hexo-config</span>(<span class="string">&#x27;background&#x27;</span>) &amp;&amp; <span class="built_in">unquote</span>(<span class="built_in">hexo-config</span>(<span class="string">&#x27;background&#x27;</span>))</span><br><span class="line"><span class="variable">$index_top_img_height</span> = <span class="built_in">hexo-config</span>(<span class="string">&#x27;index_top_img_height&#x27;</span>) ? <span class="built_in">convert</span>(<span class="built_in">hexo-config</span>(<span class="string">&#x27;index_top_img_height&#x27;</span>)) : <span class="number">100vh</span></span><br><span class="line"><span class="variable">$index_site_info_top</span> = <span class="built_in">hexo-config</span>(<span class="string">&#x27;index_site_info_top&#x27;</span>) ? <span class="built_in">convert</span>(<span class="built_in">hexo-config</span>(<span class="string">&#x27;index_site_info_top&#x27;</span>)) : <span class="number">43%</span></span><br></pre></td></tr></table></figure><p>看到<code>$font-size = hexo-config(&#39;font.global-font-size&#39;) ? convert(hexo-config(&#39;font.global-font-size&#39;)) : 14px</code></p><p>默认为14px，在这里你可以修改为其他的……px，将全局字体放大</p><blockquote><p>推荐16px即可，要不大过头了😆</p></blockquote><p>在这个文件里你还可以修改颜色侧边栏之类的样式，我就不改了嘿嘿。</p>]]></content>
+        <content type="html"><![CDATA[<p>好吧，配置里有，我是XX</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Global font settings</span></span><br><span class="line"><span class="comment"># Don&#x27;t modify the following settings unless you know how they work (非必要不要修改)</span></span><br><span class="line"><span class="attr">font:</span></span><br><span class="line">  <span class="attr">global-font-size:</span> <span class="string">16px</span></span><br><span class="line">  <span class="attr">code-font-size:</span></span><br><span class="line">  <span class="attr">font-family:</span></span><br><span class="line">  <span class="attr">code-font-family:</span></span><br></pre></td></tr></table></figure><hr><p>找了全网都没咋看到butterfly主题修改字体的教程，瞎找找到了，记录一下，早就想改大了。</p><blockquote><p>也可能是因为太简单了？反正我还不会html这些语言只能一点一点做好备份摸索</p></blockquote><p>找到博客目录下的<code>/themes/butterfly/source/css/var.styl</code>，我的butterfly版本为4.3.1，找到第29行的<code>// Global Variables</code></p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Global Variables</span></span><br><span class="line"><span class="variable">$font</span>-size = <span class="built_in">hexo-config</span>(<span class="string">&#x27;font.global-font-size&#x27;</span>) ? <span class="built_in">convert</span>(<span class="built_in">hexo-config</span>(<span class="string">&#x27;font.global-font-size&#x27;</span>)) : <span class="number">14px</span></span><br><span class="line"><span class="variable">$code</span>-<span class="attribute">font-size</span> = hexo-config(<span class="string">&#x27;font.code-font-size&#x27;</span>) ? convert(hexo-config(<span class="string">&#x27;font.code-font-size&#x27;</span>)) : var(--global-font-size)</span><br><span class="line"><span class="variable">$font</span>-<span class="attribute">color</span> = <span class="number">#1F2D3D</span></span><br><span class="line"><span class="variable">$text</span>-<span class="attribute">line-height</span> = <span class="number">2</span></span><br><span class="line"><span class="variable">$web</span>-bg = <span class="built_in">hexo-config</span>(<span class="string">&#x27;background&#x27;</span>) &amp;&amp; <span class="built_in">unquote</span>(<span class="built_in">hexo-config</span>(<span class="string">&#x27;background&#x27;</span>))</span><br><span class="line"><span class="variable">$index_top_img_height</span> = <span class="built_in">hexo-config</span>(<span class="string">&#x27;index_top_img_height&#x27;</span>) ? <span class="built_in">convert</span>(<span class="built_in">hexo-config</span>(<span class="string">&#x27;index_top_img_height&#x27;</span>)) : <span class="number">100vh</span></span><br><span class="line"><span class="variable">$index_site_info_top</span> = <span class="built_in">hexo-config</span>(<span class="string">&#x27;index_site_info_top&#x27;</span>) ? <span class="built_in">convert</span>(<span class="built_in">hexo-config</span>(<span class="string">&#x27;index_site_info_top&#x27;</span>)) : <span class="number">43%</span></span><br></pre></td></tr></table></figure><p>看到<code>$font-size = hexo-config(&#39;font.global-font-size&#39;) ? convert(hexo-config(&#39;font.global-font-size&#39;)) : 14px</code></p><p>默认为14px，在这里你可以修改为其他的……px，将全局字体放大</p><blockquote><p>推荐16px即可，要不大过头了😆</p></blockquote><p>在这个文件里你还可以修改颜色侧边栏之类的样式，我就不改了嘿嘿。</p>]]></content>
       
       
       <categories>
@@ -251,11 +251,11 @@
       
         <tags>
             
+            <tag> 快速排序 </tag>
+            
             <tag> 学习 </tag>
             
             <tag> 数据结构 </tag>
-            
-            <tag> 快速排序 </tag>
             
         </tags>
       
@@ -334,11 +334,11 @@
       
         <tags>
             
-            <tag> 希尔排序 </tag>
-            
             <tag> 学习 </tag>
             
             <tag> 数据结构 </tag>
+            
+            <tag> 希尔排序 </tag>
             
         </tags>
       
@@ -501,31 +501,6 @@
     
     
     <entry>
-      <title>关于macOS应用的一些问题解决方案</title>
-      <link href="/2022/09/05/15.macOSBugs/"/>
-      <url>/2022/09/05/15.macOSBugs/</url>
-      
-        <content type="html"><![CDATA[<h2 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h2><h2 id="xxx-app-已损坏，无法打开，你应该将它移到废纸篓-打不开xxx，"><a href="#xxx-app-已损坏，无法打开，你应该将它移到废纸篓-打不开xxx，" class="headerlink" title="xxx.app 已损坏，无法打开，你应该将它移到废纸篓/打不开xxx，"></a><code>xxx.app 已损坏，无法打开，你应该将它移到废纸篓/打不开xxx，</code></h2><h2 id="来自身份不明的开发者-的解决方法"><a href="#来自身份不明的开发者-的解决方法" class="headerlink" title="来自身份不明的开发者 的解决方法"></a><code>来自身份不明的开发者</code> 的解决方法</h2><blockquote><h3 id="常见的几种报错"><a href="#常见的几种报错" class="headerlink" title="常见的几种报错"></a>常见的几种报错</h3><ul><li>xxx已损坏，无法打开，你应该将它移到废纸篓解决办法</li><li>打不开 xxx，因为它来自身份不明的开发者</li><li>打不开xxxx，因为 Apple 无法检查其是否包含恶意软件</li><li>在安装的时候提示加载失败！</li></ul></blockquote><h2 id="方法：开启任何来源"><a href="#方法：开启任何来源" class="headerlink" title="方法：开启任何来源"></a>方法：开启任何来源</h2><p>先打开 <code>系统偏好设置 -&gt; 安全与隐私 -&gt; 通用</code> 选项卡，检查是否已经启用了 <code>任何来源</code> 选项。</p><p>如果没有这个选项，<code>终端</code>中执行如下命令</p><blockquote><p>sudo模式需要输入密码不做解释</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure><p>然后放行 <code>你要打开的应用</code>（不要有空格） :</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xattr -cr /Applications/XXXXXXX.app</span><br></pre></td></tr></table></figure><p>or</p><p>⭐️<strong>或者复制以下命令粘贴到终端后</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xattr -rd com.apple.quarantine </span><br></pre></td></tr></table></figure><p>打开 <code>Finder-应用程序</code>，将应用拖进终端中。</p><blockquote><p>注意 <code>quarantine</code>后面必须有空格</p></blockquote><h2 id="方法：应用签名（扩展）"><a href="#方法：应用签名（扩展）" class="headerlink" title="方法：应用签名（扩展）"></a>方法：应用签名（扩展）</h2><ol><li>安装Command Line Tools 工具</li></ol><p>打开终端工具输入如下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658773.jpg" alt="img"></p><ol><li>弹出安装窗口后选择<code>继续安装</code>，安装过程需要几分钟，请耐心等待。</li><li>打开终端工具输入并执行如下命令对应用签名：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo codesign --force --deep --sign - (应用路径)</span><br></pre></td></tr></table></figure><blockquote><p>应用路径：打开<code>Finder-应用程序</code>，找到相关应用，将它拖进终端命令<code>-</code>的后面，然后按下回车即可，注意最后一个 <code>-</code>后面有一个空格。</p></blockquote><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658977.jpg" alt="img"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658180.jpg" alt="img"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658386.jpg" alt="img"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658602.jpg" alt="img"></p><p>正常情况下只有一行提示，即成功：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/文件位置 : replacing existing signature</span><br></pre></td></tr></table></figure><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658821.jpg" alt="img"></p><h5 id="如遇如下错误："><a href="#如遇如下错误：" class="headerlink" title="如遇如下错误："></a>如遇如下错误：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/文件位置 : replacing existing signature</span><br><span class="line">/文件位置 : resource fork,Finder information,or similar detritus not allowed</span><br></pre></td></tr></table></figure><ol><li>先在终端执行：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xattr -cr /文件位置（直接将应用拖进去即可）</span><br></pre></td></tr></table></figure><ol><li>然后再次执行如下指令即可：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">codesign --force --deep --sign - /文件位置（直接将应用拖进去即可）</span><br></pre></td></tr></table></figure><p>转载自macwk：<a href="https://macwk.com/article/macos-file-damage">https://macwk.com/article/macos-file-damage</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> macOS </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> macOS </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Telegram中文包汇总</title>
       <link href="/2022/09/05/19.telegramlanguage/"/>
       <url>/2022/09/05/19.telegramlanguage/</url>
@@ -543,6 +518,31 @@
         <tags>
             
             <tag> Telegram </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于macOS应用的一些问题解决方案</title>
+      <link href="/2022/09/05/15.macOSBugs/"/>
+      <url>/2022/09/05/15.macOSBugs/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h2><h2 id="xxx-app-已损坏，无法打开，你应该将它移到废纸篓-打不开xxx，"><a href="#xxx-app-已损坏，无法打开，你应该将它移到废纸篓-打不开xxx，" class="headerlink" title="xxx.app 已损坏，无法打开，你应该将它移到废纸篓/打不开xxx，"></a><code>xxx.app 已损坏，无法打开，你应该将它移到废纸篓/打不开xxx，</code></h2><h2 id="来自身份不明的开发者-的解决方法"><a href="#来自身份不明的开发者-的解决方法" class="headerlink" title="来自身份不明的开发者 的解决方法"></a><code>来自身份不明的开发者</code> 的解决方法</h2><blockquote><h3 id="常见的几种报错"><a href="#常见的几种报错" class="headerlink" title="常见的几种报错"></a>常见的几种报错</h3><ul><li>xxx已损坏，无法打开，你应该将它移到废纸篓解决办法</li><li>打不开 xxx，因为它来自身份不明的开发者</li><li>打不开xxxx，因为 Apple 无法检查其是否包含恶意软件</li><li>在安装的时候提示加载失败！</li></ul></blockquote><h2 id="方法：开启任何来源"><a href="#方法：开启任何来源" class="headerlink" title="方法：开启任何来源"></a>方法：开启任何来源</h2><p>先打开 <code>系统偏好设置 -&gt; 安全与隐私 -&gt; 通用</code> 选项卡，检查是否已经启用了 <code>任何来源</code> 选项。</p><p>如果没有这个选项，<code>终端</code>中执行如下命令</p><blockquote><p>sudo模式需要输入密码不做解释</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure><p>然后放行 <code>你要打开的应用</code>（不要有空格） :</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xattr -cr /Applications/XXXXXXX.app</span><br></pre></td></tr></table></figure><p>or</p><p>⭐️<strong>或者复制以下命令粘贴到终端后</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xattr -rd com.apple.quarantine </span><br></pre></td></tr></table></figure><p>打开 <code>Finder-应用程序</code>，将应用拖进终端中。</p><blockquote><p>注意 <code>quarantine</code>后面必须有空格</p></blockquote><h2 id="方法：应用签名（扩展）"><a href="#方法：应用签名（扩展）" class="headerlink" title="方法：应用签名（扩展）"></a>方法：应用签名（扩展）</h2><ol><li>安装Command Line Tools 工具</li></ol><p>打开终端工具输入如下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658773.jpg" alt="img"></p><ol><li>弹出安装窗口后选择<code>继续安装</code>，安装过程需要几分钟，请耐心等待。</li><li>打开终端工具输入并执行如下命令对应用签名：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo codesign --force --deep --sign - (应用路径)</span><br></pre></td></tr></table></figure><blockquote><p>应用路径：打开<code>Finder-应用程序</code>，找到相关应用，将它拖进终端命令<code>-</code>的后面，然后按下回车即可，注意最后一个 <code>-</code>后面有一个空格。</p></blockquote><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658977.jpg" alt="img"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658180.jpg" alt="img"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658386.jpg" alt="img"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658602.jpg" alt="img"></p><p>正常情况下只有一行提示，即成功：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/文件位置 : replacing existing signature</span><br></pre></td></tr></table></figure><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051658821.jpg" alt="img"></p><h5 id="如遇如下错误："><a href="#如遇如下错误：" class="headerlink" title="如遇如下错误："></a>如遇如下错误：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/文件位置 : replacing existing signature</span><br><span class="line">/文件位置 : resource fork,Finder information,or similar detritus not allowed</span><br></pre></td></tr></table></figure><ol><li>先在终端执行：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xattr -cr /文件位置（直接将应用拖进去即可）</span><br></pre></td></tr></table></figure><ol><li>然后再次执行如下指令即可：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">codesign --force --deep --sign - /文件位置（直接将应用拖进去即可）</span><br></pre></td></tr></table></figure><p>转载自macwk：<a href="https://macwk.com/article/macos-file-damage">https://macwk.com/article/macos-file-damage</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> macOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> macOS </tag>
             
         </tags>
       
