@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>【Hexo】Hexo-butterfly全局字体的修改</title>
+      <link href="/2022/10/02/37.hexoFontChange/"/>
+      <url>/2022/10/02/37.hexoFontChange/</url>
+      
+        <content type="html"><![CDATA[<p>找了全网都没咋看到butterfly主题修改字体的教程，瞎找找到了，记录一下，早就想改大了。</p><blockquote><p>也可能是因为太简单了？反正我还不会html这些语言只能一点一点做好备份摸索</p></blockquote><p>找到博客目录下的<code>/themes/butterfly/source/css/var.styl</code>，我的butterfly版本为4.3.1，找到第29行的<code>// Global Variables</code></p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Global Variables</span></span><br><span class="line"><span class="variable">$font</span>-size = <span class="built_in">hexo-config</span>(<span class="string">&#x27;font.global-font-size&#x27;</span>) ? <span class="built_in">convert</span>(<span class="built_in">hexo-config</span>(<span class="string">&#x27;font.global-font-size&#x27;</span>)) : <span class="number">14px</span></span><br><span class="line"><span class="variable">$code</span>-<span class="attribute">font-size</span> = hexo-config(<span class="string">&#x27;font.code-font-size&#x27;</span>) ? convert(hexo-config(<span class="string">&#x27;font.code-font-size&#x27;</span>)) : var(--global-font-size)</span><br><span class="line"><span class="variable">$font</span>-<span class="attribute">color</span> = <span class="number">#1F2D3D</span></span><br><span class="line"><span class="variable">$text</span>-<span class="attribute">line-height</span> = <span class="number">2</span></span><br><span class="line"><span class="variable">$web</span>-bg = <span class="built_in">hexo-config</span>(<span class="string">&#x27;background&#x27;</span>) &amp;&amp; <span class="built_in">unquote</span>(<span class="built_in">hexo-config</span>(<span class="string">&#x27;background&#x27;</span>))</span><br><span class="line"><span class="variable">$index_top_img_height</span> = <span class="built_in">hexo-config</span>(<span class="string">&#x27;index_top_img_height&#x27;</span>) ? <span class="built_in">convert</span>(<span class="built_in">hexo-config</span>(<span class="string">&#x27;index_top_img_height&#x27;</span>)) : <span class="number">100vh</span></span><br><span class="line"><span class="variable">$index_site_info_top</span> = <span class="built_in">hexo-config</span>(<span class="string">&#x27;index_site_info_top&#x27;</span>) ? <span class="built_in">convert</span>(<span class="built_in">hexo-config</span>(<span class="string">&#x27;index_site_info_top&#x27;</span>)) : <span class="number">43%</span></span><br></pre></td></tr></table></figure><p>看到<code>$font-size = hexo-config(&#39;font.global-font-size&#39;) ? convert(hexo-config(&#39;font.global-font-size&#39;)) : 14px</code></p><p>默认为14px，在这里你可以修改为其他的……px，将全局字体放大</p><blockquote><p>推荐16px即可，要不大过头了😆</p></blockquote><p>在这个文件里你还可以修改颜色侧边栏之类的样式，我就不改了嘿嘿。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> butterfly </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> butterfly </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>一些关于以往的事（三） —— 大学初里（Simple version）</title>
       <link href="/2022/10/01/36.myLeakLife3/"/>
       <url>/2022/10/01/36.myLeakLife3/</url>
