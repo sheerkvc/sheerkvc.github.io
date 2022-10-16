@@ -4,6 +4,68 @@
   
     
     <entry>
+      <title>大小端存储和边界对齐真题</title>
+      <link href="/2022/10/16/46.boundaryAlignment/"/>
+      <url>/2022/10/16/46.boundaryAlignment/</url>
+      
+        <content type="html"><![CDATA[<p><strong>知识点：</strong><br><strong>1、结构体占字节数</strong><br><strong>2、小端地址与大段地址</strong><br><strong>3、 边界对齐方式存储</strong></p><hr><blockquote><p><strong>【2012年计算机联考真题】</strong><br>某计算机存储器按字节编址，采用小端方式存放数据，假定编译器规定int和short型长度分别为32位和16位，并且数据按边界对齐存储，其C语言程序段如下：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line"><span class="type">int</span> a;</span><br><span class="line"><span class="type">char</span> b;</span><br><span class="line"><span class="type">short</span> c;</span><br><span class="line">&#125;record;</span><br><span class="line">record.a=<span class="number">273</span>;</span><br></pre></td></tr></table></figure><p>若record变量的首地址为0xC008，则地址0xC008中的内容及record.c的地址分别为（ ）</p><p>A . 0x00 0xC00D</p><p>B . 0x00 0xC00E</p><p>C . 0x11 0xC00D</p><p>D . 0x11 0xC00E</p><p><strong>【答案】 D</strong></p></blockquote><p>分析：<br><strong>【1】存储器按字节编制。</strong><br>record———结构体变量——-占所有字节数之和。</p><div class="table-container"><table><thead><tr><th>类型</th><th>字节数</th></tr></thead><tbody><tr><td>int a</td><td>4</td></tr><tr><td>char b</td><td>1</td></tr><tr><td>short c</td><td>2</td></tr><tr><td>record</td><td>4+2+1=7</td></tr></tbody></table></div><p>本来record应该是占得7个字节，如果这一题没有其他限制的话。<br>但是这一题出现了<strong>数据按边界对齐存储</strong>的条件，事实上，record占得是8个字节（需要后续分析才知道）。</p><div class="table-container"><table><thead><tr><th>结构体变量</th><th>字节数</th></tr></thead><tbody><tr><td>record</td><td>8</td></tr></tbody></table></div><p> <strong>【2】小端方式和大端方式</strong></p><blockquote><p>1、大端方式：数据高字节—&gt;内存的低地址；数据低字节——&gt;内存的高地址。<br>1、小端方式：数据高字节—&gt;内存的高地址；数据低字节——&gt;内存的低地址。</p></blockquote><p>如果广义成一个二进制对象，大端法对应的就是从头到尾存储，小端法就是从尾到头。</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/2020060717515039.png" alt="2020060717515039"></p><p><strong>【3】数据按边界对齐存储</strong><br><strong>通俗的来说，变量的起始地址为其大小的整数倍，比如short占2个字节，起始地址从偶数地址开始。</strong><br>比较官方的定义为：即对于存放某长度为 m 字节的数据，<strong>存放首地址需为m 字节的整数倍，同时，结构体整体的大小是最大成员长度的整数倍。</strong></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/20200607175454866.png" alt="20200607175454866"></p><p>如上图所示，在采用边界对齐的情况下，当处理器需要访问a<em>变量和b</em>变量时都只需进行一次存取（图中花括号表示一次存取操作）。若不采用边界对齐，a<em>变量只要一次处理器操作，而b</em>变量却至少要进行两次操作。对于b_，处理器还得调用更多指令将其合成一个完整的 4 字节，这样无疑大大降低了程序效率。</p><hr><p><strong>【解题步骤】</strong><br>1、273=0x111=0x 00 00 01 11（化成32位）<br>2、内存中的存储</p><div class="table-container"><table><thead><tr><th>地址</th><th>数据(0x)</th></tr></thead><tbody><tr><td>0xC008</td><td>11 (record.a)</td></tr><tr><td>0xC009</td><td>01 (record.a)</td></tr><tr><td>0xC00A</td><td>00 (record.a)</td></tr><tr><td>0xC00B</td><td>00 (record.a)</td></tr><tr><td>0xC00C</td><td>record.b</td></tr><tr><td>0xC00D</td><td>——-</td></tr><tr><td>0xC00E</td><td>record.c</td></tr><tr><td>0xC00F</td><td>record.c</td></tr></tbody></table></div><p><strong>为什么0XC00D不能直接存放record.c？</strong><br>这就是前面所说的数据按照边界对齐方式存储的规则，<strong>0XC00D，D化成十进制为13，不能整除2字节（record.c），因此后放。</strong></p><hr><blockquote><p>参考：<br>【1】<a href="https://blog.csdn.net/runner_of_nku/article/details/82883245">https://blog.csdn.net/runner_of_nku/article/details/82883245</a><br>【2】<a href="https://blog.csdn.net/weixin_37641832/article/details/89075718?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase">https://blog.csdn.net/weixin_37641832/article/details/89075718?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase</a><br>【3】赵海英教程<br>————————————————<br>转载自：<a href="https://blog.csdn.net/ls158390/article/details/106605129">https://blog.csdn.net/ls158390/article/details/106605129</a></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+          <category> 计组原理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习 </tag>
+            
+            <tag> 计组原理 </tag>
+            
+            <tag> 边界对齐 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>算术左移溢出的情况</title>
+      <link href="/2022/10/15/45.MAL/"/>
+      <url>/2022/10/15/45.MAL/</url>
+      
+        <content type="html"><![CDATA[<h1 id="为什么补码算术左移会发生溢出？什么情况会溢出？"><a href="#为什么补码算术左移会发生溢出？什么情况会溢出？" class="headerlink" title="为什么补码算术左移会发生溢出？什么情况会溢出？"></a>为什么补码算术左移会发生溢出？什么情况会溢出？</h1><p>我们知道，算术移位符号位保持不变，那为什么左移后会溢出呢，符号位不是没变吗？<br>那是因为，左移相当于真值乘以2，而最高数位如果与符号位不同的话，其真值必超过最大表示数值的一半：<br>1、如果符号位为0，最高数位为1，形如：01xxx…xxx，那么这是一个正数，而且不管有几位，必超过最大值的一半：假如有8位，最大表示数值为2^7-1=127，而最高数位为2^6 = 64 。64再左移相当于乘以2，就超过最大数值了，即溢出。<br>2、如果符号位为1，最高数位为0，形如：10xxx…xxx，那么这是一个负数，不管后面是多少，其绝对值必超过最小值的绝对值的一半：假如有8位，最小值为−2^7 = − 128，即10000000。最大数位是0的话，其绝对值必超过2^6 = 64，准确的说最大为10111111，即后面全是1，其真值为− ( 2^6 + 1 ) = −65</p><p>结论：当补码算术左移时，若符号位与最高数位不同，则会发生溢出。</p><hr><p><strong>详见王道计组原理P51 T27 Ⅱ</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+          <category> 计组原理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习 </tag>
+            
+            <tag> 计组原理 </tag>
+            
+            <tag> 算术左移 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>408数据结构一轮浅过复盘</title>
       <link href="/2022/10/13/33.dataConsShowAll/"/>
       <url>/2022/10/13/33.dataConsShowAll/</url>
@@ -576,33 +638,6 @@
     
     
     <entry>
-      <title>【Hexo-Butterfly】页面美化的一些操作-不定期收录</title>
-      <link href="/2022/09/05/16.beautifyBlog/"/>
-      <url>/2022/09/05/16.beautifyBlog/</url>
-      
-        <content type="html"><![CDATA[<p>此篇文章引用了我在更新博客时所参考的资料，仅供学习使用，在这里对原作者们表示万分感谢😋</p><hr><h3 id="标题小风车、侧边栏时钟-小人，参考自"><a href="#标题小风车、侧边栏时钟-小人，参考自" class="headerlink" title="标题小风车、侧边栏时钟/小人，参考自"></a>标题小风车、侧边栏时钟/小人，参考自</h3><div class="tag link"><a class="link-card" title="我的 Blog 美化日记 ——Hexo+Butterfly" href="https://guole.fun/posts/butterfly-custom/"><div class="left"><img src="https://guole.fun/img/gl.jpg"/></div><div class="right"><p class="text">我的 Blog 美化日记 ——Hexo+Butterfly</p><p class="url">https://guole.fun/posts/butterfly-custom/</p></div></a></div><h3 id="外挂标签，参考自"><a href="#外挂标签，参考自" class="headerlink" title="外挂标签，参考自"></a>外挂标签，参考自</h3><div class="tag link"><a class="link-card" title="Tag Plugins Plus" href="https://akilar.top/posts/615e2dec/"><div class="left"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209251249876.png"/></div><div class="right"><p class="text">Tag Plugins Plus</p><p class="url">https://akilar.top/posts/615e2dec/</p></div></a></div><h3 id="文章加密"><a href="#文章加密" class="headerlink" title="文章加密"></a>文章加密</h3><div class="tag link"><a class="link-card" title="hexo-blog-encrypt" href="https://blog.justlovesmile.top/posts/43010.html"><div class="left"><img src="https://blog.justlovesmile.top/img/avatar.jpg"/></div><div class="right"><p class="text">hexo-blog-encrypt</p><p class="url">https://blog.justlovesmile.top/posts/43010.html</p></div></a></div><h3 id="修改侧边栏分类排序规则"><a href="#修改侧边栏分类排序规则" class="headerlink" title="修改侧边栏分类排序规则"></a>修改侧边栏分类排序规则</h3><div class="tag link"><a class="link-card" title="sideBar Sort" href="https://sheerkvc.top/2022/09/05/sidebarReSort/"><div class="left"><img src="https://sheerkvc.top/avatar/avatar.jpeg"/></div><div class="right"><p class="text">sideBar Sort</p><p class="url">https://sheerkvc.top/2022/09/05/sidebarReSort/</p></div></a></div><h3 id="适配客户端博客图标"><a href="#适配客户端博客图标" class="headerlink" title="适配客户端博客图标"></a>适配客户端博客图标</h3><div class="tag link"><a class="link-card" title="适配Safari书签页和iOS桌面图标" href="https://blog.zhheo.com/p/5728da61.html"><div class="left"><img src="https://img.zhheo.com/i/2022/08/19/62ff32fa28da1.png"/></div><div class="right"><p class="text">适配Safari书签页和iOS桌面图标</p><p class="url">https://blog.zhheo.com/p/5728da61.html</p></div></a></div><h3 id="git推送图、磁贴、置顶、双列展示、历史今天、电子时钟"><a href="#git推送图、磁贴、置顶、双列展示、历史今天、电子时钟" class="headerlink" title="git推送图、磁贴、置顶、双列展示、历史今天、电子时钟"></a>git推送图、磁贴、置顶、双列展示、历史今天、电子时钟</h3><div class="tag link"><a class="link-card" title="小冰插件包" href="https://zfe.space/post/hexo-butterfly-orchid.html"><div class="left"><img src="https://zfe.space/images/headimage.png"/></div><div class="right"><p class="text">小冰插件包</p><p class="url">https://zfe.space/post/hexo-butterfly-orchid.html</p></div></a></div><h3 id="Momo本地字体更改、鼠标指针"><a href="#Momo本地字体更改、鼠标指针" class="headerlink" title="Momo本地字体更改、鼠标指针"></a>Momo本地字体更改、鼠标指针</h3><div class="tag link"><a class="link-card" title="基础视觉美化" href="https://xiaoliblog.cn/page/butterfly01.html#%E6%A0%B7%E5%BC%8F%E5%BC%95%E5%85%A5"><div class="left"><img src="https://s2.loli.net/2022/08/06/t5YcsIz34OMkglL.jpg"/></div><div class="right"><p class="text">基础视觉美化</p><p class="url">https://xiaoliblog.cn/page/butterfly01.html#%E6%A0%B7%E5%BC%8F%E5%BC%95%E5%85%A5</p></div></a></div>]]></content>
-      
-      
-      <categories>
-          
-          <category> butterfly </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> hexo </tag>
-            
-            <tag> butterfly </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>【Hexo-Butterfly】修改侧边栏分类排序规则</title>
       <link href="/2022/09/05/17.sidebarReSort/"/>
       <url>/2022/09/05/17.sidebarReSort/</url>
@@ -630,23 +665,25 @@
     
     
     <entry>
-      <title>Telegram中文包汇总</title>
-      <link href="/2022/09/05/19.telegramlanguage/"/>
-      <url>/2022/09/05/19.telegramlanguage/</url>
+      <title>【Hexo-Butterfly】页面美化的一些操作-不定期收录</title>
+      <link href="/2022/09/05/16.beautifyBlog/"/>
+      <url>/2022/09/05/16.beautifyBlog/</url>
       
-        <content type="html"><![CDATA[<h2 id="复制到浏览器转到TG打开"><a href="#复制到浏览器转到TG打开" class="headerlink" title="复制到浏览器转到TG打开"></a>复制到浏览器转到TG打开</h2><p>各个语言包:</p><p>* 中文(简体)-聪聪: <code>tg://setlanguage?lang=zhcncc</code></p><p>* 中文(简体)-@zh_CN: <code>tg://setlanguage?lang=classic-zh-cn</code></p><p>* 中文(简体)-简体: <code>tg://setlanguage?lang=classic-zh</code></p><p>* 中文(简体)-langCN: <code>tg://setlanguage?lang=zhlangcn</code></p><p>* 中文(简体)-zh-hans: <code>tg://setlanguage?lang=zh-hans-beta</code></p><p>* 中文(简体)-瓜体: <code>tg://setlanguage?lang=duang-zh-cn</code></p><p>* 中文(简体)-小哇: <code>tg://setlanguage?lang=qingwa</code></p><p>* 中文(简体)-江湖中文版: <code>tg://setlanguage?lang=jianghu</code></p><p>* 中文(简体)-: <code>tg://setlanguage?lang=cnsimplified</code></p><p>* 中文(简体)-@MiaoCN: <code>tg://setlanguage?lang=meowcn</code></p><p>* 中文(简体)-简体字: <code>tg://setlanguage?lang=jiantizi</code></p><p>* 中文(香港)-繁体1: <code>tg://setlanguage?lang=hongkong</code></p><p>* 中文(香港)-繁体2: <code>tg://setlanguage?lang=zhhant-hk</code></p><p>* 中文(香港)-繁体3: <code>tg://setlanguage?lang=zh-hant-raw</code></p><p>* 中文(香港)-人口语: <code>tg://setlanguage?lang=hongkonger</code></p><p>* 中文(香港)-广东话1: <code>tg://setlanguage?lang=zhhkpb1</code></p><p>* 中文(香港)-广东话2: <code>tg://setlanguage?lang=hkcantonese</code></p><p>* 中文(香港)-郭桓桓: <code>tg://setlanguage?lang=zhong-taiwan-traditional</code></p><p>* 中文(台灣)-正体: <code>tg://setlanguage?lang=taiwan</code></p><p>* 中文(台灣)-繁体: <code>tg://setlanguage?lang=zh-hant-beta</code></p><p>* 中文(台灣)-文言: <code>tg://setlanguage?lang=chinese-ancient</code></p><p>* 中文(台灣)-文言: <code>tg://setlanguage?lang=chinese-literary</code></p><p>* 中文(台灣)-魔法師: <code>tg://setlanguage?lang=encha</code></p><p>* 日文：<code>tg://setlanguage?lang=ja-beta</code></p>]]></content>
+        <content type="html"><![CDATA[<p>此篇文章引用了我在更新博客时所参考的资料，仅供学习使用，在这里对原作者们表示万分感谢😋</p><hr><h3 id="标题小风车、侧边栏时钟-小人，参考自"><a href="#标题小风车、侧边栏时钟-小人，参考自" class="headerlink" title="标题小风车、侧边栏时钟/小人，参考自"></a>标题小风车、侧边栏时钟/小人，参考自</h3><div class="tag link"><a class="link-card" title="我的 Blog 美化日记 ——Hexo+Butterfly" href="https://guole.fun/posts/butterfly-custom/"><div class="left"><img src="https://guole.fun/img/gl.jpg"/></div><div class="right"><p class="text">我的 Blog 美化日记 ——Hexo+Butterfly</p><p class="url">https://guole.fun/posts/butterfly-custom/</p></div></a></div><h3 id="外挂标签，参考自"><a href="#外挂标签，参考自" class="headerlink" title="外挂标签，参考自"></a>外挂标签，参考自</h3><div class="tag link"><a class="link-card" title="Tag Plugins Plus" href="https://akilar.top/posts/615e2dec/"><div class="left"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209251249876.png"/></div><div class="right"><p class="text">Tag Plugins Plus</p><p class="url">https://akilar.top/posts/615e2dec/</p></div></a></div><h3 id="文章加密"><a href="#文章加密" class="headerlink" title="文章加密"></a>文章加密</h3><div class="tag link"><a class="link-card" title="hexo-blog-encrypt" href="https://blog.justlovesmile.top/posts/43010.html"><div class="left"><img src="https://blog.justlovesmile.top/img/avatar.jpg"/></div><div class="right"><p class="text">hexo-blog-encrypt</p><p class="url">https://blog.justlovesmile.top/posts/43010.html</p></div></a></div><h3 id="修改侧边栏分类排序规则"><a href="#修改侧边栏分类排序规则" class="headerlink" title="修改侧边栏分类排序规则"></a>修改侧边栏分类排序规则</h3><div class="tag link"><a class="link-card" title="sideBar Sort" href="https://sheerkvc.top/2022/09/05/sidebarReSort/"><div class="left"><img src="https://sheerkvc.top/avatar/avatar.jpeg"/></div><div class="right"><p class="text">sideBar Sort</p><p class="url">https://sheerkvc.top/2022/09/05/sidebarReSort/</p></div></a></div><h3 id="适配客户端博客图标"><a href="#适配客户端博客图标" class="headerlink" title="适配客户端博客图标"></a>适配客户端博客图标</h3><div class="tag link"><a class="link-card" title="适配Safari书签页和iOS桌面图标" href="https://blog.zhheo.com/p/5728da61.html"><div class="left"><img src="https://img.zhheo.com/i/2022/08/19/62ff32fa28da1.png"/></div><div class="right"><p class="text">适配Safari书签页和iOS桌面图标</p><p class="url">https://blog.zhheo.com/p/5728da61.html</p></div></a></div><h3 id="git推送图、磁贴、置顶、双列展示、历史今天、电子时钟"><a href="#git推送图、磁贴、置顶、双列展示、历史今天、电子时钟" class="headerlink" title="git推送图、磁贴、置顶、双列展示、历史今天、电子时钟"></a>git推送图、磁贴、置顶、双列展示、历史今天、电子时钟</h3><div class="tag link"><a class="link-card" title="小冰插件包" href="https://zfe.space/post/hexo-butterfly-orchid.html"><div class="left"><img src="https://zfe.space/images/headimage.png"/></div><div class="right"><p class="text">小冰插件包</p><p class="url">https://zfe.space/post/hexo-butterfly-orchid.html</p></div></a></div><h3 id="Momo本地字体更改、鼠标指针"><a href="#Momo本地字体更改、鼠标指针" class="headerlink" title="Momo本地字体更改、鼠标指针"></a>Momo本地字体更改、鼠标指针</h3><div class="tag link"><a class="link-card" title="基础视觉美化" href="https://xiaoliblog.cn/page/butterfly01.html#%E6%A0%B7%E5%BC%8F%E5%BC%95%E5%85%A5"><div class="left"><img src="https://s2.loli.net/2022/08/06/t5YcsIz34OMkglL.jpg"/></div><div class="right"><p class="text">基础视觉美化</p><p class="url">https://xiaoliblog.cn/page/butterfly01.html#%E6%A0%B7%E5%BC%8F%E5%BC%95%E5%85%A5</p></div></a></div>]]></content>
       
       
       <categories>
           
-          <category> Telegram </category>
+          <category> butterfly </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Telegram </tag>
+            <tag> hexo </tag>
+            
+            <tag> butterfly </tag>
             
         </tags>
       
@@ -672,6 +709,31 @@
         <tags>
             
             <tag> macOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Telegram中文包汇总</title>
+      <link href="/2022/09/05/19.telegramlanguage/"/>
+      <url>/2022/09/05/19.telegramlanguage/</url>
+      
+        <content type="html"><![CDATA[<h2 id="复制到浏览器转到TG打开"><a href="#复制到浏览器转到TG打开" class="headerlink" title="复制到浏览器转到TG打开"></a>复制到浏览器转到TG打开</h2><p>各个语言包:</p><p>* 中文(简体)-聪聪: <code>tg://setlanguage?lang=zhcncc</code></p><p>* 中文(简体)-@zh_CN: <code>tg://setlanguage?lang=classic-zh-cn</code></p><p>* 中文(简体)-简体: <code>tg://setlanguage?lang=classic-zh</code></p><p>* 中文(简体)-langCN: <code>tg://setlanguage?lang=zhlangcn</code></p><p>* 中文(简体)-zh-hans: <code>tg://setlanguage?lang=zh-hans-beta</code></p><p>* 中文(简体)-瓜体: <code>tg://setlanguage?lang=duang-zh-cn</code></p><p>* 中文(简体)-小哇: <code>tg://setlanguage?lang=qingwa</code></p><p>* 中文(简体)-江湖中文版: <code>tg://setlanguage?lang=jianghu</code></p><p>* 中文(简体)-: <code>tg://setlanguage?lang=cnsimplified</code></p><p>* 中文(简体)-@MiaoCN: <code>tg://setlanguage?lang=meowcn</code></p><p>* 中文(简体)-简体字: <code>tg://setlanguage?lang=jiantizi</code></p><p>* 中文(香港)-繁体1: <code>tg://setlanguage?lang=hongkong</code></p><p>* 中文(香港)-繁体2: <code>tg://setlanguage?lang=zhhant-hk</code></p><p>* 中文(香港)-繁体3: <code>tg://setlanguage?lang=zh-hant-raw</code></p><p>* 中文(香港)-人口语: <code>tg://setlanguage?lang=hongkonger</code></p><p>* 中文(香港)-广东话1: <code>tg://setlanguage?lang=zhhkpb1</code></p><p>* 中文(香港)-广东话2: <code>tg://setlanguage?lang=hkcantonese</code></p><p>* 中文(香港)-郭桓桓: <code>tg://setlanguage?lang=zhong-taiwan-traditional</code></p><p>* 中文(台灣)-正体: <code>tg://setlanguage?lang=taiwan</code></p><p>* 中文(台灣)-繁体: <code>tg://setlanguage?lang=zh-hant-beta</code></p><p>* 中文(台灣)-文言: <code>tg://setlanguage?lang=chinese-ancient</code></p><p>* 中文(台灣)-文言: <code>tg://setlanguage?lang=chinese-literary</code></p><p>* 中文(台灣)-魔法師: <code>tg://setlanguage?lang=encha</code></p><p>* 日文：<code>tg://setlanguage?lang=ja-beta</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Telegram </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Telegram </tag>
             
         </tags>
       
