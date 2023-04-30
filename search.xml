@@ -22,7 +22,38 @@
       
         <tags>
             
-            <tag> 段页式存储 学习 </tag>
+            <tag> 学习 </tag>
+            
+            <tag> 段页式存储 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>单/双缓冲区的处理时间问题</title>
+      <link href="/2023/04/14/56.bufferCalEX/"/>
+      <url>/2023/04/14/56.bufferCalEX/</url>
+      
+        <content type="html"><![CDATA[<p>设备管理中的计算题：</p><blockquote><p>1、<strong>（选自2011年统考真题）</strong>某文件占10个磁盘块，现要把该文件磁盘块逐个读入主存缓冲区，并送用户区进行分析，将缓冲区的数据传送到用户区的时间是50μs，CPU对一块数据进行分析的时间为50μs。在单缓冲区和双缓冲区结构下，读入并分析完该文件的时间分别是（<strong>B</strong>）</p><p>A、1500μs, 1000μs</p><p>B、1550μs, 1100μs</p><p>C、1550μs, 1550μs</p><p>D、2000μs, 2000μs</p></blockquote><p>解：</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/20210508124658-20230422211629007.jpg" alt="img" style="zoom: 67%;" /></p><p>图a 为单缓冲，图b为双缓冲。每个标号的格子长度为100，没标号的格子长度为50，代表对应处理步骤所需的时间（单位为μs）</p><p> 在单缓冲的情况下，当上一个磁盘块从缓冲区读入用户区完成时下一磁盘块才能开始读入，将读入缓冲区和传送用户区作为一个单元，共有10个这样的单元，也就是150 x 10μs = 1500μs，加上最后一个磁盘块的CPU处理时间50μs，得1550μs。</p><p> 在双缓冲的情况下，读入第一个缓冲区之后可以立即开始读入第二个缓冲区，读完第二个缓冲区之后，第一个缓冲区已经把数据传送至用户区，第一个缓冲区空闲，可以立即开始继续将数据读入第一个缓冲区中，因此不存在等待磁盘块从缓冲区读入用户区的问题，得到传输数据全部传输到缓冲区的时间100 x 10μs = 1000μs, 再加上将最后一个缓冲区的数据传输到用户区并由CPU处理完的时间(50 + 50)μs = 100μs ，得1100μs</p><blockquote><p>我的理解：</p><p><strong>缓冲区问题主要是看T M C三个时间的关系</strong></p><blockquote><p>T: dev(ice) → buffer</p><p>M: buf → work</p><p>C: CPU process</p></blockquote><p>在单块数据的处理中：</p><p>​        单缓冲の时间 = max ( C , T ) + M   ;   双缓冲の时间 = max ( C + M , T )</p><p>在多块数据的处理中，对于一个数据时间同上，但总时间有变化，最后总会有不在单位处理时间（即单块数据的处理时间）的时间部分。</p><p>此时利用甘特图（上答案图）图解</p></blockquote><hr><p>2、<strong>（选自2013年统考真题）</strong>设系统缓冲区和用户工作区均采用单缓冲，从外设读入一个数据块到系统缓冲区的时间为100，从系统缓冲区读入1个数据块到用户工作区的时间为5， 对用户工作区中的1个数据块进行分析的时间为90（见下图），进程从外设读入并分析2个数据块的最短时间是（<strong>C</strong>）</p><p>A. 200</p><p>B. 295</p><p>C. 300</p><p>D. 390</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/20210508125808.jpg" alt="img" style="zoom: 25%;" /></p><blockquote><p>解题方法可以仿照第一个题的图解：</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/20210508132000.png" alt="img"></p><p>计算可得 100 + 5 + 100 + 5 + 90 = 300</p><p>数据块1从外设到用户工作区的总时间为105，在这段时间中，系统缓冲区均被数据块1占据，因此对数据块2无法进行操作。但在数据块1在用户工作区进行分析处理时（时间90），系统缓冲区已空闲下来，可以让数据块2从外设读入到系统缓冲区，相当于数据块2的整个处理时间比串行执行时节省了90的时间。又1个数据串行执行时，所需时间为100 + 5 + 90 = 195, 第二块的处理时间为195 - 90 = 105， 合计195 + 105 = 300,即进程从外设读入并分析2个数据块的最短时间为300。</p><p><strong>我的理解：甘特图太好用了</strong></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+          <category> 操作系统 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习 </tag>
+            
+            <tag> 缓冲区 </tag>
             
         </tags>
       
@@ -278,7 +309,7 @@
       <link href="/2022/10/16/46.boundaryAlignment/"/>
       <url>/2022/10/16/46.boundaryAlignment/</url>
       
-        <content type="html"><![CDATA[<p><strong>知识点：</strong><br><strong>1、结构体占字节数</strong><br><strong>2、小端地址与大段地址</strong><br><strong>3、 边界对齐方式存储</strong></p><hr><blockquote><p><strong>【2012年计算机联考真题】</strong><br>某计算机存储器按字节编址，采用小端方式存放数据，假定编译器规定int和short型长度分别为32位和16位，并且数据按边界对齐存储，其C语言程序段如下：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line"><span class="type">int</span> a;</span><br><span class="line"><span class="type">char</span> b;</span><br><span class="line"><span class="type">short</span> c;</span><br><span class="line">&#125;record;</span><br><span class="line">record.a=<span class="number">273</span>;</span><br></pre></td></tr></table></figure><p>若record变量的首地址为0xC008，则地址0xC008中的内容及record.c的地址分别为（ ）</p><p>A . 0x00 0xC00D</p><p>B . 0x00 0xC00E</p><p>C . 0x11 0xC00D</p><p>D . 0x11 0xC00E</p><p><strong>【答案】 D</strong></p></blockquote><p>分析：<br><strong>【1】存储器按字节编制。</strong><br>record———结构体变量——-占所有字节数之和。</p><div class="table-container"><table><thead><tr><th>类型</th><th>字节数</th></tr></thead><tbody><tr><td>int a</td><td>4</td></tr><tr><td>char b</td><td>1</td></tr><tr><td>short c</td><td>2</td></tr><tr><td>record</td><td>4+2+1=7</td></tr></tbody></table></div><p>本来record应该是占得7个字节，如果这一题没有其他限制的话。<br>但是这一题出现了<strong>数据按边界对齐存储</strong>的条件，事实上，record占得是8个字节（需要后续分析才知道）。</p><div class="table-container"><table><thead><tr><th>结构体变量</th><th>字节数</th></tr></thead><tbody><tr><td>record</td><td>8</td></tr></tbody></table></div><p> <strong>【2】小端方式和大端方式</strong></p><blockquote><p>1、大端方式：数据高字节—&gt;内存的低地址；数据低字节——&gt;内存的高地址。<br>1、小端方式：数据高字节—&gt;内存的高地址；数据低字节——&gt;内存的低地址。</p></blockquote><p>如果广义成一个二进制对象，大端法对应的就是从头到尾存储，小端法就是从尾到头。</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/2020060717515039.png" alt="2020060717515039"></p><p><strong>【3】数据按边界对齐存储</strong><br><strong>通俗的来说，变量的起始地址为其大小的整数倍，比如short占2个字节，起始地址从偶数地址开始。</strong><br>比较官方的定义为：即对于存放某长度为 m 字节的数据，<strong>存放首地址需为m 字节的整数倍，同时，结构体整体的大小是最大成员长度的整数倍。</strong></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/20200607175454866.png" alt="20200607175454866"></p><p>如上图所示，在采用边界对齐的情况下，当处理器需要访问a<em>变量和b</em>变量时都只需进行一次存取（图中花括号表示一次存取操作）。若不采用边界对齐，a<em>变量只要一次处理器操作，而b</em>变量却至少要进行两次操作。对于b_，处理器还得调用更多指令将其合成一个完整的 4 字节，这样无疑大大降低了程序效率。</p><hr><p><strong>【解题步骤】</strong><br>1、273=0x111=0x 00 00 01 11（化成32位）<br>2、内存中的存储</p><div class="table-container"><table><thead><tr><th>地址</th><th>数据(0x)</th></tr></thead><tbody><tr><td>0xC008</td><td>11 (record.a)</td></tr><tr><td>0xC009</td><td>01 (record.a)</td></tr><tr><td>0xC00A</td><td>00 (record.a)</td></tr><tr><td>0xC00B</td><td>00 (record.a)</td></tr><tr><td>0xC00C</td><td>record.b</td></tr><tr><td>0xC00D</td><td>——-</td></tr><tr><td>0xC00E</td><td>record.c</td></tr><tr><td>0xC00F</td><td>record.c</td></tr></tbody></table></div><p><strong>为什么0XC00D不能直接存放record.c？</strong><br>这就是前面所说的数据按照边界对齐方式存储的规则，<strong>0XC00D，D化成十进制为13，不能整除2字节（record.c），因此后放。</strong></p><hr><blockquote><p>参考：<br>【1】<a href="https://blog.csdn.net/runner_of_nku/article/details/82883245">https://blog.csdn.net/runner_of_nku/article/details/82883245</a><br>【2】<a href="https://blog.csdn.net/weixin_37641832/article/details/89075718?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase">https://blog.csdn.net/weixin_37641832/article/details/89075718?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase</a><br>【3】赵海英教程<br>————————————————<br>转载自：<a href="https://blog.csdn.net/ls158390/article/details/106605129">https://blog.csdn.net/ls158390/article/details/106605129</a></p></blockquote>]]></content>
+        <content type="html"><![CDATA[<p><strong>知识点：</strong><br><strong>1、结构体占字节数</strong><br><strong>2、小端地址与大段地址</strong><br><strong>3、 边界对齐方式存储</strong></p><hr><blockquote><p><strong>【2012年计算机联考真题】</strong><br>某计算机存储器按字节编址，采用小端方式存放数据，假定编译器规定int和short型长度分别为32位和16位，并且数据按边界对齐存储，其C语言程序段如下：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line"><span class="type">int</span> a;</span><br><span class="line"><span class="type">char</span> b;</span><br><span class="line"><span class="type">short</span> c;</span><br><span class="line">&#125;record;</span><br><span class="line">record.a=<span class="number">273</span>;</span><br></pre></td></tr></table></figure><p>若record变量的首地址为0xC008，则地址0xC008中的内容及record.c的地址分别为（ ）</p><p>A . 0x00 0xC00D</p><p>B . 0x00 0xC00E</p><p>C . 0x11 0xC00D</p><p>D . 0x11 0xC00E</p><p><strong>【答案】 D</strong></p></blockquote><p>分析：<br><strong>【1】存储器按字节编制。</strong><br>record———结构体变量——-占所有字节数之和。</p><div class="table-container"><table><thead><tr><th>类型</th><th>字节数</th></tr></thead><tbody><tr><td>int a</td><td>4</td></tr><tr><td>char b</td><td>1</td></tr><tr><td>short c</td><td>2</td></tr><tr><td>record</td><td>4+2+1=7</td></tr></tbody></table></div><p>本来record应该是占得7个字节，如果这一题没有其他限制的话。<br>但是这一题出现了<strong>数据按边界对齐存储</strong>的条件，事实上，record占得是8个字节（需要后续分析才知道）。</p><div class="table-container"><table><thead><tr><th>结构体变量</th><th>字节数</th></tr></thead><tbody><tr><td>record</td><td>8</td></tr></tbody></table></div><p> <strong>【2】小端方式和大端方式</strong></p><blockquote><p>1、大端方式：数据高字节—&gt;内存的低地址；数据低字节——&gt;内存的高地址。<br>1、小端方式：数据高字节—&gt;内存的高地址；数据低字节——&gt;内存的低地址。</p></blockquote><p>如果广义成一个二进制对象，大端法对应的就是从头到尾存储，小端法就是从尾到头。</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/2020060717515039.png" alt="2020060717515039"></p><p><strong>【3】数据按边界对齐存储</strong><br><strong>通俗的来说，变量的起始地址为其大小的整数倍，比如short占2个字节，起始地址从偶数地址开始。</strong><br>比较官方的定义为：即对于存放某长度为 m 字节的数据，<strong>存放首地址需为m 字节的整数倍，同时，结构体整体的大小是最大成员长度的整数倍。</strong></p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/20200607175454866.png" alt="20200607175454866"></p><p>如上图所示，在采用边界对齐的情况下，当处理器需要访问a<em>变量和b</em>变量时都只需进行一次存取（图中花括号表示一次存取操作）。若不采用边界对齐，a<em>变量只要一次处理器操作，而b</em>变量却至少要进行两次操作。对于b_，处理器还得调用更多指令将其合成一个完整的 4 字节，这样无疑大大降低了程序效率。</p><hr><p><strong>【解题步骤】</strong><br>1、273=0x111=0x 00 00 01 11（化成32位）<br>2、内存中的存储</p><div class="table-container"><table><thead><tr><th>地址</th><th>数据(0x)</th></tr></thead><tbody><tr><td>0xC008</td><td>11 (record.a)</td></tr><tr><td>0xC009</td><td>01 (record.a)</td></tr><tr><td>0xC00A</td><td>00 (record.a)</td></tr><tr><td>0xC00B</td><td>00 (record.a)</td></tr><tr><td>0xC00C</td><td>record.b</td></tr><tr><td>0xC00D</td><td>——-</td></tr><tr><td>0xC00E</td><td>record.c</td></tr><tr><td>0xC00F</td><td>record.c</td></tr></tbody></table></div><p><strong>为什么0XC00D不能直接存放record.c？</strong><br>这就是前面所说的数据按照边界对齐方式存储的规则，<strong>0XC00D，D化成十进制为13，不能整除2字节（record.c），因此后放。</strong></p><hr>]]></content>
       
       
       <categories>
@@ -325,9 +356,9 @@
             
             <tag> 学习 </tag>
             
-            <tag> 计组原理 </tag>
-            
             <tag> 算术左移 </tag>
+            
+            <tag> 计组原理 </tag>
             
         </tags>
       
@@ -442,7 +473,7 @@
       <link href="/2022/10/03/38.408About/"/>
       <url>/2022/10/03/38.408About/</url>
       
-        <content type="html"><![CDATA[<p>只做课后选择题，大题暂时不看时间不够</p><p>记录一下具体什么时候学完的</p><h1 id="一轮初学"><a href="#一轮初学" class="headerlink" title="一轮初学"></a>一轮初学</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><blockquote><p><strong>2022年</strong></p><p>B站尚硅谷宋红康JavaSE（150h,1.5倍速）——4月底-7月底</p><p>B站尚硅谷韩顺平cSE（讲的太浅了（70h,1.5倍速））——7月底5天内</p><p>然后开始以上计划</p></blockquote><hr><h2 id="数据结构-无详细，共374页"><a href="#数据结构-无详细，共374页" class="headerlink" title="数据结构(无详细，共374页)"></a>数据结构(无详细，共374页)</h2><blockquote><p><strong>2022年</strong></p><p>7月24日左右开始——9月30日结束</p></blockquote><h2 id="计组原理（共322页）"><a href="#计组原理（共322页）" class="headerlink" title="计组原理（共322页）"></a>计组原理（共322页）</h2><blockquote><p><strong>2022年</strong></p><p>第一章9月30日——10月2日</p><p>第二章10月3日——10月24日</p><p>第三章10月24日——11月13日</p><p><del>第四章</del>11月13日<del>——11月14日——</del></p><p><strong>suspend for final exam</strong></p><p>第四章(new)12月25——12月31日</p><hr><p><strong>2023年</strong></p><p>第五章1月1日——2月初左右（寒假摸鱼）</p><p>第六章2月初左右——2.24</p><p>第七章2.24——3月1日</p><p><strong>—结束—</strong></p><p>1——4日浅看学校</p></blockquote><h2 id="高等数学（共302页，和OS一起看的）"><a href="#高等数学（共302页，和OS一起看的）" class="headerlink" title="高等数学（共302页，和OS一起看的）"></a>高等数学（共302页，和OS一起看的）</h2><blockquote><p><strong>张宇基础18讲</strong></p><p>3月4日——3月30日  上</p><p>3月31日——4月19日 下</p><p>happy😭</p></blockquote><h2 id="操作系统（共331页）"><a href="#操作系统（共331页）" class="headerlink" title="操作系统（共331页）"></a>操作系统（共331页）</h2><blockquote><p>第一章3月8日——3月15日</p><p>第二章3月15日——4月5日</p><p>第三章4月5日——4月12日</p><p>第四章4月12日——4月23日</p><p>第五章4月23日——</p></blockquote><h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><p>none</p><hr><h1 id="二轮"><a href="#二轮" class="headerlink" title="二轮"></a>二轮</h1><p>none</p>]]></content>
+        <content type="html"><![CDATA[<p>只做课后选择题，大题暂时不看时间不够</p><p>记录一下具体什么时候学完的</p><h1 id="一轮初学"><a href="#一轮初学" class="headerlink" title="一轮初学"></a>一轮初学</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><blockquote><p><strong>2022年</strong></p><p>B站尚硅谷宋红康JavaSE（150h,1.5倍速）——4月底-7月底</p><p>B站尚硅谷韩顺平cSE（讲的太浅了（70h,1.5倍速））——7月底5天内</p><p>然后开始以上计划</p></blockquote><hr><h2 id="数据结构-无详细，共374页"><a href="#数据结构-无详细，共374页" class="headerlink" title="数据结构(无详细，共374页)"></a>数据结构(无详细，共374页)</h2><blockquote><p><strong>2022年</strong></p><p>7月24日左右开始——9月30日结束</p></blockquote><hr><h2 id="计组原理-共322页"><a href="#计组原理-共322页" class="headerlink" title="计组原理(共322页)"></a>计组原理(共322页)</h2><blockquote><p><strong>2022年</strong></p><p>第一章9月30日——10月2日</p><p>第二章10月3日——10月24日</p><p>第三章10月24日——11月13日</p><p><del>第四章</del>11月13日<del>——11月14日——</del></p><p><strong>suspend for final exam</strong></p><p>第四章(new)12月25——12月31日</p><hr><p><strong>2023年</strong></p><p>第五章1月1日——2月初左右（寒假摸鱼）</p><p>第六章2月初左右——2.24</p><p>第七章2.24——3月1日</p><p><strong>—结束—</strong></p><p>1——4日浅看学校</p></blockquote><hr><h2 id="高等数学-共302页，和OS一起看"><a href="#高等数学-共302页，和OS一起看" class="headerlink" title="高等数学(共302页，和OS一起看)"></a>高等数学(共302页，和OS一起看)</h2><blockquote><p><strong>张宇基础18讲</strong></p><p>3月4日——3月30日  上</p><p>3月31日——4月20日 下</p><p>happy😭</p></blockquote><h2 id="操作系统-共331页"><a href="#操作系统-共331页" class="headerlink" title="操作系统(共331页)"></a>操作系统(共331页)</h2><blockquote><p>第一章3月8日——3月15日</p><p>第二章3月15日——4月5日</p><p>第三章4月5日——4月12日</p><p>第四章4月12日——4月21日</p><p>第五章4月21日——4日24日</p></blockquote><hr><h2 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h2><p>4月24日——</p><h2 id="计算机网络-湖科大课-课本-王道课本"><a href="#计算机网络-湖科大课-课本-王道课本" class="headerlink" title="计算机网络(湖科大课/课本+王道课本)"></a>计算机网络(湖科大课/课本+王道课本)</h2><p>不便分章统计，简单统计</p><p>第一章4月25日——4月27日</p><p>第二章5月1日——ing</p><hr><hr><h1 id="二轮"><a href="#二轮" class="headerlink" title="二轮"></a>二轮</h1><p>none</p>]]></content>
       
       
       <categories>
@@ -685,11 +716,11 @@
       
         <tags>
             
+            <tag> 快速排序 </tag>
+            
             <tag> 学习 </tag>
             
             <tag> 数据结构 </tag>
-            
-            <tag> 快速排序 </tag>
             
         </tags>
       
@@ -768,11 +799,11 @@
       
         <tags>
             
-            <tag> 希尔排序 </tag>
-            
             <tag> 学习 </tag>
             
             <tag> 数据结构 </tag>
+            
+            <tag> 希尔排序 </tag>
             
         </tags>
       
