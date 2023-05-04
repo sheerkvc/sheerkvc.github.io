@@ -4,18 +4,18 @@
   
     
     <entry>
-      <title>段页式存储例题</title>
-      <link href="/2023/04/14/55.pageStorageEX/"/>
-      <url>/2023/04/14/55.pageStorageEX/</url>
+      <title>以太网介质访问控制的问题</title>
+      <link href="/2023/05/03/57.EthernetEX/"/>
+      <url>/2023/05/03/57.EthernetEX/</url>
       
-        <content type="html"><![CDATA[<blockquote><p><strong>已知系统为32位实地址，采用48位虚拟地址，页面大小4KB，页表项大小为8B；每段最大为4GB。 </strong></p><p><strong>（1）假设系统使用纯页式存储，则要采用多少级页表，页内偏移多少位？ </strong></p><p><strong>（2）假设系统采用一级页表，TLB命中率为98%，TLB访问时间为10ns，内存访问时间为100ns，并假设当TLB访问失败后才访问内存，问平均页面访问时间是多少？ </strong></p><p><strong>（3）如果是二级页表，页面平均访问时间是多少？ </strong></p><p><strong>（4）上题中，如果要满足访问时间&lt;=120ns，那么命中率需要至少多少？ </strong></p><p><strong>（5）若系统采用段页式存储，则每用户最多可以有多少段？段内采用几级页表？</strong></p></blockquote><p>答案：</p><p>（1）首先，页面大小为4KB，故页内偏移需要12位来表示。其次，系统虚拟地址一共48位，所以剩下的48-12=36位可以用来表示虚页号。每一个页面可以容纳的页表项为：4KB/8B=29（也就是可以最多表示到9位长的页号），而虚页号的长度为36位，所以需要的页表级数为：36/9=4级。</p><p>（2）当进行页面访问时，首先应该先读取页面对应的页表项，98%的情况可以在TLB中直接得到得到页表项，直接将逻辑地址转化为物理地址，访问内存中的页面。如果TLB未命中，则要通过一次内存访问来读取页表项，所以页面平均访问时间是：</p><p><code>98%×（10+100）ns+2%×（10+100+100）ns=112ns</code></p><p>（3）二级页表的情况下：</p><p>如果TLB命中，和（2）的情况一样，如果TLB没有命中，采用二级页表需要访问3次内存，所以页面平均访问时间是：</p><p><code>98%×（10+100）ns+2%×（10+100+100+100）ns=114ns</code></p><p>（4）假设快表的命中率为p，应该满足以下式子：</p><p><code>p×（10+100）ns+（1-p）×（10+100+100+100）ns&lt;=120ns</code></p><p>可以解得：p&gt;=95%，所以如果要满足访问时间&lt;=120ns，那么命中率至少为95%。总结知识点：在多级页表的情况下，如果TLB没有命中，则需要从虚拟地址的高位起，每N位（其中N就是类似于（1）中的9）逐级访问各级页表，以第（1）问为例，如果快表未命中，则需要访问5次内存才能得到所需页面。</p>]]></content>
+        <content type="html"><![CDATA[<p>王道P102 T27</p><p>数据链路层介质访问控制的课后习题</p><blockquote><p> 【2016 统考真题】如下图所示，在Hub再生比特流的过程中会产生1.535μs延时 (Switch和Hub均为100Base-T设备），信号传播速率为 200m/μs，不考虑以太网帧的前导码，则H3和E4之间理论上可以相距的最远距离是（<strong>B</strong>）。</p><p> <img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzQ3OTk0Nw==,size_16,color_FFFFFF,t_70.png" alt="在这里插入图片描述"></p><p> A. 200m</p><p> B. 205m</p><p> C.359m</p><p> D. 512m</p></blockquote><p><strong><u>隐含条件：</strong></p><p><u><strong>Hub传输速率为100Mb/s，因为为100Base-T设备</strong></u></p><p><u><strong>以太网最小帧长为64B</strong></u></p><p><u><strong>对于100Mb/s的以太网，其争用期为 (8b × 64) ÷ 100Mb/s = 5.12μs（考生应当熟记该值）</strong></u></p><p>本题中，争用期 = 2 * ( 端到端的单程信号传播时延 + 1.535μs)  ↓</p><p>​                5.12μs = 2 * （x + 1.535μs ）</p><p>解得 x = 1.025μs</p><p>所以 最远长度为 200m/μs × 1.025μs = 205m</p>]]></content>
       
       
       <categories>
           
           <category> 学习 </category>
           
-          <category> 操作系统 </category>
+          <category> 计算机网络 </category>
           
       </categories>
       
@@ -24,7 +24,7 @@
             
             <tag> 学习 </tag>
             
-            <tag> 段页式存储 </tag>
+            <tag> Ethernet </tag>
             
         </tags>
       
@@ -54,6 +54,35 @@
             <tag> 学习 </tag>
             
             <tag> 缓冲区 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>段页式存储例题</title>
+      <link href="/2023/04/14/55.pageStorageEX/"/>
+      <url>/2023/04/14/55.pageStorageEX/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p><strong>已知系统为32位实地址，采用48位虚拟地址，页面大小4KB，页表项大小为8B；每段最大为4GB。 </strong></p><p><strong>（1）假设系统使用纯页式存储，则要采用多少级页表，页内偏移多少位？ </strong></p><p><strong>（2）假设系统采用一级页表，TLB命中率为98%，TLB访问时间为10ns，内存访问时间为100ns，并假设当TLB访问失败后才访问内存，问平均页面访问时间是多少？ </strong></p><p><strong>（3）如果是二级页表，页面平均访问时间是多少？ </strong></p><p><strong>（4）上题中，如果要满足访问时间&lt;=120ns，那么命中率需要至少多少？ </strong></p><p><strong>（5）若系统采用段页式存储，则每用户最多可以有多少段？段内采用几级页表？</strong></p></blockquote><p>答案：</p><p>（1）首先，页面大小为4KB，故页内偏移需要12位来表示。其次，系统虚拟地址一共48位，所以剩下的48-12=36位可以用来表示虚页号。每一个页面可以容纳的页表项为：4KB/8B=29（也就是可以最多表示到9位长的页号），而虚页号的长度为36位，所以需要的页表级数为：36/9=4级。</p><p>（2）当进行页面访问时，首先应该先读取页面对应的页表项，98%的情况可以在TLB中直接得到得到页表项，直接将逻辑地址转化为物理地址，访问内存中的页面。如果TLB未命中，则要通过一次内存访问来读取页表项，所以页面平均访问时间是：</p><p><code>98%×（10+100）ns+2%×（10+100+100）ns=112ns</code></p><p>（3）二级页表的情况下：</p><p>如果TLB命中，和（2）的情况一样，如果TLB没有命中，采用二级页表需要访问3次内存，所以页面平均访问时间是：</p><p><code>98%×（10+100）ns+2%×（10+100+100+100）ns=114ns</code></p><p>（4）假设快表的命中率为p，应该满足以下式子：</p><p><code>p×（10+100）ns+（1-p）×（10+100+100+100）ns&lt;=120ns</code></p><p>可以解得：p&gt;=95%，所以如果要满足访问时间&lt;=120ns，那么命中率至少为95%。总结知识点：在多级页表的情况下，如果TLB没有命中，则需要从虚拟地址的高位起，每N位（其中N就是类似于（1）中的9）逐级访问各级页表，以第（1）问为例，如果快表未命中，则需要访问5次内存才能得到所需页面。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+          <category> 操作系统 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习 </tag>
+            
+            <tag> 段页式存储 </tag>
             
         </tags>
       
@@ -356,9 +385,9 @@
             
             <tag> 学习 </tag>
             
-            <tag> 算术左移 </tag>
-            
             <tag> 计组原理 </tag>
+            
+            <tag> 算术左移 </tag>
             
         </tags>
       
@@ -473,7 +502,7 @@
       <link href="/2022/10/03/38.408About/"/>
       <url>/2022/10/03/38.408About/</url>
       
-        <content type="html"><![CDATA[<p>只做课后选择题，大题暂时不看时间不够</p><p>记录一下具体什么时候学完的</p><h1 id="一轮初学"><a href="#一轮初学" class="headerlink" title="一轮初学"></a>一轮初学</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><blockquote><p><strong>2022年</strong></p><p>B站尚硅谷宋红康JavaSE（150h,1.5倍速）——4月底-7月底</p><p>B站尚硅谷韩顺平cSE（讲的太浅了（70h,1.5倍速））——7月底5天内</p><p>然后开始以上计划</p></blockquote><hr><h2 id="数据结构-无详细，共374页"><a href="#数据结构-无详细，共374页" class="headerlink" title="数据结构(无详细，共374页)"></a>数据结构(无详细，共374页)</h2><blockquote><p><strong>2022年</strong></p><p>7月24日左右开始——9月30日结束</p></blockquote><hr><h2 id="计组原理-共322页"><a href="#计组原理-共322页" class="headerlink" title="计组原理(共322页)"></a>计组原理(共322页)</h2><blockquote><p><strong>2022年</strong></p><p>第一章9月30日——10月2日</p><p>第二章10月3日——10月24日</p><p>第三章10月24日——11月13日</p><p><del>第四章</del>11月13日<del>——11月14日——</del></p><p><strong>suspend for final exam</strong></p><p>第四章(new)12月25——12月31日</p><hr><p><strong>2023年</strong></p><p>第五章1月1日——2月初左右（寒假摸鱼）</p><p>第六章2月初左右——2.24</p><p>第七章2.24——3月1日</p><p><strong>—结束—</strong></p><p>1——4日浅看学校</p></blockquote><hr><h2 id="高等数学-共302页，和OS一起看"><a href="#高等数学-共302页，和OS一起看" class="headerlink" title="高等数学(共302页，和OS一起看)"></a>高等数学(共302页，和OS一起看)</h2><blockquote><p><strong>张宇基础18讲</strong></p><p>3月4日——3月30日  上</p><p>3月31日——4月20日 下</p><p>happy😭</p></blockquote><h2 id="操作系统-共331页"><a href="#操作系统-共331页" class="headerlink" title="操作系统(共331页)"></a>操作系统(共331页)</h2><blockquote><p>第一章3月8日——3月15日</p><p>第二章3月15日——4月5日</p><p>第三章4月5日——4月12日</p><p>第四章4月12日——4月21日</p><p>第五章4月21日——4日24日</p></blockquote><hr><h2 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h2><p>4月24日——</p><h2 id="计算机网络-湖科大课-课本-王道课本"><a href="#计算机网络-湖科大课-课本-王道课本" class="headerlink" title="计算机网络(湖科大课/课本+王道课本)"></a>计算机网络(湖科大课/课本+王道课本)</h2><p>不便分章统计，简单统计</p><p>第一章4月25日——4月27日</p><p>第二章5月1日——ing</p><hr><hr><h1 id="二轮"><a href="#二轮" class="headerlink" title="二轮"></a>二轮</h1><p>none</p>]]></content>
+        <content type="html"><![CDATA[<p>只做课后选择题，大题暂时不看时间不够</p><p>记录一下具体什么时候学完的</p><h1 id="一轮初学"><a href="#一轮初学" class="headerlink" title="一轮初学"></a>一轮初学</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><blockquote><p><strong>2022年</strong></p><p>B站尚硅谷宋红康JavaSE（150h,1.5倍速）——4月底-7月底</p><p>B站尚硅谷韩顺平cSE（讲的太浅了（70h,1.5倍速））——7月底5天内</p><p>然后开始以上计划</p></blockquote><hr><h2 id="数据结构-无详细，共374页"><a href="#数据结构-无详细，共374页" class="headerlink" title="数据结构(无详细，共374页)"></a>数据结构(无详细，共374页)</h2><blockquote><p><strong>2022年</strong></p><p>7月24日左右开始——9月30日结束</p></blockquote><hr><h2 id="计组原理-共322页"><a href="#计组原理-共322页" class="headerlink" title="计组原理(共322页)"></a>计组原理(共322页)</h2><blockquote><p><strong>2022年</strong></p><p>第一章9月30日——10月2日</p><p>第二章10月3日——10月24日</p><p>第三章10月24日——11月13日</p><p><del>第四章</del>11月13日<del>——11月14日——</del></p><p><strong>suspend for final exam</strong></p><p>第四章(new)12月25——12月31日</p><hr><p><strong>2023年</strong></p><p>第五章1月1日——2月初左右（寒假摸鱼）</p><p>第六章2月初左右——2.24</p><p>第七章2.24——3月1日</p><p><strong>—结束—</strong></p><p>1——4日浅看学校</p></blockquote><hr><h2 id="高等数学-共302页，和OS一起看"><a href="#高等数学-共302页，和OS一起看" class="headerlink" title="高等数学(共302页，和OS一起看)"></a>高等数学(共302页，和OS一起看)</h2><blockquote><p><strong>张宇基础18讲</strong></p><p>3月4日——3月30日  上</p><p>3月31日——4月20日 下</p><p>happy😭</p></blockquote><h2 id="操作系统-共331页"><a href="#操作系统-共331页" class="headerlink" title="操作系统(共331页)"></a>操作系统(共331页)</h2><blockquote><p>第一章3月8日——3月15日</p><p>第二章3月15日——4月5日</p><p>第三章4月5日——4月12日</p><p>第四章4月12日——4月21日</p><p>第五章4月21日——4日24日</p></blockquote><hr><h2 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h2><p>4月24日——5月4日</p><h2 id="计算机网络-湖科大课-课本-王道课本"><a href="#计算机网络-湖科大课-课本-王道课本" class="headerlink" title="计算机网络(湖科大课/课本+王道课本)"></a>计算机网络(湖科大课/课本+王道课本)</h2><p>第一、二章4月25日——4月27日</p><p>第三章5月1日——5月3日</p><p>第四章5月4日——5月ing</p><h2 id="概率论"><a href="#概率论" class="headerlink" title="概率论"></a>概率论</h2><p>none</p><hr><hr><h1 id="二轮"><a href="#二轮" class="headerlink" title="二轮"></a>二轮</h1><p>none</p>]]></content>
       
       
       <categories>
@@ -716,11 +745,11 @@
       
         <tags>
             
-            <tag> 快速排序 </tag>
-            
             <tag> 学习 </tag>
             
             <tag> 数据结构 </tag>
+            
+            <tag> 快速排序 </tag>
             
         </tags>
       
@@ -799,11 +828,11 @@
       
         <tags>
             
+            <tag> 希尔排序 </tag>
+            
             <tag> 学习 </tag>
             
             <tag> 数据结构 </tag>
-            
-            <tag> 希尔排序 </tag>
             
         </tags>
       
