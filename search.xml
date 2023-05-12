@@ -33,35 +33,6 @@
     
     
     <entry>
-      <title>段页式存储例题</title>
-      <link href="/2023/04/14/55.pageStorageEX/"/>
-      <url>/2023/04/14/55.pageStorageEX/</url>
-      
-        <content type="html"><![CDATA[<blockquote><p><strong>已知系统为32位实地址，采用48位虚拟地址，页面大小4KB，页表项大小为8B；每段最大为4GB。 </strong></p><p><strong>（1）假设系统使用纯页式存储，则要采用多少级页表，页内偏移多少位？ </strong></p><p><strong>（2）假设系统采用一级页表，TLB命中率为98%，TLB访问时间为10ns，内存访问时间为100ns，并假设当TLB访问失败后才访问内存，问平均页面访问时间是多少？ </strong></p><p><strong>（3）如果是二级页表，页面平均访问时间是多少？ </strong></p><p><strong>（4）上题中，如果要满足访问时间&lt;=120ns，那么命中率需要至少多少？ </strong></p><p><strong>（5）若系统采用段页式存储，则每用户最多可以有多少段？段内采用几级页表？</strong></p></blockquote><p>答案：</p><p>（1）首先，页面大小为4KB，故页内偏移需要12位来表示。其次，系统虚拟地址一共48位，所以剩下的48-12=36位可以用来表示虚页号。每一个页面可以容纳的页表项为：4KB/8B=29（也就是可以最多表示到9位长的页号），而虚页号的长度为36位，所以需要的页表级数为：36/9=4级。</p><p>（2）当进行页面访问时，首先应该先读取页面对应的页表项，98%的情况可以在TLB中直接得到得到页表项，直接将逻辑地址转化为物理地址，访问内存中的页面。如果TLB未命中，则要通过一次内存访问来读取页表项，所以页面平均访问时间是：</p><p><code>98%×（10+100）ns+2%×（10+100+100）ns=112ns</code></p><p>（3）二级页表的情况下：</p><p>如果TLB命中，和（2）的情况一样，如果TLB没有命中，采用二级页表需要访问3次内存，所以页面平均访问时间是：</p><p><code>98%×（10+100）ns+2%×（10+100+100+100）ns=114ns</code></p><p>（4）假设快表的命中率为p，应该满足以下式子：</p><p><code>p×（10+100）ns+（1-p）×（10+100+100+100）ns&lt;=120ns</code></p><p>可以解得：p&gt;=95%，所以如果要满足访问时间&lt;=120ns，那么命中率至少为95%。总结知识点：在多级页表的情况下，如果TLB没有命中，则需要从虚拟地址的高位起，每N位（其中N就是类似于（1）中的9）逐级访问各级页表，以第（1）问为例，如果快表未命中，则需要访问5次内存才能得到所需页面。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 学习 </category>
-          
-          <category> 操作系统 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 学习 </tag>
-            
-            <tag> 段页式存储 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>单/双缓冲区的处理时间问题</title>
       <link href="/2023/04/14/56.bufferCalEX/"/>
       <url>/2023/04/14/56.bufferCalEX/</url>
@@ -83,6 +54,35 @@
             <tag> 学习 </tag>
             
             <tag> 缓冲区 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>段页式存储例题</title>
+      <link href="/2023/04/14/55.pageStorageEX/"/>
+      <url>/2023/04/14/55.pageStorageEX/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p><strong>已知系统为32位实地址，采用48位虚拟地址，页面大小4KB，页表项大小为8B；每段最大为4GB。 </strong></p><p><strong>（1）假设系统使用纯页式存储，则要采用多少级页表，页内偏移多少位？ </strong></p><p><strong>（2）假设系统采用一级页表，TLB命中率为98%，TLB访问时间为10ns，内存访问时间为100ns，并假设当TLB访问失败后才访问内存，问平均页面访问时间是多少？ </strong></p><p><strong>（3）如果是二级页表，页面平均访问时间是多少？ </strong></p><p><strong>（4）上题中，如果要满足访问时间&lt;=120ns，那么命中率需要至少多少？ </strong></p><p><strong>（5）若系统采用段页式存储，则每用户最多可以有多少段？段内采用几级页表？</strong></p></blockquote><p>答案：</p><p>（1）首先，页面大小为4KB，故页内偏移需要12位来表示。其次，系统虚拟地址一共48位，所以剩下的48-12=36位可以用来表示虚页号。每一个页面可以容纳的页表项为：4KB/8B=29（也就是可以最多表示到9位长的页号），而虚页号的长度为36位，所以需要的页表级数为：36/9=4级。</p><p>（2）当进行页面访问时，首先应该先读取页面对应的页表项，98%的情况可以在TLB中直接得到得到页表项，直接将逻辑地址转化为物理地址，访问内存中的页面。如果TLB未命中，则要通过一次内存访问来读取页表项，所以页面平均访问时间是：</p><p><code>98%×（10+100）ns+2%×（10+100+100）ns=112ns</code></p><p>（3）二级页表的情况下：</p><p>如果TLB命中，和（2）的情况一样，如果TLB没有命中，采用二级页表需要访问3次内存，所以页面平均访问时间是：</p><p><code>98%×（10+100）ns+2%×（10+100+100+100）ns=114ns</code></p><p>（4）假设快表的命中率为p，应该满足以下式子：</p><p><code>p×（10+100）ns+（1-p）×（10+100+100+100）ns&lt;=120ns</code></p><p>可以解得：p&gt;=95%，所以如果要满足访问时间&lt;=120ns，那么命中率至少为95%。总结知识点：在多级页表的情况下，如果TLB没有命中，则需要从虚拟地址的高位起，每N位（其中N就是类似于（1）中的9）逐级访问各级页表，以第（1）问为例，如果快表未命中，则需要访问5次内存才能得到所需页面。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+          <category> 操作系统 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习 </tag>
+            
+            <tag> 段页式存储 </tag>
             
         </tags>
       
@@ -941,11 +941,11 @@
     
     
     <entry>
-      <title>【Hexo-Butterfly】修改侧边栏分类排序规则</title>
-      <link href="/2022/09/05/17.sidebarReSort/"/>
-      <url>/2022/09/05/17.sidebarReSort/</url>
+      <title>【Hexo-Butterfly】页面美化的一些操作-不定期收录</title>
+      <link href="/2022/09/05/16.beautifyBlog/"/>
+      <url>/2022/09/05/16.beautifyBlog/</url>
       
-        <content type="html"><![CDATA[<h1 id="提醒"><a href="#提醒" class="headerlink" title="提醒"></a>提醒</h1><p>本教程仅适用于hexo-butterfly主题，其他主题可以类比尝试</p><p>转载自：<a href="https://yanchengxu.top/hexo-categories-sort/">https://yanchengxu.top/hexo-categories-sort/</a></p><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p><code>Hexo-Butterfly</code>主题中，主页侧边栏中的<code>categories</code>默认显示顺序是按<code>name</code>排序，导致某些分类下虽然文章数量较少，但却排序靠前。并且默认设置下，主题中侧边<code>categories</code>只显示8条（如需修改可以修改<strong>主题配置文件</strong>），这在某些情况下让我的强迫症犯了主页分类不太实用，遂产生修改侧边栏<code>categories</code>的想法：按每个<code>categories</code>下文章数量降序排序。</p><p><a href="https://yanchengxu.top/hexo-categories-sort/image-20210921101717710.png"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051856414.png" alt="image-20210921101717710"></a></p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><blockquote><p>本操作涉及<strong>修改主题源代码</strong>，新手使用前建议<strong>备份</strong>相关文件</p></blockquote><ol><li><p>使用<code>VSCode/WebStrom</code>打开<strong>主题文件夹</strong>，用<strong>全局搜索</strong>功能检索关键字<code>name</code></p><p><a href="https://yanchengxu.top/hexo-categories-sort/image-20210921102002588.png"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051856503.png" alt="image-20210921102002588"></a></p></li><li><p>检索至<code>themes\butterfly\scripts\helpers\aside_categories.js</code>，<strong>修改源代码</strong>。</p><p>大约22行</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">复制成功<span class="comment">// const orderby = options.orderby || &#x27;name&#x27; // 默认-&gt;name-&gt;按categories字母顺序</span></span><br><span class="line"><span class="keyword">const</span> orderby = options.<span class="property">orderby</span> || <span class="string">&#x27;length&#x27;</span>  <span class="comment">// length-&gt;按categories下文章数量排序</span></span><br><span class="line"><span class="comment">// const order = options.order || 1  // 默认-&gt;1-&gt;升序 -1-&gt;逆序</span></span><br><span class="line"><span class="keyword">const</span> order = options.<span class="property">order</span> || -<span class="number">1</span></span><br></pre></td></tr></table></figure></li><li><p>执行<code>hexo g &amp;&amp; hexo s</code>查看修改效果</p><p><a href="https://yanchengxu.top/hexo-categories-sort/image-20210921102750542.png"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051856540.png" alt="image-20210921102750542"></a></p></li></ol>]]></content>
+        <content type="html"><![CDATA[<p>此篇文章引用了我在更新博客时所参考的资料，仅供学习使用，在这里对原作者们表示万分感谢😋</p><hr><h3 id="标题小风车、侧边栏时钟-小人"><a href="#标题小风车、侧边栏时钟-小人" class="headerlink" title="标题小风车、侧边栏时钟/小人"></a>标题小风车、侧边栏时钟/小人</h3><div class="tag link"><a class="link-card" title="我的 Blog 美化日记 ——Hexo+Butterfly" href="https://guole.fun/posts/butterfly-custom/"><div class="left"><img src="https://guole.fun/img/gl.jpg"/></div><div class="right"><p class="text">我的 Blog 美化日记 ——Hexo+Butterfly</p><p class="url">https://guole.fun/posts/butterfly-custom/</p></div></a></div><h3 id="外挂标签"><a href="#外挂标签" class="headerlink" title="外挂标签"></a>外挂标签</h3><div class="tag link"><a class="link-card" title="Tag Plugins Plus" href="https://akilar.top/posts/615e2dec/"><div class="left"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209251249876.png"/></div><div class="right"><p class="text">Tag Plugins Plus</p><p class="url">https://akilar.top/posts/615e2dec/</p></div></a></div><h3 id="文章加密"><a href="#文章加密" class="headerlink" title="文章加密"></a>文章加密</h3><div class="tag link"><a class="link-card" title="hexo-blog-encrypt" href="https://blog.justlovesmile.top/posts/43010.html"><div class="left"><img src="https://blog.justlovesmile.top/img/avatar.jpg"/></div><div class="right"><p class="text">hexo-blog-encrypt</p><p class="url">https://blog.justlovesmile.top/posts/43010.html</p></div></a></div><h3 id="修改侧边栏分类排序规则"><a href="#修改侧边栏分类排序规则" class="headerlink" title="修改侧边栏分类排序规则"></a>修改侧边栏分类排序规则</h3><div class="tag link"><a class="link-card" title="sideBar Sort" href="https://sheerkvc.top/2022/09/05/17.sidebarReSort/"><div class="left"><img src="https://sheerkvc.top/avatar/avatar.jpeg"/></div><div class="right"><p class="text">sideBar Sort</p><p class="url">https://sheerkvc.top/2022/09/05/17.sidebarReSort/</p></div></a></div><h3 id="适配客户端博客图标"><a href="#适配客户端博客图标" class="headerlink" title="适配客户端博客图标"></a>适配客户端博客图标</h3><div class="tag link"><a class="link-card" title="适配Safari书签页和iOS桌面图标" href="https://blog.zhheo.com/p/5728da61.html"><div class="left"><img src="https://img.zhheo.com/i/2022/08/19/62ff32fa28da1.png"/></div><div class="right"><p class="text">适配Safari书签页和iOS桌面图标</p><p class="url">https://blog.zhheo.com/p/5728da61.html</p></div></a></div><h3 id="git推送图、磁贴、置顶、双列展示、历史今天、电子时钟"><a href="#git推送图、磁贴、置顶、双列展示、历史今天、电子时钟" class="headerlink" title="git推送图、磁贴、置顶、双列展示、历史今天、电子时钟"></a>git推送图、磁贴、置顶、双列展示、历史今天、电子时钟</h3><div class="tag link"><a class="link-card" title="小冰插件包" href="https://zfe.space/post/hexo-butterfly-orchid.html"><div class="left"><img src="https://zfe.space/images/headimage.png"/></div><div class="right"><p class="text">小冰插件包</p><p class="url">https://zfe.space/post/hexo-butterfly-orchid.html</p></div></a></div><h3 id="Momo本地字体更改、鼠标指针"><a href="#Momo本地字体更改、鼠标指针" class="headerlink" title="Momo本地字体更改、鼠标指针"></a>Momo本地字体更改、鼠标指针</h3><div class="tag link"><a class="link-card" title="基础视觉美化" href="https://xiaoliblog.cn/page/butterfly01.html#%E6%A0%B7%E5%BC%8F%E5%BC%95%E5%85%A5"><div class="left"><img src="https://s2.loli.net/2022/08/06/t5YcsIz34OMkglL.jpg"/></div><div class="right"><p class="text">基础视觉美化</p><p class="url">https://xiaoliblog.cn/page/butterfly01.html#%E6%A0%B7%E5%BC%8F%E5%BC%95%E5%85%A5</p></div></a></div><h3 id="主页一图流"><a href="#主页一图流" class="headerlink" title="主页一图流"></a>主页一图流</h3><div class="tag link"><a class="link-card" title="一图流背景与顶部图修改" href="https://android99.com/2021/08/10/butterfly-top-image-modify/"><div class="left"><img src="https://android99.com/img/avatar.png"/></div><div class="right"><p class="text">一图流背景与顶部图修改</p><p class="url">https://android99.com/2021/08/10/butterfly-top-image-modify/</p></div></a></div>]]></content>
       
       
       <categories>
@@ -968,11 +968,11 @@
     
     
     <entry>
-      <title>【Hexo-Butterfly】页面美化的一些操作-不定期收录</title>
-      <link href="/2022/09/05/16.beautifyBlog/"/>
-      <url>/2022/09/05/16.beautifyBlog/</url>
+      <title>【Hexo-Butterfly】修改侧边栏分类排序规则</title>
+      <link href="/2022/09/05/17.sidebarReSort/"/>
+      <url>/2022/09/05/17.sidebarReSort/</url>
       
-        <content type="html"><![CDATA[<p>此篇文章引用了我在更新博客时所参考的资料，仅供学习使用，在这里对原作者们表示万分感谢😋</p><hr><h3 id="标题小风车、侧边栏时钟-小人"><a href="#标题小风车、侧边栏时钟-小人" class="headerlink" title="标题小风车、侧边栏时钟/小人"></a>标题小风车、侧边栏时钟/小人</h3><div class="tag link"><a class="link-card" title="我的 Blog 美化日记 ——Hexo+Butterfly" href="https://guole.fun/posts/butterfly-custom/"><div class="left"><img src="https://guole.fun/img/gl.jpg"/></div><div class="right"><p class="text">我的 Blog 美化日记 ——Hexo+Butterfly</p><p class="url">https://guole.fun/posts/butterfly-custom/</p></div></a></div><h3 id="外挂标签"><a href="#外挂标签" class="headerlink" title="外挂标签"></a>外挂标签</h3><div class="tag link"><a class="link-card" title="Tag Plugins Plus" href="https://akilar.top/posts/615e2dec/"><div class="left"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209251249876.png"/></div><div class="right"><p class="text">Tag Plugins Plus</p><p class="url">https://akilar.top/posts/615e2dec/</p></div></a></div><h3 id="文章加密"><a href="#文章加密" class="headerlink" title="文章加密"></a>文章加密</h3><div class="tag link"><a class="link-card" title="hexo-blog-encrypt" href="https://blog.justlovesmile.top/posts/43010.html"><div class="left"><img src="https://blog.justlovesmile.top/img/avatar.jpg"/></div><div class="right"><p class="text">hexo-blog-encrypt</p><p class="url">https://blog.justlovesmile.top/posts/43010.html</p></div></a></div><h3 id="修改侧边栏分类排序规则"><a href="#修改侧边栏分类排序规则" class="headerlink" title="修改侧边栏分类排序规则"></a>修改侧边栏分类排序规则</h3><div class="tag link"><a class="link-card" title="sideBar Sort" href="https://sheerkvc.top/2022/09/05/17.sidebarReSort/"><div class="left"><img src="https://sheerkvc.top/avatar/avatar.jpeg"/></div><div class="right"><p class="text">sideBar Sort</p><p class="url">https://sheerkvc.top/2022/09/05/17.sidebarReSort/</p></div></a></div><h3 id="适配客户端博客图标"><a href="#适配客户端博客图标" class="headerlink" title="适配客户端博客图标"></a>适配客户端博客图标</h3><div class="tag link"><a class="link-card" title="适配Safari书签页和iOS桌面图标" href="https://blog.zhheo.com/p/5728da61.html"><div class="left"><img src="https://img.zhheo.com/i/2022/08/19/62ff32fa28da1.png"/></div><div class="right"><p class="text">适配Safari书签页和iOS桌面图标</p><p class="url">https://blog.zhheo.com/p/5728da61.html</p></div></a></div><h3 id="git推送图、磁贴、置顶、双列展示、历史今天、电子时钟"><a href="#git推送图、磁贴、置顶、双列展示、历史今天、电子时钟" class="headerlink" title="git推送图、磁贴、置顶、双列展示、历史今天、电子时钟"></a>git推送图、磁贴、置顶、双列展示、历史今天、电子时钟</h3><div class="tag link"><a class="link-card" title="小冰插件包" href="https://zfe.space/post/hexo-butterfly-orchid.html"><div class="left"><img src="https://zfe.space/images/headimage.png"/></div><div class="right"><p class="text">小冰插件包</p><p class="url">https://zfe.space/post/hexo-butterfly-orchid.html</p></div></a></div><h3 id="Momo本地字体更改、鼠标指针"><a href="#Momo本地字体更改、鼠标指针" class="headerlink" title="Momo本地字体更改、鼠标指针"></a>Momo本地字体更改、鼠标指针</h3><div class="tag link"><a class="link-card" title="基础视觉美化" href="https://xiaoliblog.cn/page/butterfly01.html#%E6%A0%B7%E5%BC%8F%E5%BC%95%E5%85%A5"><div class="left"><img src="https://s2.loli.net/2022/08/06/t5YcsIz34OMkglL.jpg"/></div><div class="right"><p class="text">基础视觉美化</p><p class="url">https://xiaoliblog.cn/page/butterfly01.html#%E6%A0%B7%E5%BC%8F%E5%BC%95%E5%85%A5</p></div></a></div><h3 id="主页一图流"><a href="#主页一图流" class="headerlink" title="主页一图流"></a>主页一图流</h3><div class="tag link"><a class="link-card" title="一图流背景与顶部图修改" href="https://android99.com/2021/08/10/butterfly-top-image-modify/"><div class="left"><img src="https://android99.com/img/avatar.png"/></div><div class="right"><p class="text">一图流背景与顶部图修改</p><p class="url">https://android99.com/2021/08/10/butterfly-top-image-modify/</p></div></a></div>]]></content>
+        <content type="html"><![CDATA[<h1 id="提醒"><a href="#提醒" class="headerlink" title="提醒"></a>提醒</h1><p>本教程仅适用于hexo-butterfly主题，其他主题可以类比尝试</p><p>转载自：<a href="https://yanchengxu.top/hexo-categories-sort/">https://yanchengxu.top/hexo-categories-sort/</a></p><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p><code>Hexo-Butterfly</code>主题中，主页侧边栏中的<code>categories</code>默认显示顺序是按<code>name</code>排序，导致某些分类下虽然文章数量较少，但却排序靠前。并且默认设置下，主题中侧边<code>categories</code>只显示8条（如需修改可以修改<strong>主题配置文件</strong>），这在某些情况下让我的强迫症犯了主页分类不太实用，遂产生修改侧边栏<code>categories</code>的想法：按每个<code>categories</code>下文章数量降序排序。</p><p><a href="https://yanchengxu.top/hexo-categories-sort/image-20210921101717710.png"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051856414.png" alt="image-20210921101717710"></a></p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><blockquote><p>本操作涉及<strong>修改主题源代码</strong>，新手使用前建议<strong>备份</strong>相关文件</p></blockquote><ol><li><p>使用<code>VSCode/WebStrom</code>打开<strong>主题文件夹</strong>，用<strong>全局搜索</strong>功能检索关键字<code>name</code></p><p><a href="https://yanchengxu.top/hexo-categories-sort/image-20210921102002588.png"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051856503.png" alt="image-20210921102002588"></a></p></li><li><p>检索至<code>themes\butterfly\scripts\helpers\aside_categories.js</code>，<strong>修改源代码</strong>。</p><p>大约22行</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">复制成功<span class="comment">// const orderby = options.orderby || &#x27;name&#x27; // 默认-&gt;name-&gt;按categories字母顺序</span></span><br><span class="line"><span class="keyword">const</span> orderby = options.<span class="property">orderby</span> || <span class="string">&#x27;length&#x27;</span>  <span class="comment">// length-&gt;按categories下文章数量排序</span></span><br><span class="line"><span class="comment">// const order = options.order || 1  // 默认-&gt;1-&gt;升序 -1-&gt;逆序</span></span><br><span class="line"><span class="keyword">const</span> order = options.<span class="property">order</span> || -<span class="number">1</span></span><br></pre></td></tr></table></figure></li><li><p>执行<code>hexo g &amp;&amp; hexo s</code>查看修改效果</p><p><a href="https://yanchengxu.top/hexo-categories-sort/image-20210921102750542.png"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051856540.png" alt="image-20210921102750542"></a></p></li></ol>]]></content>
       
       
       <categories>
