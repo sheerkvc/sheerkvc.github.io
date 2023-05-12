@@ -33,35 +33,6 @@
     
     
     <entry>
-      <title>单/双缓冲区的处理时间问题</title>
-      <link href="/2023/04/14/56.bufferCalEX/"/>
-      <url>/2023/04/14/56.bufferCalEX/</url>
-      
-        <content type="html"><![CDATA[<p>设备管理中的计算题：</p><blockquote><p>1、<strong>（选自2011年统考真题）</strong>某文件占10个磁盘块，现要把该文件磁盘块逐个读入主存缓冲区，并送用户区进行分析，将缓冲区的数据传送到用户区的时间是50μs，CPU对一块数据进行分析的时间为50μs。在单缓冲区和双缓冲区结构下，读入并分析完该文件的时间分别是（<strong>B</strong>）</p><p>A、1500μs, 1000μs</p><p>B、1550μs, 1100μs</p><p>C、1550μs, 1550μs</p><p>D、2000μs, 2000μs</p></blockquote><p>解：</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/20210508124658-20230422211629007.jpg" alt="img" style="zoom: 67%;" /></p><p>图a 为单缓冲，图b为双缓冲。每个标号的格子长度为100，没标号的格子长度为50，代表对应处理步骤所需的时间（单位为μs）</p><p> 在单缓冲的情况下，当上一个磁盘块从缓冲区读入用户区完成时下一磁盘块才能开始读入，将读入缓冲区和传送用户区作为一个单元，共有10个这样的单元，也就是150 x 10μs = 1500μs，加上最后一个磁盘块的CPU处理时间50μs，得1550μs。</p><p> 在双缓冲的情况下，读入第一个缓冲区之后可以立即开始读入第二个缓冲区，读完第二个缓冲区之后，第一个缓冲区已经把数据传送至用户区，第一个缓冲区空闲，可以立即开始继续将数据读入第一个缓冲区中，因此不存在等待磁盘块从缓冲区读入用户区的问题，得到传输数据全部传输到缓冲区的时间100 x 10μs = 1000μs, 再加上将最后一个缓冲区的数据传输到用户区并由CPU处理完的时间(50 + 50)μs = 100μs ，得1100μs</p><blockquote><p>我的理解：</p><p><strong>缓冲区问题主要是看T M C三个时间的关系</strong></p><blockquote><p>T: dev(ice) → buffer</p><p>M: buf → work</p><p>C: CPU process</p></blockquote><p>在单块数据的处理中：</p><p>​        单缓冲の时间 = max ( C , T ) + M   ;   双缓冲の时间 = max ( C + M , T )</p><p>在多块数据的处理中，对于一个数据时间同上，但总时间有变化，最后总会有不在单位处理时间（即单块数据的处理时间）的时间部分。</p><p>此时利用甘特图（上答案图）图解</p></blockquote><hr><p>2、<strong>（选自2013年统考真题）</strong>设系统缓冲区和用户工作区均采用单缓冲，从外设读入一个数据块到系统缓冲区的时间为100，从系统缓冲区读入1个数据块到用户工作区的时间为5， 对用户工作区中的1个数据块进行分析的时间为90（见下图），进程从外设读入并分析2个数据块的最短时间是（<strong>C</strong>）</p><p>A. 200</p><p>B. 295</p><p>C. 300</p><p>D. 390</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/20210508125808.jpg" alt="img" style="zoom: 25%;" /></p><blockquote><p>解题方法可以仿照第一个题的图解：</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/20210508132000.png" alt="img"></p><p>计算可得 100 + 5 + 100 + 5 + 90 = 300</p><p>数据块1从外设到用户工作区的总时间为105，在这段时间中，系统缓冲区均被数据块1占据，因此对数据块2无法进行操作。但在数据块1在用户工作区进行分析处理时（时间90），系统缓冲区已空闲下来，可以让数据块2从外设读入到系统缓冲区，相当于数据块2的整个处理时间比串行执行时节省了90的时间。又1个数据串行执行时，所需时间为100 + 5 + 90 = 195, 第二块的处理时间为195 - 90 = 105， 合计195 + 105 = 300,即进程从外设读入并分析2个数据块的最短时间为300。</p><p><strong>我的理解：甘特图太好用了</strong></p></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> 学习 </category>
-          
-          <category> 操作系统 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 学习 </tag>
-            
-            <tag> 缓冲区 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>段页式存储例题</title>
       <link href="/2023/04/14/55.pageStorageEX/"/>
       <url>/2023/04/14/55.pageStorageEX/</url>
@@ -83,6 +54,35 @@
             <tag> 学习 </tag>
             
             <tag> 段页式存储 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>单/双缓冲区的处理时间问题</title>
+      <link href="/2023/04/14/56.bufferCalEX/"/>
+      <url>/2023/04/14/56.bufferCalEX/</url>
+      
+        <content type="html"><![CDATA[<p>设备管理中的计算题：</p><blockquote><p>1、<strong>（选自2011年统考真题）</strong>某文件占10个磁盘块，现要把该文件磁盘块逐个读入主存缓冲区，并送用户区进行分析，将缓冲区的数据传送到用户区的时间是50μs，CPU对一块数据进行分析的时间为50μs。在单缓冲区和双缓冲区结构下，读入并分析完该文件的时间分别是（<strong>B</strong>）</p><p>A、1500μs, 1000μs</p><p>B、1550μs, 1100μs</p><p>C、1550μs, 1550μs</p><p>D、2000μs, 2000μs</p></blockquote><p>解：</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/20210508124658-20230422211629007.jpg" alt="img" style="zoom: 67%;" /></p><p>图a 为单缓冲，图b为双缓冲。每个标号的格子长度为100，没标号的格子长度为50，代表对应处理步骤所需的时间（单位为μs）</p><p> 在单缓冲的情况下，当上一个磁盘块从缓冲区读入用户区完成时下一磁盘块才能开始读入，将读入缓冲区和传送用户区作为一个单元，共有10个这样的单元，也就是150 x 10μs = 1500μs，加上最后一个磁盘块的CPU处理时间50μs，得1550μs。</p><p> 在双缓冲的情况下，读入第一个缓冲区之后可以立即开始读入第二个缓冲区，读完第二个缓冲区之后，第一个缓冲区已经把数据传送至用户区，第一个缓冲区空闲，可以立即开始继续将数据读入第一个缓冲区中，因此不存在等待磁盘块从缓冲区读入用户区的问题，得到传输数据全部传输到缓冲区的时间100 x 10μs = 1000μs, 再加上将最后一个缓冲区的数据传输到用户区并由CPU处理完的时间(50 + 50)μs = 100μs ，得1100μs</p><blockquote><p>我的理解：</p><p><strong>缓冲区问题主要是看T M C三个时间的关系</strong></p><blockquote><p>T: dev(ice) → buffer</p><p>M: buf → work</p><p>C: CPU process</p></blockquote><p>在单块数据的处理中：</p><p>​        单缓冲の时间 = max ( C , T ) + M   ;   双缓冲の时间 = max ( C + M , T )</p><p>在多块数据的处理中，对于一个数据时间同上，但总时间有变化，最后总会有不在单位处理时间（即单块数据的处理时间）的时间部分。</p><p>此时利用甘特图（上答案图）图解</p></blockquote><hr><p>2、<strong>（选自2013年统考真题）</strong>设系统缓冲区和用户工作区均采用单缓冲，从外设读入一个数据块到系统缓冲区的时间为100，从系统缓冲区读入1个数据块到用户工作区的时间为5， 对用户工作区中的1个数据块进行分析的时间为90（见下图），进程从外设读入并分析2个数据块的最短时间是（<strong>C</strong>）</p><p>A. 200</p><p>B. 295</p><p>C. 300</p><p>D. 390</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/20210508125808.jpg" alt="img" style="zoom: 25%;" /></p><blockquote><p>解题方法可以仿照第一个题的图解：</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/20210508132000.png" alt="img"></p><p>计算可得 100 + 5 + 100 + 5 + 90 = 300</p><p>数据块1从外设到用户工作区的总时间为105，在这段时间中，系统缓冲区均被数据块1占据，因此对数据块2无法进行操作。但在数据块1在用户工作区进行分析处理时（时间90），系统缓冲区已空闲下来，可以让数据块2从外设读入到系统缓冲区，相当于数据块2的整个处理时间比串行执行时节省了90的时间。又1个数据串行执行时，所需时间为100 + 5 + 90 = 195, 第二块的处理时间为195 - 90 = 105， 合计195 + 105 = 300,即进程从外设读入并分析2个数据块的最短时间为300。</p><p><strong>我的理解：甘特图太好用了</strong></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+          <category> 操作系统 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习 </tag>
+            
+            <tag> 缓冲区 </tag>
             
         </tags>
       
@@ -296,9 +296,9 @@
             
             <tag> 学习 </tag>
             
-            <tag> 计组原理 </tag>
-            
             <tag> 单位转换 </tag>
+            
+            <tag> 计组原理 </tag>
             
         </tags>
       
@@ -502,7 +502,7 @@
       <link href="/2022/10/03/38.408About/"/>
       <url>/2022/10/03/38.408About/</url>
       
-        <content type="html"><![CDATA[<p>只做课后选择题，大题暂时不看时间不够</p><p>记录一下具体什么时候学完的</p><h1 id="一轮初学"><a href="#一轮初学" class="headerlink" title="一轮初学"></a>一轮初学</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><blockquote><p><strong>2022年</strong></p><p>B站尚硅谷宋红康JavaSE（150h,1.5倍速）——4月底-7月底</p><p>B站尚硅谷韩顺平cSE（讲的太浅了（70h,1.5倍速））——7月底5天内</p><p>然后开始以上计划</p></blockquote><hr><h2 id="数据结构-无详细，共374页"><a href="#数据结构-无详细，共374页" class="headerlink" title="数据结构(无详细，共374页)"></a>数据结构(无详细，共374页)</h2><blockquote><p><strong>2022年</strong></p><p>7月24日左右开始——9月30日结束</p></blockquote><hr><h2 id="计组原理-共322页"><a href="#计组原理-共322页" class="headerlink" title="计组原理(共322页)"></a>计组原理(共322页)</h2><blockquote><p><strong>2022年</strong></p><p>第一章9月30日——10月2日</p><p>第二章10月3日——10月24日</p><p>第三章10月24日——11月13日</p><p><del>第四章</del>11月13日<del>——11月14日——</del></p><p><strong>suspend for final exam</strong></p><p>第四章(new)12月25——12月31日</p><hr><p><strong>2023年</strong></p><p>第五章1月1日——2月初左右（寒假摸鱼）</p><p>第六章2月初左右——2.24</p><p>第七章2.24——3月1日</p><p><strong>—结束—</strong></p><p>1——4日浅看学校</p></blockquote><hr><h2 id="高等数学-共302页，和OS一起看"><a href="#高等数学-共302页，和OS一起看" class="headerlink" title="高等数学(共302页，和OS一起看)"></a>高等数学(共302页，和OS一起看)</h2><blockquote><p><strong>张宇基础18讲</strong></p><p>3月4日——3月30日  上</p><p>3月31日——4月20日 下</p><p>happy😭</p></blockquote><h2 id="操作系统-共331页"><a href="#操作系统-共331页" class="headerlink" title="操作系统(共331页)"></a>操作系统(共331页)</h2><blockquote><p>第一章3月8日——3月15日</p><p>第二章3月15日——4月5日</p><p>第三章4月5日——4月12日</p><p>第四章4月12日——4月21日</p><p>第五章4月21日——4日24日</p></blockquote><hr><h2 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h2><p>4月24日——5月4日</p><h2 id="计算机网络-湖科大课-课本-王道课本"><a href="#计算机网络-湖科大课-课本-王道课本" class="headerlink" title="计算机网络(湖科大课/课本+王道课本)"></a>计算机网络(湖科大课/课本+王道课本)</h2><p>第一、二章4月25日——4月27日</p><p>第三章5月1日——5月3日</p><p>第四章5月4日——5月ing</p><h2 id="概率论"><a href="#概率论" class="headerlink" title="概率论"></a>概率论</h2><p>none</p><hr><hr><h1 id="二轮"><a href="#二轮" class="headerlink" title="二轮"></a>二轮</h1><p>none</p>]]></content>
+        <content type="html"><![CDATA[<p>只做课后选择题，大题暂时不看时间不够</p><p>记录一下具体什么时候学完的</p><h1 id="一轮初学："><a href="#一轮初学：" class="headerlink" title="一轮初学："></a>一轮初学：</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><blockquote><p><strong>2022年</strong></p><p>B站尚硅谷宋红康JavaSE（150h,1.5倍速）——4月底-7月底</p><p>B站尚硅谷韩顺平cSE（讲的太浅了（70h,1.5倍速））——7月底5天内</p><p>然后开始以下计划</p></blockquote><hr><h2 id="数据结构-无详细，共374页"><a href="#数据结构-无详细，共374页" class="headerlink" title="数据结构(无详细，共374页)"></a>数据结构(无详细，共374页)</h2><blockquote><p><strong>2022年</strong></p><p>7月24日左右开始——9月30日结束</p></blockquote><hr><h2 id="计组原理-共322页"><a href="#计组原理-共322页" class="headerlink" title="计组原理(共322页)"></a>计组原理(共322页)</h2><blockquote><p><strong>2022年</strong></p><p>第一章9月30日——10月2日</p><p>第二章10月3日——10月24日</p><p>第三章10月24日——11月13日</p><p><del>第四章</del>11月13日<del>——11月14日——</del></p><p><strong>suspend for final exam</strong></p><p>第四章(new)12月25——12月31日</p><hr><p><strong>2023年</strong></p><p>第五章1月1日——2月初左右（寒假摸鱼）</p><p>第六章2月初左右——2.24</p><p>第七章2.24——3月1日</p><p><strong>—结束—</strong></p><p>1——4日浅看学校</p></blockquote><hr><h2 id="高等数学-共302页，和OS一起看"><a href="#高等数学-共302页，和OS一起看" class="headerlink" title="高等数学(共302页，和OS一起看)"></a>高等数学(共302页，和OS一起看)</h2><blockquote><p><strong>张宇基础18讲</strong></p><p>3月4日——3月30日  上</p><p>3月31日——4月20日 下</p><p>happy😭</p></blockquote><h2 id="操作系统-共331页"><a href="#操作系统-共331页" class="headerlink" title="操作系统(共331页)"></a>操作系统(共331页)</h2><blockquote><p>第一章3月8日——3月15日</p><p>第二章3月15日——4月5日</p><p>第三章4月5日——4月12日</p><p>第四章4月12日——4月21日</p><p>第五章4月21日——4日24日</p></blockquote><hr><h2 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h2><p>4月24日——5月4日</p><h2 id="计算机网络-湖科大课-课本-王道课本"><a href="#计算机网络-湖科大课-课本-王道课本" class="headerlink" title="计算机网络(湖科大课/课本+王道课本)"></a>计算机网络(湖科大课/课本+王道课本)</h2><p>第一、二章4月25日——4月27日</p><p>第三章5月1日——5月3日</p><p>第四章5月5日——5月8日</p><p>第五章——最后 5月10日—— 5月12日</p><hr><h2 id="一轮结束完毕"><a href="#一轮结束完毕" class="headerlink" title="一轮结束完毕"></a>一轮结束完毕</h2><hr><hr><h1 id="二轮刷题："><a href="#二轮刷题：" class="headerlink" title="二轮刷题："></a>二轮刷题：</h1><h2 id="英语一轮"><a href="#英语一轮" class="headerlink" title="英语一轮"></a>英语一轮</h2><p>长难句5月8日——5月10号</p><p>阅读5月13日——</p><hr><h2 id="概率论一轮"><a href="#概率论一轮" class="headerlink" title="概率论一轮"></a>概率论一轮</h2><p>none</p>]]></content>
       
       
       <categories>
@@ -941,11 +941,11 @@
     
     
     <entry>
-      <title>【Hexo-Butterfly】页面美化的一些操作-不定期收录</title>
-      <link href="/2022/09/05/16.beautifyBlog/"/>
-      <url>/2022/09/05/16.beautifyBlog/</url>
+      <title>【Hexo-Butterfly】修改侧边栏分类排序规则</title>
+      <link href="/2022/09/05/17.sidebarReSort/"/>
+      <url>/2022/09/05/17.sidebarReSort/</url>
       
-        <content type="html"><![CDATA[<p>此篇文章引用了我在更新博客时所参考的资料，仅供学习使用，在这里对原作者们表示万分感谢😋</p><hr><h3 id="标题小风车、侧边栏时钟-小人"><a href="#标题小风车、侧边栏时钟-小人" class="headerlink" title="标题小风车、侧边栏时钟/小人"></a>标题小风车、侧边栏时钟/小人</h3><div class="tag link"><a class="link-card" title="我的 Blog 美化日记 ——Hexo+Butterfly" href="https://guole.fun/posts/butterfly-custom/"><div class="left"><img src="https://guole.fun/img/gl.jpg"/></div><div class="right"><p class="text">我的 Blog 美化日记 ——Hexo+Butterfly</p><p class="url">https://guole.fun/posts/butterfly-custom/</p></div></a></div><h3 id="外挂标签"><a href="#外挂标签" class="headerlink" title="外挂标签"></a>外挂标签</h3><div class="tag link"><a class="link-card" title="Tag Plugins Plus" href="https://akilar.top/posts/615e2dec/"><div class="left"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209251249876.png"/></div><div class="right"><p class="text">Tag Plugins Plus</p><p class="url">https://akilar.top/posts/615e2dec/</p></div></a></div><h3 id="文章加密"><a href="#文章加密" class="headerlink" title="文章加密"></a>文章加密</h3><div class="tag link"><a class="link-card" title="hexo-blog-encrypt" href="https://blog.justlovesmile.top/posts/43010.html"><div class="left"><img src="https://blog.justlovesmile.top/img/avatar.jpg"/></div><div class="right"><p class="text">hexo-blog-encrypt</p><p class="url">https://blog.justlovesmile.top/posts/43010.html</p></div></a></div><h3 id="修改侧边栏分类排序规则"><a href="#修改侧边栏分类排序规则" class="headerlink" title="修改侧边栏分类排序规则"></a>修改侧边栏分类排序规则</h3><div class="tag link"><a class="link-card" title="sideBar Sort" href="https://sheerkvc.top/2022/09/05/17.sidebarReSort/"><div class="left"><img src="https://sheerkvc.top/avatar/avatar.jpeg"/></div><div class="right"><p class="text">sideBar Sort</p><p class="url">https://sheerkvc.top/2022/09/05/17.sidebarReSort/</p></div></a></div><h3 id="适配客户端博客图标"><a href="#适配客户端博客图标" class="headerlink" title="适配客户端博客图标"></a>适配客户端博客图标</h3><div class="tag link"><a class="link-card" title="适配Safari书签页和iOS桌面图标" href="https://blog.zhheo.com/p/5728da61.html"><div class="left"><img src="https://img.zhheo.com/i/2022/08/19/62ff32fa28da1.png"/></div><div class="right"><p class="text">适配Safari书签页和iOS桌面图标</p><p class="url">https://blog.zhheo.com/p/5728da61.html</p></div></a></div><h3 id="git推送图、磁贴、置顶、双列展示、历史今天、电子时钟"><a href="#git推送图、磁贴、置顶、双列展示、历史今天、电子时钟" class="headerlink" title="git推送图、磁贴、置顶、双列展示、历史今天、电子时钟"></a>git推送图、磁贴、置顶、双列展示、历史今天、电子时钟</h3><div class="tag link"><a class="link-card" title="小冰插件包" href="https://zfe.space/post/hexo-butterfly-orchid.html"><div class="left"><img src="https://zfe.space/images/headimage.png"/></div><div class="right"><p class="text">小冰插件包</p><p class="url">https://zfe.space/post/hexo-butterfly-orchid.html</p></div></a></div><h3 id="Momo本地字体更改、鼠标指针"><a href="#Momo本地字体更改、鼠标指针" class="headerlink" title="Momo本地字体更改、鼠标指针"></a>Momo本地字体更改、鼠标指针</h3><div class="tag link"><a class="link-card" title="基础视觉美化" href="https://xiaoliblog.cn/page/butterfly01.html#%E6%A0%B7%E5%BC%8F%E5%BC%95%E5%85%A5"><div class="left"><img src="https://s2.loli.net/2022/08/06/t5YcsIz34OMkglL.jpg"/></div><div class="right"><p class="text">基础视觉美化</p><p class="url">https://xiaoliblog.cn/page/butterfly01.html#%E6%A0%B7%E5%BC%8F%E5%BC%95%E5%85%A5</p></div></a></div><h3 id="主页一图流"><a href="#主页一图流" class="headerlink" title="主页一图流"></a>主页一图流</h3><div class="tag link"><a class="link-card" title="一图流背景与顶部图修改" href="https://android99.com/2021/08/10/butterfly-top-image-modify/"><div class="left"><img src="https://android99.com/img/avatar.png"/></div><div class="right"><p class="text">一图流背景与顶部图修改</p><p class="url">https://android99.com/2021/08/10/butterfly-top-image-modify/</p></div></a></div>]]></content>
+        <content type="html"><![CDATA[<h1 id="提醒"><a href="#提醒" class="headerlink" title="提醒"></a>提醒</h1><p>本教程仅适用于hexo-butterfly主题，其他主题可以类比尝试</p><p>转载自：<a href="https://yanchengxu.top/hexo-categories-sort/">https://yanchengxu.top/hexo-categories-sort/</a></p><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p><code>Hexo-Butterfly</code>主题中，主页侧边栏中的<code>categories</code>默认显示顺序是按<code>name</code>排序，导致某些分类下虽然文章数量较少，但却排序靠前。并且默认设置下，主题中侧边<code>categories</code>只显示8条（如需修改可以修改<strong>主题配置文件</strong>），这在某些情况下让我的强迫症犯了主页分类不太实用，遂产生修改侧边栏<code>categories</code>的想法：按每个<code>categories</code>下文章数量降序排序。</p><p><a href="https://yanchengxu.top/hexo-categories-sort/image-20210921101717710.png"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051856414.png" alt="image-20210921101717710"></a></p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><blockquote><p>本操作涉及<strong>修改主题源代码</strong>，新手使用前建议<strong>备份</strong>相关文件</p></blockquote><ol><li><p>使用<code>VSCode/WebStrom</code>打开<strong>主题文件夹</strong>，用<strong>全局搜索</strong>功能检索关键字<code>name</code></p><p><a href="https://yanchengxu.top/hexo-categories-sort/image-20210921102002588.png"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051856503.png" alt="image-20210921102002588"></a></p></li><li><p>检索至<code>themes\butterfly\scripts\helpers\aside_categories.js</code>，<strong>修改源代码</strong>。</p><p>大约22行</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">复制成功<span class="comment">// const orderby = options.orderby || &#x27;name&#x27; // 默认-&gt;name-&gt;按categories字母顺序</span></span><br><span class="line"><span class="keyword">const</span> orderby = options.<span class="property">orderby</span> || <span class="string">&#x27;length&#x27;</span>  <span class="comment">// length-&gt;按categories下文章数量排序</span></span><br><span class="line"><span class="comment">// const order = options.order || 1  // 默认-&gt;1-&gt;升序 -1-&gt;逆序</span></span><br><span class="line"><span class="keyword">const</span> order = options.<span class="property">order</span> || -<span class="number">1</span></span><br></pre></td></tr></table></figure></li><li><p>执行<code>hexo g &amp;&amp; hexo s</code>查看修改效果</p><p><a href="https://yanchengxu.top/hexo-categories-sort/image-20210921102750542.png"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051856540.png" alt="image-20210921102750542"></a></p></li></ol>]]></content>
       
       
       <categories>
@@ -968,11 +968,11 @@
     
     
     <entry>
-      <title>【Hexo-Butterfly】修改侧边栏分类排序规则</title>
-      <link href="/2022/09/05/17.sidebarReSort/"/>
-      <url>/2022/09/05/17.sidebarReSort/</url>
+      <title>【Hexo-Butterfly】页面美化的一些操作-不定期收录</title>
+      <link href="/2022/09/05/16.beautifyBlog/"/>
+      <url>/2022/09/05/16.beautifyBlog/</url>
       
-        <content type="html"><![CDATA[<h1 id="提醒"><a href="#提醒" class="headerlink" title="提醒"></a>提醒</h1><p>本教程仅适用于hexo-butterfly主题，其他主题可以类比尝试</p><p>转载自：<a href="https://yanchengxu.top/hexo-categories-sort/">https://yanchengxu.top/hexo-categories-sort/</a></p><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p><code>Hexo-Butterfly</code>主题中，主页侧边栏中的<code>categories</code>默认显示顺序是按<code>name</code>排序，导致某些分类下虽然文章数量较少，但却排序靠前。并且默认设置下，主题中侧边<code>categories</code>只显示8条（如需修改可以修改<strong>主题配置文件</strong>），这在某些情况下让我的强迫症犯了主页分类不太实用，遂产生修改侧边栏<code>categories</code>的想法：按每个<code>categories</code>下文章数量降序排序。</p><p><a href="https://yanchengxu.top/hexo-categories-sort/image-20210921101717710.png"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051856414.png" alt="image-20210921101717710"></a></p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><blockquote><p>本操作涉及<strong>修改主题源代码</strong>，新手使用前建议<strong>备份</strong>相关文件</p></blockquote><ol><li><p>使用<code>VSCode/WebStrom</code>打开<strong>主题文件夹</strong>，用<strong>全局搜索</strong>功能检索关键字<code>name</code></p><p><a href="https://yanchengxu.top/hexo-categories-sort/image-20210921102002588.png"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051856503.png" alt="image-20210921102002588"></a></p></li><li><p>检索至<code>themes\butterfly\scripts\helpers\aside_categories.js</code>，<strong>修改源代码</strong>。</p><p>大约22行</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">复制成功<span class="comment">// const orderby = options.orderby || &#x27;name&#x27; // 默认-&gt;name-&gt;按categories字母顺序</span></span><br><span class="line"><span class="keyword">const</span> orderby = options.<span class="property">orderby</span> || <span class="string">&#x27;length&#x27;</span>  <span class="comment">// length-&gt;按categories下文章数量排序</span></span><br><span class="line"><span class="comment">// const order = options.order || 1  // 默认-&gt;1-&gt;升序 -1-&gt;逆序</span></span><br><span class="line"><span class="keyword">const</span> order = options.<span class="property">order</span> || -<span class="number">1</span></span><br></pre></td></tr></table></figure></li><li><p>执行<code>hexo g &amp;&amp; hexo s</code>查看修改效果</p><p><a href="https://yanchengxu.top/hexo-categories-sort/image-20210921102750542.png"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209051856540.png" alt="image-20210921102750542"></a></p></li></ol>]]></content>
+        <content type="html"><![CDATA[<p>此篇文章引用了我在更新博客时所参考的资料，仅供学习使用，在这里对原作者们表示万分感谢😋</p><hr><h3 id="标题小风车、侧边栏时钟-小人"><a href="#标题小风车、侧边栏时钟-小人" class="headerlink" title="标题小风车、侧边栏时钟/小人"></a>标题小风车、侧边栏时钟/小人</h3><div class="tag link"><a class="link-card" title="我的 Blog 美化日记 ——Hexo+Butterfly" href="https://guole.fun/posts/butterfly-custom/"><div class="left"><img src="https://guole.fun/img/gl.jpg"/></div><div class="right"><p class="text">我的 Blog 美化日记 ——Hexo+Butterfly</p><p class="url">https://guole.fun/posts/butterfly-custom/</p></div></a></div><h3 id="外挂标签"><a href="#外挂标签" class="headerlink" title="外挂标签"></a>外挂标签</h3><div class="tag link"><a class="link-card" title="Tag Plugins Plus" href="https://akilar.top/posts/615e2dec/"><div class="left"><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/202209251249876.png"/></div><div class="right"><p class="text">Tag Plugins Plus</p><p class="url">https://akilar.top/posts/615e2dec/</p></div></a></div><h3 id="文章加密"><a href="#文章加密" class="headerlink" title="文章加密"></a>文章加密</h3><div class="tag link"><a class="link-card" title="hexo-blog-encrypt" href="https://blog.justlovesmile.top/posts/43010.html"><div class="left"><img src="https://blog.justlovesmile.top/img/avatar.jpg"/></div><div class="right"><p class="text">hexo-blog-encrypt</p><p class="url">https://blog.justlovesmile.top/posts/43010.html</p></div></a></div><h3 id="修改侧边栏分类排序规则"><a href="#修改侧边栏分类排序规则" class="headerlink" title="修改侧边栏分类排序规则"></a>修改侧边栏分类排序规则</h3><div class="tag link"><a class="link-card" title="sideBar Sort" href="https://sheerkvc.top/2022/09/05/17.sidebarReSort/"><div class="left"><img src="https://sheerkvc.top/avatar/avatar.jpeg"/></div><div class="right"><p class="text">sideBar Sort</p><p class="url">https://sheerkvc.top/2022/09/05/17.sidebarReSort/</p></div></a></div><h3 id="适配客户端博客图标"><a href="#适配客户端博客图标" class="headerlink" title="适配客户端博客图标"></a>适配客户端博客图标</h3><div class="tag link"><a class="link-card" title="适配Safari书签页和iOS桌面图标" href="https://blog.zhheo.com/p/5728da61.html"><div class="left"><img src="https://img.zhheo.com/i/2022/08/19/62ff32fa28da1.png"/></div><div class="right"><p class="text">适配Safari书签页和iOS桌面图标</p><p class="url">https://blog.zhheo.com/p/5728da61.html</p></div></a></div><h3 id="git推送图、磁贴、置顶、双列展示、历史今天、电子时钟"><a href="#git推送图、磁贴、置顶、双列展示、历史今天、电子时钟" class="headerlink" title="git推送图、磁贴、置顶、双列展示、历史今天、电子时钟"></a>git推送图、磁贴、置顶、双列展示、历史今天、电子时钟</h3><div class="tag link"><a class="link-card" title="小冰插件包" href="https://zfe.space/post/hexo-butterfly-orchid.html"><div class="left"><img src="https://zfe.space/images/headimage.png"/></div><div class="right"><p class="text">小冰插件包</p><p class="url">https://zfe.space/post/hexo-butterfly-orchid.html</p></div></a></div><h3 id="Momo本地字体更改、鼠标指针"><a href="#Momo本地字体更改、鼠标指针" class="headerlink" title="Momo本地字体更改、鼠标指针"></a>Momo本地字体更改、鼠标指针</h3><div class="tag link"><a class="link-card" title="基础视觉美化" href="https://xiaoliblog.cn/page/butterfly01.html#%E6%A0%B7%E5%BC%8F%E5%BC%95%E5%85%A5"><div class="left"><img src="https://s2.loli.net/2022/08/06/t5YcsIz34OMkglL.jpg"/></div><div class="right"><p class="text">基础视觉美化</p><p class="url">https://xiaoliblog.cn/page/butterfly01.html#%E6%A0%B7%E5%BC%8F%E5%BC%95%E5%85%A5</p></div></a></div><h3 id="主页一图流"><a href="#主页一图流" class="headerlink" title="主页一图流"></a>主页一图流</h3><div class="tag link"><a class="link-card" title="一图流背景与顶部图修改" href="https://android99.com/2021/08/10/butterfly-top-image-modify/"><div class="left"><img src="https://android99.com/img/avatar.png"/></div><div class="right"><p class="text">一图流背景与顶部图修改</p><p class="url">https://android99.com/2021/08/10/butterfly-top-image-modify/</p></div></a></div>]]></content>
       
       
       <categories>
