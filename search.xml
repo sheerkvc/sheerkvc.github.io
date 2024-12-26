@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Telegram小表情图集制作</title>
+      <link href="/2024/12/26/69.tgsmallemoji/"/>
+      <url>/2024/12/26/69.tgsmallemoji/</url>
+      
+        <content type="html"><![CDATA[<p>表情包确实在交流中有很大的作用，刚在tg聊天的时候我还在用默认表情和贴纸，没有任何个性和聪明的表现，显得很呆。后来聊天多了有这方面的需要就看了一下,自己做了点也没加什么推广。<a href="https://t.me/addstickers/sheerkvc">自用1</a>，<a href="https://t.me/addstickers/sheerkvcP2">自用2</a>，<a href="https://t.me/addstickers/banmooo_by_fStikBot">gjj语录</a>，<a href="https://t.me/addstickers/nhzzha_by_fStikBot">好女孩语录</a>，反正在我的小圈子里用的也不少吧（相比大佬的出圈合集就是个打杂的哈哈），这边记录一下怎么做的以供备份。</p><p>本人能力有限也是纯属外行娱乐，还在学习更好的办法，以下仅代表个人方法和经验总结。</p><p>前提：0️⃣熟练运用ChatGPT的能力</p><p>①对telegram有一定初步的基本认知。②有基础英语阅读能力，能对全英文环境一定熟悉。③将telegram作为常用聊天工具且对表情有需求。⑤有Photoshop小白使用能力④知道tg用户名是什么，怎么找到相应的bot/user/public groups⑤有时间</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/Picsew_20241226132538.JPEG" alt="Picsew_20241226132538" style="zoom:33%;" /></p><h2 id="一、通过官方bot：-Stickers"><a href="#一、通过官方bot：-Stickers" class="headerlink" title="一、通过官方bot：@Stickers"></a>一、通过官方bot：<strong>@Stickers</strong></h2><blockquote><p>优：功能最全，命令最多<br>缺：全eng环境，非刚需Photoshop自定义图片大小，否则默认512*512太大（也可</p></blockquote><p>根据command指示新建对应的表情/贴纸/动态贴纸包，上传格式正确+必须满足一边为512px，随后上传一个对应的默认黄脸表情。这里不做展开，善用gpt即可。</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/photo_2024-12-26%2013.47.49.jpeg" alt="photo_2024-12-26 13.47.49" style="zoom:33%;" /></p><h2 id="二、三方bot上传"><a href="#二、三方bot上传" class="headerlink" title="二、三方bot上传"></a>二、三方bot上传</h2><p><strong>@fStikBot</strong> ，<strong>@stckrRobot</strong> ，<strong>@sticbot</strong> ，能用的就很多了</p><p>我平常<strong>懒得改格式</strong>就用<strong>@fStikBot</strong> ，好处是方便有中文，也能直接把动图传上去，坏处就是都是默认最大尺寸512duo px，而且创建的合集有<code>xxx :: @fStikBot</code>后缀格式，去掉需要donate tgStar</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/IMAGE%202024-12-26%2015:25:32.jpg" alt="IMAGE 2024-12-26 15:25:32" style="zoom:25%;" /></p><p>（我知道可以在<strong>@Stickers</strong>里改名，但是在<strong>@fStikBot</strong>每次添加后会自动给你改回去，目前我暂时用的temp包辅助添加）</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/IMAGE%202024-12-26%2015:31:09.jpg" alt="IMAGE 2024-12-26 15:31:09" style="zoom:25%;" /></p><p align="center">主包选第二项</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/IMAGE%202024-12-26%2015:32:06.jpg" alt="IMAGE 2024-12-26 15:32:06" style="zoom:25%;" /></p><p align="center">然后从副包里添加由@fStikBot上传过的sticker</p><hr><p>ok这里记录一下</p><h2 id="做小表情合集的过程"><a href="#做小表情合集的过程" class="headerlink" title="做小表情合集的过程"></a>做小表情合集的过程</h2><p>因为很喜欢<a href="https://space.bilibili.com/39762870"><strong>@pandecheng</strong></a>佬做的<a href="https://t.me/addstickers/huaihuaixbq">坏坏小表情合集</a>，所以决定自己做个</p><p>遇到的问题：佬的表情是左右512px，上下无限制，但左右是透明背景</p><p>在请教了cheng佬之后才知道了当时他是把普通表情加上了左右对称透明背景凑到512，这也是我下载的时候为什么左右有间距的原因</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/image-20241226160635894.png" alt="image-20241226160635894" style="zoom: 40%;" /></p><p>步骤：</p><p>那必须是下Photoshop了。经过试错之后得到的最简单工程流的办法（咱没学过ps只是自己摸索出来的er）:</p><p>1.<code>command+O</code>打开表情包文件</p><p>2.<code>command+option+I</code>+<code>Tab</code>，图像大小中，保持纵横比(锁定符号打开)将高度改为180px(注意单位)，这样图片不会走样</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/image-20241226161624595.png" alt="image-20241226161624595" style="zoom: 50%;" /></p><p>3.将图层锁定关闭（保证左右为透明背景延伸）</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/image-20241226162043551.png" alt="image-20241226162043551" style="zoom: 50%;" /></p><p>4.<code>command+option+C</code>，画布大小中，将宽度置为512px</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/image-20241226162110811.png" alt="image-20241226162110811" style="zoom: 50%;" /></p><p>5.导出为png后在<strong>@Stickers</strong>内添加即可</p><p><img src="https://picgo172.oss-cn-qingdao.aliyuncs.com/img/image-20241226162312975.png" alt="image-20241226162312975" style="zoom: 50%;" /></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Telegram </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 杂谈 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>纪念一下</title>
       <link href="/2024/10/27/68.passaway/"/>
       <url>/2024/10/27/68.passaway/</url>
@@ -1226,31 +1251,6 @@
     
     
     <entry>
-      <title>Telegram中文包汇总</title>
-      <link href="/2022/09/05/19.telegramlanguage/"/>
-      <url>/2022/09/05/19.telegramlanguage/</url>
-      
-        <content type="html"><![CDATA[<h2 id="复制到浏览器转到TG打开"><a href="#复制到浏览器转到TG打开" class="headerlink" title="复制到浏览器转到TG打开"></a>复制到浏览器转到TG打开</h2><p>各个语言包:</p><p>* 中文(简体)-聪聪: <code>tg://setlanguage?lang=zhcncc</code></p><p>* 中文(简体)-@zh_CN: <code>tg://setlanguage?lang=classic-zh-cn</code></p><p>* 中文(简体)-简体: <code>tg://setlanguage?lang=classic-zh</code></p><p>* 中文(简体)-langCN: <code>tg://setlanguage?lang=zhlangcn</code></p><p>* 中文(简体)-zh-hans: <code>tg://setlanguage?lang=zh-hans-beta</code></p><p>* 中文(简体)-瓜体: <code>tg://setlanguage?lang=duang-zh-cn</code></p><p>* 中文(简体)-小哇: <code>tg://setlanguage?lang=qingwa</code></p><p>* 中文(简体)-江湖中文版: <code>tg://setlanguage?lang=jianghu</code></p><p>* 中文(简体)-: <code>tg://setlanguage?lang=cnsimplified</code></p><p>* 中文(简体)-@MiaoCN: <code>tg://setlanguage?lang=meowcn</code></p><p>* 中文(简体)-简体字: <code>tg://setlanguage?lang=jiantizi</code></p><p>* 中文(香港)-繁体1: <code>tg://setlanguage?lang=hongkong</code></p><p>* 中文(香港)-繁体2: <code>tg://setlanguage?lang=zhhant-hk</code></p><p>* 中文(香港)-繁体3: <code>tg://setlanguage?lang=zh-hant-raw</code></p><p>* 中文(香港)-人口语: <code>tg://setlanguage?lang=hongkonger</code></p><p>* 中文(香港)-广东话1: <code>tg://setlanguage?lang=zhhkpb1</code></p><p>* 中文(香港)-广东话2: <code>tg://setlanguage?lang=hkcantonese</code></p><p>* 中文(香港)-郭桓桓: <code>tg://setlanguage?lang=zhong-taiwan-traditional</code></p><p>* 中文(台灣)-正体: <code>tg://setlanguage?lang=taiwan</code></p><p>* 中文(台灣)-繁体: <code>tg://setlanguage?lang=zh-hant-beta</code></p><p>* 中文(台灣)-文言: <code>tg://setlanguage?lang=chinese-ancient</code></p><p>* 中文(台灣)-文言: <code>tg://setlanguage?lang=chinese-literary</code></p><p>* 中文(台灣)-魔法師: <code>tg://setlanguage?lang=encha</code></p><p>* 日文：<code>tg://setlanguage?lang=ja-beta</code></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Telegram </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Telegram </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>macOS一些问题的解决方案</title>
       <link href="/2022/09/05/15.macOSBugs/"/>
       <url>/2022/09/05/15.macOSBugs/</url>
@@ -1268,6 +1268,31 @@
         <tags>
             
             <tag> macOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Telegram中文包汇总</title>
+      <link href="/2022/09/05/19.telegramlanguage/"/>
+      <url>/2022/09/05/19.telegramlanguage/</url>
+      
+        <content type="html"><![CDATA[<h2 id="复制到浏览器转到TG打开"><a href="#复制到浏览器转到TG打开" class="headerlink" title="复制到浏览器转到TG打开"></a>复制到浏览器转到TG打开</h2><p>各个语言包:</p><p>* 中文(简体)-聪聪: <code>tg://setlanguage?lang=zhcncc</code></p><p>* 中文(简体)-@zh_CN: <code>tg://setlanguage?lang=classic-zh-cn</code></p><p>* 中文(简体)-简体: <code>tg://setlanguage?lang=classic-zh</code></p><p>* 中文(简体)-langCN: <code>tg://setlanguage?lang=zhlangcn</code></p><p>* 中文(简体)-zh-hans: <code>tg://setlanguage?lang=zh-hans-beta</code></p><p>* 中文(简体)-瓜体: <code>tg://setlanguage?lang=duang-zh-cn</code></p><p>* 中文(简体)-小哇: <code>tg://setlanguage?lang=qingwa</code></p><p>* 中文(简体)-江湖中文版: <code>tg://setlanguage?lang=jianghu</code></p><p>* 中文(简体)-: <code>tg://setlanguage?lang=cnsimplified</code></p><p>* 中文(简体)-@MiaoCN: <code>tg://setlanguage?lang=meowcn</code></p><p>* 中文(简体)-简体字: <code>tg://setlanguage?lang=jiantizi</code></p><p>* 中文(香港)-繁体1: <code>tg://setlanguage?lang=hongkong</code></p><p>* 中文(香港)-繁体2: <code>tg://setlanguage?lang=zhhant-hk</code></p><p>* 中文(香港)-繁体3: <code>tg://setlanguage?lang=zh-hant-raw</code></p><p>* 中文(香港)-人口语: <code>tg://setlanguage?lang=hongkonger</code></p><p>* 中文(香港)-广东话1: <code>tg://setlanguage?lang=zhhkpb1</code></p><p>* 中文(香港)-广东话2: <code>tg://setlanguage?lang=hkcantonese</code></p><p>* 中文(香港)-郭桓桓: <code>tg://setlanguage?lang=zhong-taiwan-traditional</code></p><p>* 中文(台灣)-正体: <code>tg://setlanguage?lang=taiwan</code></p><p>* 中文(台灣)-繁体: <code>tg://setlanguage?lang=zh-hant-beta</code></p><p>* 中文(台灣)-文言: <code>tg://setlanguage?lang=chinese-ancient</code></p><p>* 中文(台灣)-文言: <code>tg://setlanguage?lang=chinese-literary</code></p><p>* 中文(台灣)-魔法師: <code>tg://setlanguage?lang=encha</code></p><p>* 日文：<code>tg://setlanguage?lang=ja-beta</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Telegram </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Telegram </tag>
             
         </tags>
       
