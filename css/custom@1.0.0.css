@@ -1,0 +1,93 @@
+/*小风车*/
+
+/*让小风车转起来*/
+      /* 文章页H1-H6图标样式效果 */
+  h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
+      -webkit-animation: ccc 1.6s linear infinite ;
+      animation: ccc 1.6s linear infinite ; //想调整风车转动速度，修改以下内容里的时间，数字越小转动越快。
+  }
+@-webkit-keyframes ccc {  /*以下代码中，-1turn 为逆时针转动，1turn 为顺时针转动，相同数字部分记得统一修改*/
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+    to {
+        -webkit-transform: rotate(-1turn);
+        transform: rotate(-1turn)
+    }
+}
+@keyframes ccc {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+    to {
+        -webkit-transform: rotate(-1turn);
+        transform: rotate(-1turn)
+    }
+}
+
+/*小风车颜色、大小修改*/
+#content-inner.layout h1::before {
+    color: #ef50a8 ;
+    margin-left: -1.55rem;
+    font-size: 1.3rem;
+    margin-top: -0.23rem;
+}
+#content-inner.layout h2::before {
+    color: #fb7061 ;
+    margin-left: -1.35rem;
+    font-size: 1.1rem;
+    margin-top: -0.12rem;
+}
+#content-inner.layout h3::before {
+    color: #ffbf00 ;
+    margin-left: -1.22rem;
+    font-size: 0.95rem;
+    margin-top: -0.09rem;
+}
+#content-inner.layout h4::before {
+    color: #a9e000 ;
+    margin-left: -1.05rem;
+    font-size: 0.8rem;
+    margin-top: -0.09rem;
+}
+#content-inner.layout h5::before {
+    color: #57c850 ;
+    margin-left: -0.9rem;
+    font-size: 0.7rem;
+    margin-top: 0.0rem;
+}
+#content-inner.layout h6::before {
+    color: #5ec1e0 ;
+    margin-left: -0.9rem;
+    font-size: 0.66rem;
+    margin-top: 0.0rem;
+}
+
+/*
+小风车hover效果
+鼠标碰到小风车转速变慢及变色
+设置鼠标碰到标题时，小风车跟随标题变色，且像是被光标阻碍了，转速变慢。鼠标离开恢复转速。也可以设置为 none 鼠标碰到停止转动。
+ */
+#content-inner.layout h1:hover, #content-inner.layout h2:hover, #content-inner.layout h3:hover, #content-inner.layout h4:hover, #content-inner.layout h5:hover, #content-inner.layout h6:hover {
+    color: #49b1f5 ;
+}
+#content-inner.layout h1:hover::before, #content-inner.layout h2:hover::before, #content-inner.layout h3:hover::before, #content-inner.layout h4:hover::before, #content-inner.layout h5:hover::before, #content-inner.layout h6:hover::before {
+    color: #49b1f5 ;
+    -webkit-animation: ccc 3.2s linear infinite ;
+    animation: ccc 3.2s linear infinite ;
+}
+
+/* 页面设置icon转动速度调整 */
+#rightside_config i.fas.fa-cog.fa-spin {
+    animation: fa-spin 5s linear infinite ;
+}
+/*
+时钟背景透明
+ */
+/*#aside-content.aside-content > .sticky_layout > .card-widget.card-clock > .card-glass > .card-background {*/
+/*    background-color: unset ;*/
+/*    box-shadow: unset ;*/
+/*}*/
+
